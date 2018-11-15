@@ -68,7 +68,7 @@ export class CollapsingTabs extends React.Component {
         }
     };
     handleClick = event => {
-        if (!this.moreRef.current.contains(event.target)) {
+        if (this.moreRef.current && !this.moreRef.current.contains(event.target)) {
             this.closeMenu();
         }
     };

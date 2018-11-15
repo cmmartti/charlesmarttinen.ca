@@ -21,6 +21,14 @@ module.exports = {
         'gatsby-plugin-react-svg',
         'gatsby-plugin-sharp',
         `gatsby-plugin-polyfill-io`,
+        {
+            resolve: 'gatsby-plugin-web-font-loader',
+            options: {
+                google: {
+                    families: ['Roboto:regular,bold,italic'],
+                },
+            },
+        },
         // {
         //     resolve: `gatsby-plugin-manifest`,
         //     options: {
