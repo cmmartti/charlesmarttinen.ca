@@ -1,0 +1,22 @@
+.footer {
+    background-color: #222;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 2;
+
+    p {
+        margin: 0;
+    }
+
+    & > *:not(:last-child) {
+        margin-right: 1em;
+    }
+
+    a:link,
+    a:visited {
+        color: #50ccff;
+    }
+}

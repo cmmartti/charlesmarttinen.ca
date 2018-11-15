@@ -5,9 +5,11 @@ import {StaticQuery, graphql} from 'gatsby';
 import 'sanitize.css';
 
 import SiteHeader from './SiteHeader';
+import SiteFooter from './SiteFooter';
+import ViewportSize from './ViewportSize';
 import './Layout.global.scss';
 
-const Layout = ({children}) => (
+const Layout = ({children, location}) => (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -29,8 +31,13 @@ const Layout = ({children}) => (
                 >
                     <html lang="en" />
                 </Helmet>
-                <SiteHeader siteTitle={data.site.siteMetadata.title} />
-                {children}
+                <SiteHeader
+                    siteTitle={data.site.siteMetadata.title}
+                    location={location}
+                />
+                <main className="site-content">{children}</main>
+                <SiteFooter />
+                <ViewportSize />
             </>
         )}
     />

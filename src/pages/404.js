@@ -1,11 +1,12 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React from 'react';
+import Layout from '../components/Layout';
 
-const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const NotFoundPage = ({location}) => (
+    <Layout location={location}>
+        <h1>NOT FOUND</h1>
+        <p>It looks like that page doesn't exist. Sorry!</p>
+        <p>Error 404</p>
+    </Layout>
+);
 
-export default NotFoundPage
+export default NotFoundPage;

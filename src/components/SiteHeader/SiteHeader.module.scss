@@ -1,0 +1,212 @@
+@import 'colours.scss';
+
+.header {
+    background-color: $brand-colour;
+    color: white;
+    // box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+
+    h1 {
+        font-weight: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    a,
+    a:visited {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.header nav {
+    display: flex;
+    align-items: stretch;
+
+    .title {
+        display: inline-block;
+        a {
+            font-weight: bold;
+            font-size: 1.25em;
+            display: inline-block;
+        }
+    }
+
+    .primary {
+        display: flex;
+        align-items: stretch;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        flex: 1;
+        min-width: 1px;
+
+        & > * {
+            display: flex;
+            align-items: stretch;
+        }
+    }
+
+    .secondary {
+        display: flex;
+        align-items: stretch;
+        position: relative;
+
+        .moreBtn {
+            border: initial;
+            color: inherit;
+            background: none;
+            font-weight: bold;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        .moreMenu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: $brand-colour;
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    @mixin element-underline($colour) {
+        position: relative;
+        &::after {
+            content: '';
+            font-size: 1rem;
+            height: 0.22rem;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: $colour;
+        }
+    }
+    @mixin element-sideline($colour) {
+        position: relative;
+        &::after {
+            content: '';
+            font-size: 1rem;
+            width: 0.3rem;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: $colour;
+        }
+    }
+
+    a,
+    .moreBtn {
+        white-space: nowrap;
+        padding: 0.63rem 1.2rem 0.4rem;
+        -webkit-tap-highlight-color: transparent;
+        display: block;
+
+        // icons
+        & > * {
+            height: 1em;
+            vertical-align: top;
+            margin-left: 0.5em;
+        }
+
+        &:hover:not(.active) {
+            background-color: hsla(0, 0, 0, 0.08);
+            @include element-underline(hsla(0, 0, 0, 0.175));
+        }
+
+        // boost specificity
+        &:focus:focus {
+            outline: none;
+            background-color: hsla(0, 0, 0, 0.08);
+            @include element-underline($focus-colour);
+
+            // Remove focus indicator for non-keyboard :focus.
+            // Browsers that don't support :focus-visible will ignore this rule.
+            &:not(:focus-visible) {
+                @include element-underline(transparent);
+            }
+        }
+
+        // boost specificity
+        &.active.active {
+            background-color: hsla(0, 0, 0, 0.175);
+        }
+    }
+
+    .title a {
+        // Line up the baselines, while still stretching the full height
+        padding: 0.4rem 0.8rem 0.4rem;
+    }
+
+    .moreMenu a {
+        padding: 0.8rem;
+        &:hover:not(.active) {
+            background-color: hsla(0, 0, 0, 0.08);
+            @include element-sideline(hsla(0, 0, 0, 0.175));
+        }
+
+        // boost specificity
+        &:focus:focus {
+            outline: none;
+            background-color: hsla(0, 0, 0, 0.08);
+            @include element-sideline($focus-colour);
+
+            // Remove focus indicator for non-keyboard :focus.
+            // Browsers that don't support :focus-visible will ignore this rule.
+            &:not(:focus-visible) {
+                @include element-sideline(transparent);
+            }
+        }
+
+        // boost specificity
+        &.active.active {
+            background-color: hsla(0, 0, 0, 0.175);
+        }
+    }
+
+    @media (max-width: 46em) {
+        a,
+        .moreBtn {
+            padding: 0.83rem 0.8rem 0.6rem;
+        }
+        .title a {
+            padding-top: 0.6rem;
+        }
+    }
+    @media (max-width: 32em) {
+        flex-wrap: wrap;
+        .title {
+            flex-basis: 100%;
+        }
+    }
+    @media (max-width: 12rem) {
+        .title a {
+            white-space: normal;
+        }
+    }
+}
+
+@media print {
+    .header {
+        border-bottom: 3px solid black;
+        background: none;
+        display: block;
+        color: #444;
+    }
+    .header nav {
+        a {
+            padding: 0.23rem 1rem 0.1rem 0 !important;
+        }
+        .title a {
+            font-weight: normal;
+            background: none;
+            padding-top: 0 !important;
+        }
+        a.active {
+            font-weight: bold;
+            color: black;
+            background: none !important;
+        }
+    }
+}
