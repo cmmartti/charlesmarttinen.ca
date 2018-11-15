@@ -1,0 +1,19 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/about"
+  to = "/"
+[[redirects]]
+  from = "/portfolio"
+  to = "/portfolio.html"
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+[[redirects]]
+  from = "/resume"
+  to = "/resume.html"
+[[redirects]]
+  from = "/case-studies"
+  to = "/case-studies/"
