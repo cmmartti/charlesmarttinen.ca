@@ -35,7 +35,7 @@ const Layout = ({children, location}) => (
                     siteTitle={data.site.siteMetadata.title}
                     location={location}
                 />
-                <main className="site-content">{children}</main>
+                <main className="site-content typography">{children}</main>
                 <SiteFooter />
                 <ViewportSize />
             </>

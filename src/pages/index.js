@@ -10,52 +10,44 @@ const IndexPage = ({location}) => (
         <h3>I like making simplified complexity.</h3>
         <p>
             That is, I like making complex things easy to use and understand
-            without removing the underlying complexity, because complexity
-            exists for a reason (humans and our needs are inherently complex).
+            without compromising on requirements that make a system complex. I'm a practical...
         </p>
         <p>
-            I primarily develop websites and user interfaces (full-stack), but I
-            also do some print design.
+            I primarily develop web applications, websites, and user interfaces
+            (full-stack), but I also do some print design. Check out some of the{' '}
+            <Link to="projects.html">things I've made</Link>.
         </p>
         <p>
-            Check out some of the{' '}
-            <Link to="portfolio.html">things I've made</Link>, or view my{' '}
-            <Link to="resume.html">résumé</Link>. You can{' '}
-            <Link to="contact.html">contact me</Link> at
-            mail@charlesmarttinen.ca.
-        </p>
-        <p>
-            I also keep a log that I call{' '}
-            <Link to="case-studies/">Case Studies</Link> where I write about
+            I also keep a log on this site that I call{' '}
+            <Link to="case-studies/">Case Studies</Link>, where I write about
             specific problems, concepts, or objects that I encounter in my day
-            to day life.
+            to day life. Each of these cases offers an interesting insight, and
+            in the log I dig into why it works or how it could be improved.
+        </p>
+        <p>
+            Please <Link to="contact.html">get in touch</Link> if your looking
+            for someone like me. or view my <Link to="resume.html">résumé</Link>
+            .
         </p>
 
         <h2>About Me</h2>
         <p>
-            I live in Barrie, Ontario, Canada, a medium-sized city about an hour
-            from Toronto. I attended the Graphic Design Production program at
-            the Georgian College of Applied Arts and Technology in Barrie and
-            graduated in May 2018.
+            I live in Barrie, Ontario, Canada, a medium-sized city near Toronto.
+            I completed the Graphic Design Production program at the Georgian
+            College of Applied Arts and Technology in Barrie in May 2018.
         </p>
         <p>
-            Some of my interests outside of work include woodworking and
-            recreational biking.
+            I started writing code in high school, when I was 17 years old. I
+            started with AutoHotkey, a phenomonally inconsistent and bizarre yet
+            simple scripting language for Windows. From there, I taught myself
+            PHP, and then moved on to Python and JavaScript, using technologies
+            like <a href="https://graphql.org">GraphQL</a> and{' '}
+            <a href="https://reactjs.org">React</a>. <a href="https://dsfasd.com">Not visited</a>
         </p>
         <p>
-            I started writing code in high school, when I was about 17 years
-            old. I started with AutoHotkey, a phenomonally inconsistent and
-            bizarre yet simple scripting language for Windows. After that, I
-            taught myself how to develop in PHP, and then moved on to JavaScript
-            and ReactJS.
+            Some of my interests outside of work include woodworking and cycling
         </p>
-        <hr />
-        <h3>About this website</h3>
-        <p>
-            This website was developed in JavaScript using{' '}
-            <a href="https://www.gatsbyjs.org/">Gatsby</a> using{' '}
-            <a href="https://reactjs.org/">React</a> with a custom stylesheet.
-        </p>
+
         <img src={portrait} alt="Me, gawping at the camera." />
     </Layout>
 );

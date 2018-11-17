@@ -38,16 +38,6 @@ const SiteHeader = ({location, siteTitle}) => (
             </div>
 
             <CollapsingTabs>
-                {/* <Tab>
-                    <HeaderLink
-                        isActive={location.pathname === '/'}
-                        to="/"
-                        title="Home"
-                    >
-                        <HomeSvg />
-                        <span hidden>Home</span>
-                    </HeaderLink>
-                </Tab> */}
                 <Tab>
                     <HeaderLink
                         isActive={location.pathname.includes('/projects.html')}
@@ -73,18 +63,18 @@ const SiteHeader = ({location, siteTitle}) => (
                     </HeaderLink>
                 </Tab>
                 <Tab>
-                    <a href="https://github.com/cmmartti">
-                        <GithubLogoSvg />
-                        <span>Github</span>
-                    </a>
-                </Tab>
-                <Tab>
                     <HeaderLink
                         isActive={location.pathname.includes('/case-studies')}
                         to="/case-studies/"
                     >
                         Case Studies
                     </HeaderLink>
+                </Tab>
+                <Tab>
+                    <a href="https://github.com/cmmartti">
+                        <GithubLogoSvg />
+                        <span>Github</span>
+                    </a>
                 </Tab>
             </CollapsingTabs>
         </nav>

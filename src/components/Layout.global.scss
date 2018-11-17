@@ -1,7 +1,11 @@
+@import 'colours.scss';
+@import 'prism-theme.css';
+
 html {
     box-sizing: border-box;
-    font-family: Roboto, Arial, sans-serif;
+    font-family: Roboto, Akkurat, DIN, Helvetica, Arial, sans-serif;
     font-size: 100%;
+    line-height: 1.45;
     * {
         box-sizing: inherit;
     }
@@ -44,4 +48,86 @@ html,
 [aria-disabled],
 [disabled] {
     cursor: auto;
+}
+
+// Only apply basic typography styles to certain elements, e.g. not the header.
+.typography {
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1.25;
+    }
+
+    p,
+    ul,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin: 0;
+        & + * {
+            margin-top: 0.6rem;
+        }
+    }
+
+    p + h1,
+    p + h2,
+    p + h3,
+    p + h4 {
+        margin-top: 1rem;
+    }
+
+    ul {
+        list-style-type: circle;
+        ul {
+            list-style-type: disc;
+        }
+    }
+    ol ol {
+        list-style-type: lower-latin;
+    }
+    ul,
+    ol {
+        padding-left: 2.25rem;
+        ul,
+        ol {
+            padding-left: 1.2rem;
+        }
+    }
+
+    hr {
+        border: none;
+        // padding: 0 1rem 0;
+        color: inherit;
+        &::after {
+            content: '';
+            max-width: 20rem;
+            border: 1px solid;
+            display: block;
+        }
+    }
+
+    @extend .anchor-styles;
+}
+
+.anchor-styles {
+    a:link {
+        color: $brand-colour;
+    }
+    a:visited {
+        color: #380497;
+    }
+    a:focus {
+        background: $focus-colour;
+        outline: 1px solid $focus-colour;
+
+        // Remove focus indicator for non-keyboard :focus.
+        // Browsers that don't support :focus-visible will ignore this rule.
+        &:not(:focus-visible) {
+            background: none;
+            outline: none;
+        }
+    }
 }

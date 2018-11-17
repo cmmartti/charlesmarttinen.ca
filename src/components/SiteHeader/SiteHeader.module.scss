@@ -155,10 +155,11 @@
     }
 
     .title a {
-        // Line up the baselines, while still stretching the full height
+        // Manually line up the baselines, while still stretching the full height of the header
         padding: 0.4rem 0.8rem;
     }
 
+    // Drop down menu links
     .moreMenu a {
         padding: 0.8rem;
         &:hover:not(.active) {
@@ -197,7 +198,7 @@
             padding: 0.6rem;
         }
     }
-    @media (max-width: 25.5em) {
+    @media (max-width: 24.5em) {
         .title {
             width: min-content;
             flex: 0 0 7rem;

@@ -5,14 +5,14 @@ module.exports = {
     plugins: [
         'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: 'gatsby-source-filesystem',
             options: {
-                name: `images`,
+                name: 'images',
                 path: `${__dirname}/src/images`,
             },
         },
         {
-            resolve: `gatsby-plugin-sass`,
+            resolve: 'gatsby-plugin-sass',
             options: {
                 includePaths: ['src/theme'],
             },
@@ -20,7 +20,7 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-react-svg',
         'gatsby-plugin-sharp',
-        `gatsby-plugin-polyfill-io`,
+        'gatsby-plugin-polyfill-io',
         {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
@@ -29,18 +29,55 @@ module.exports = {
                 },
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-manifest`,
-        //     options: {
-        //         name: 'gatsby-starter-default',
-        //         short_name: 'starter',
-        //         start_url: '/',
-        //         background_color: '#663399',
-        //         theme_color: '#663399',
-        //         display: 'minimal-ui',
-        //         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-        //     },
-        // },
+
+        {
+            resolve: 'gatsby-plugin-netlify-cms',
+            options: {
+                htmlTitle: 'Site Editor',
+            },
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                path: `${__dirname}/src/pages/case-studies/`,
+                name: 'case-studies',
+            },
+        },
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: 'gatsby-remark-autolink-headers',
+                        options: {icon: false},
+                    },
+                    {
+                        resolve: 'gatsby-remark-prismjs',
+                        options: {
+                            // This lets you set up language aliases.  For example,
+                            // setting this to '{ sh: "bash" }' will let you use
+                            // the language "sh" which will highlight using the
+                            // bash highlighter.
+                            aliases: {},
+                        },
+                    },
+                ],
+            },
+        },
+        'gatsby-plugin-catch-links',
+
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                name: 'Charles Marttinen',
+                short_name: 'Charles Marttinen',
+                start_url: '/',
+                background_color: '#ffbf47',
+                theme_color: '#176bbd',
+                display: 'minimal-ui',
+                icon: 'src/images/logo.svg', // This path is relative to the root of the site.
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.app/offline
         // 'gatsby-plugin-offline',

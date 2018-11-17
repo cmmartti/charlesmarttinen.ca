@@ -1,3 +1,5 @@
+@import 'colours.scss';
+
 .footer {
     background-color: #222;
     color: white;
@@ -17,6 +19,10 @@
 
     a:link,
     a:visited {
-        color: #50ccff;
+        color: lighten($brand-colour, 5%);
+    }
+    a:focus {
+        background: $focus-colour;
+        outline: 1px solid $focus-colour;
     }
 }
