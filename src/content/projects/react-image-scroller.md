@@ -4,10 +4,10 @@ order: 2
 date: '2018-12-12'
 images:
   - alt: ''
-    src: /images/barrie-transit-map-official-central.png
+    src: /images/path.jpg
     title: ''
   - alt: ''
-    src: /images/path.jpg
+    src: /images/barrie-transit-map-official-central.png
     title: ''
 ---
 
