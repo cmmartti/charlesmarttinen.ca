@@ -13,8 +13,8 @@ backend:
 display_url: https://charlesmarttinen.netlify.com
 logo_url: https://charlesmarttinen.netlify.com/images/logo.svg
 
-media_folder: static/assets
-public_folder: /assets
+media_folder: static/images
+public_folder: /images
 
 collections:
     - label: 'Pages'
