@@ -118,7 +118,7 @@ export default function HomePage({data, location}) {
                         title={project.node.frontmatter.title}
                         body={project.node.html}
                         images={project.node.frontmatter.images.map(image => ({
-                            src: image.src.childImageSharp.original.src,
+                            src: image.src.childImageSharp.fluid.src,
                             alt: image.alt,
                             title: image.title,
                         }))}
@@ -165,7 +165,7 @@ export const pageQuery = graphql`
                         images {
                             src {
                                 childImageSharp {
-                                    original {
+                                    fluid(maxHeight: 400) {
                                         src
                                     }
                                 }
