@@ -21,4 +21,14 @@ A scrolling image gallery for React. Unlike every other image gallery, this one 
 
 Each sub component is independently customisable and replaceable, and adding your own styles is easy. (This approach inspired by [React-Select](https://react-select.com/).
 
+<details>
+<summary>Technologies used</summary>
+
+ - [React](https://reactjs.org/)
+ - CSS-in-JS styles with [Emotion](https://emotion.sh/)
+ - Uses [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for scrolling interactions
+ - Custom Webpack setup
+
+</details>
+
 Published on npm as [react-image-scroller](https://www.npmjs.com/package/react-image-scroller). The source code is available on [GitHub](https://github.com/cmmartti/react-image-scroller).
