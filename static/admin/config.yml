@@ -4,11 +4,11 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: CMS: Create {{collection}} “{{slug}}”
-    update: CMS: Update {{collection}} “{{slug}}”
-    delete: CMS: Delete {{collection}} “{{slug}}”
-    uploadMedia: CMS: Upload “{{path}}”
-    deleteMedia: CMS: Delete “{{path}}”
+    create: 'CMS: Create {{collection}} “{{slug}}”'
+    update: 'CMS: Update {{collection}} “{{slug}}”'
+    delete: 'CMS: Delete {{collection}} “{{slug}}”'
+    uploadMedia: 'CMS: Upload “{{path}}”'
+    deleteMedia: 'CMS: Delete “{{path}}”'
 
 display_url: https://charlesmarttinen.netlify.com
 logo_url: https://charlesmarttinen.netlify.com/images/logo.svg
