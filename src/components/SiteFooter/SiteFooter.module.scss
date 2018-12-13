@@ -1,13 +1,18 @@
 @import 'colours.scss';
+@import 'sizes.scss';
 
 .footer {
-    background-color: #222;
-    color: white;
-    padding: 0.4rem 0.8rem;
+    background-color: #dadfe4;
+    border-top: 2px solid #c5c9cc;
+    padding: 1.25rem 2rem;
+
+    width: 100%;
+    max-width: $site-max-width;
+    margin: 0 auto;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    line-height: 2;
 
     p {
         margin: 0;
@@ -16,13 +21,7 @@
     & > *:not(:last-child) {
         margin-right: 1em;
     }
-
-    a:link,
-    a:visited {
-        color: lighten($brand-colour, 5%);
-    }
-    a:focus {
-        background: $focus-colour;
-        outline: 1px solid $focus-colour;
+    a:link, a:visited {
+        color: hsl(229, 93%, 56%);
     }
 }

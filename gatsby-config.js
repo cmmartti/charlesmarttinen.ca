@@ -3,23 +3,59 @@ module.exports = {
         title: 'Charles Marttinen',
     },
     plugins: [
-        'gatsby-plugin-react-helmet',
         {
-            resolve: 'gatsby-source-filesystem',
+            resolve: `gatsby-source-filesystem`,
             options: {
-                name: 'images',
-                path: `${__dirname}/src/images`,
+                path: `${__dirname}/static/`,
+                name: 'static',
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/`,
+                name: 'content',
+            },
+        },
+        'gatsby-transformer-sharp',
+        `gatsby-plugin-sharp`,
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-relative-images`,
+                        options: {},
+                    },
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            withWebp: true,
+                            showCaptions: true,
+                            quality: 100,
+                        },
+                    },
+                    {
+                        resolve: 'gatsby-remark-autolink-headers',
+                        options: {icon: false},
+                    },
+                    {
+                        resolve: 'gatsby-remark-prismjs',
+                        options: {showLineNumbers: true},
+                    },
+                ],
+            },
+        },
+        'gatsby-plugin-catch-links',
+
         {
             resolve: 'gatsby-plugin-sass',
             options: {
                 includePaths: ['src/theme'],
             },
         },
-        'gatsby-transformer-sharp',
         'gatsby-plugin-react-svg',
-        'gatsby-plugin-sharp',
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-polyfill-io',
         {
             resolve: 'gatsby-plugin-web-font-loader',
@@ -29,42 +65,15 @@ module.exports = {
                 },
             },
         },
-
+        'gatsby-plugin-netlify-cms',
         {
-            resolve: 'gatsby-plugin-netlify-cms',
-            options: {
-                htmlTitle: 'Site Editor',
+            resolve: 'gatsby-plugin-emotion',
+            option: {
+                sourceMap: true,
+                autoLabel: true,
+                labelFormat: '[filename]--[local]',
             },
         },
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                path: `${__dirname}/src/pages/case-studies/`,
-                name: 'case-studies',
-            },
-        },
-        {
-            resolve: 'gatsby-transformer-remark',
-            options: {
-                plugins: [
-                    {
-                        resolve: 'gatsby-remark-autolink-headers',
-                        options: {icon: false},
-                    },
-                    {
-                        resolve: 'gatsby-remark-prismjs',
-                        options: {
-                            // This lets you set up language aliases.  For example,
-                            // setting this to '{ sh: "bash" }' will let you use
-                            // the language "sh" which will highlight using the
-                            // bash highlighter.
-                            aliases: {},
-                        },
-                    },
-                ],
-            },
-        },
-        'gatsby-plugin-catch-links',
 
         {
             resolve: 'gatsby-plugin-manifest',
@@ -72,10 +81,10 @@ module.exports = {
                 name: 'Charles Marttinen',
                 short_name: 'Charles Marttinen',
                 start_url: '/',
-                background_color: '#ffbf47',
+                background_color: '#176bbd',
                 theme_color: '#176bbd',
                 display: 'minimal-ui',
-                icon: 'src/images/logo.svg', // This path is relative to the root of the site.
+                icon: 'src/images/logo.svg',
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

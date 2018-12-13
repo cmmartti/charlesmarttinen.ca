@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 
 import Layout from '../../components/Layout';
-import TagLink from '../../components/TagLink';
+import ArticleExcerpt from '../../components/ArticleExcerpt';
 
 export default function CaseStudiesIndex({data, location}) {
     const {edges} = data.allMarkdownRemark;
@@ -10,23 +10,34 @@ export default function CaseStudiesIndex({data, location}) {
         <Layout location={location}>
             <h1>Case Studies</h1>
             {edges.map(edge => {
-                const {filename, title, date, tags} = edge.node.frontmatter;
-                const {excerpt} = edge.node;
+                const {
+                    id,
+                    slug,
+                    title,
+                    published,
+                    publishedISO,
+                    updated,
+                    updatedISO,
+                    tags,
+                    image,
+                } = edge.node.frontmatter;
+
                 return (
-                    <section key={edge.node.id}>
-                        <h3>
-                            <Link to={`/case-studies/${filename}`}>
-                                {title} ({date})
-                            </Link>
-                        </h3>
-                        <p>{excerpt}</p>
-                        <p>
-                            Tags:{' '}
-                            {tags.map(tag => (
-                                <TagLink key={tag} tag={tag} />
-                            ))}
-                        </p>
-                    </section>
+                    <ArticleExcerpt
+                        key={id}
+                        title={title}
+                        dates={{
+                            published,
+                            publishedISO,
+                            updated,
+                            updatedISO,
+                        }}
+                        tags={tags}
+                        image={image && image.childImageSharp.resize.src}
+                        excerptHtml={edge.node.fields.excerpt}
+                        bodyHtml={edge.node.html}
+                        path={`/case-studies/${slug}.html`}
+                    />
                 );
             })}
         </Layout>
@@ -35,16 +46,34 @@ export default function CaseStudiesIndex({data, location}) {
 
 export const pageQuery = graphql`
     query {
-        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+        allMarkdownRemark(
+            sort: {order: DESC, fields: [frontmatter___datePublished]}
+            filter: {fileAbsolutePath: {regex: "/src/content/case-studies/"}}
+        ) {
             edges {
                 node {
                     id
-                    excerpt(pruneLength: 250)
+                    html
                     frontmatter {
-                        date(formatString: "YYYY-MM-DD")
-                        filename
+                        published: datePublished(formatString: "MMMM D, YYYY")
+                        publishedISO: datePublished(formatString: "YYYY-MM-DD")
+                        updated: dateUpdated(formatString: "MMMM D, YYYY")
+                        updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
+                        slug
                         title
                         tags
+                        image {
+                            relativePath
+                            prettySize
+                            childImageSharp {
+                                resize(width:500 height: 500) {
+                                    src
+                                  }
+                            }
+                        }
+                    }
+                    fields {
+                        excerpt
                     }
                 }
             }

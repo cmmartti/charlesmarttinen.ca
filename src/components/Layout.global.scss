@@ -1,13 +1,24 @@
 @import 'colours.scss';
-@import 'prism-theme.css';
+@import 'sizes.scss';
+@import 'prism-theme.scss';
 
 html {
-    box-sizing: border-box;
     font-family: Roboto, Akkurat, DIN, Helvetica, Arial, sans-serif;
     font-size: 100%;
     line-height: 1.45;
+
+    box-sizing: border-box;
     * {
         box-sizing: inherit;
+    }
+
+    // @media (min-width: 100em) {
+    //     font-size: 1.08rem;
+    //     // letter-spacing: -0.05ch;
+    // }
+    @media (max-width: 40em) {
+        // font-size: 0.98em;
+        // line-height: 1.35;
     }
 }
 
@@ -34,40 +45,49 @@ body,
 }
 /* / */
 
+body {
+    background-color: #ececec;
+}
+
 .site-content {
+    max-width: $site-max-width;
+    margin: 0 auto;
+    // box-shadow: 0 0 9px -5px rgba(0,0,0,0.7);
+}
+
+.site-content-defaults {
     background-color: white;
-    padding: 1.5rem 2rem;
-    max-width: 73em;
+    padding: 1.75rem 2rem;
+    @media (max-width: 40em) {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+//prettier-ignore
+p, h1, h2, h3, h4, ul, ol, hr {
     margin: 0;
 }
 
-// Reset sanitize.css's weird design choices regarding cursors
-html,
-[aria-busy='true'],
-[aria-controls],
-[aria-disabled],
-[disabled] {
-    cursor: auto;
+ul,
+ol {
+    padding: 0;
+    list-style: none;
 }
 
-// Only apply basic typography styles to certain elements, e.g. not the header.
 .typography {
-    h1,
-    h2,
-    h3,
-    h4 {
+    p {
+        font-size: 1rem;
+    }
+
+    //prettier-ignore
+    h1, h2, h3, h4 {
         line-height: 1.25;
     }
 
-    p,
-    ul,
-    ol,
-    h1,
-    h2,
-    h3,
-    h4 {
+    //prettier-ignore
+    img, p, ul, ol, h1, h2, h3, h4, hr {
         margin: 0;
-        & + * {
+        & + *, div + & {
             margin-top: 0.6rem;
         }
     }
@@ -100,34 +120,87 @@ html,
     hr {
         border: none;
         // padding: 0 1rem 0;
-        color: inherit;
+        // color: inherit;
         &::after {
             content: '';
-            max-width: 20rem;
-            border: 1px solid;
+            max-width: 26rem;
+            border-top: 1px solid;
             display: block;
         }
     }
 
-    @extend .anchor-styles;
+    // @extend .anchor-styles;
 }
 
-.anchor-styles {
-    a:link {
-        color: $brand-colour;
+.form {
+    & > div {
+        margin: 1rem 0;
     }
-    a:visited {
-        color: #380497;
+    input {
+        width: 20rem;
+        max-width: 100%;
     }
-    a:focus {
-        background: $focus-colour;
-        outline: 1px solid $focus-colour;
-
-        // Remove focus indicator for non-keyboard :focus.
-        // Browsers that don't support :focus-visible will ignore this rule.
-        &:not(:focus-visible) {
-            background: none;
-            outline: none;
+    textarea {
+        min-height: 12rem;
+        width: 28rem;
+        max-width: 100%;
+    }
+    input,
+    textarea {
+        padding: 0.25rem 0.4rem;
+        &:focus {
+            outline: 3px solid $focus-colour;
         }
     }
+    label {
+        display: block;
+    }
+
+    button {
+        border: 2px solid $brand-colour;
+        background: rgba($brand-colour, 0.5);
+        color: black;
+    }
+    input,
+    textarea,
+    button {
+        &:focus {
+            outline: 3px solid $focus-colour;
+        }
+    }
+}
+
+a:link {
+    color: $brand-colour;
+    text-decoration: none;
+}
+a:visited {
+    color: #380497;
+    text-decoration: none;
+}
+a:focus {
+    background: $focus-colour;
+    outline: 1px solid $focus-colour;
+
+    // Remove focus indicator for non-keyboard :focus.
+    // Browsers that don't support :focus-visible will ignore this rule.
+    &:not(:focus-visible) {
+        background: none;
+        outline: none;
+    }
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+.anchor-styles {
+}
+
+// Reset sanitize.css's weird design choices regarding cursors
+html,
+[aria-busy='true'],
+[aria-controls],
+[aria-disabled],
+[disabled] {
+    cursor: auto;
 }

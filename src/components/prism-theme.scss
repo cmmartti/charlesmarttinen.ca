@@ -1,0 +1,205 @@
+/**
+ * Based on prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * https://github.com/chriskempson/tomorrow-theme
+ * Original @author Rose Pritchard
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+    color: white;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.gatsby-highlight {
+    background: #112144;
+    margin: 1rem 0;
+    overflow: auto;
+    width: max-content;
+    max-width: 100%;
+    min-width: 75%;
+    position: relative;
+    font-size: 0.9rem;
+
+    padding-left: 0;
+}
+
+pre[class*='language-'] {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    float: left;
+    min-width: 100%;
+    display: flex;
+
+    code {
+        margin: 1rem;
+    }
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+    background: #112144;
+}
+
+/*******************
+ Line highlighting */
+
+.gatsby-highlight-code-line {
+    background-color: hsla(80, 82%, 76%, 0.075);
+    display: block;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    padding-left: 1rem;
+    position: relative;
+
+    // Highlight the line number
+    &::after {
+        content: '';
+        right: 100%;
+        position: absolute;
+        width: 10rem;
+        height: 100%;
+        background: yellowgreen;
+    }
+}
+
+/*************
+Line Numbers */
+
+pre[class*='language-'].line-numbers {
+    position: relative;
+    counter-reset: linenumber;
+    display: flex;
+}
+
+pre[class*='language-'].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+
+    flex: 1;
+    order: 2;
+}
+
+.line-numbers .line-numbers-rows {
+    order: 1;
+    letter-spacing: -1px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 2;
+    background: hsla(0, 0%, 100%, 0.15);
+    padding: 1rem 0.4rem;
+}
+
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #112144;
+    display: block;
+    text-align: center;
+}
+
+/*************
+ Inline code */
+:not(pre) > code[class*='language-'] {
+    padding: 0.1rem;
+    white-space: normal;
+    font-size: 0.9rem;
+}
+
+/*******************
+Token highlighting */
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #999;
+}
+
+.token.punctuation {
+    color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+    color: #e2777a;
+}
+
+.token.function-name {
+    color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+    color: #ff9c2b;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+    color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+    color: #eb81a4;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+    color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+    color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.inserted {
+    color: green;
+}

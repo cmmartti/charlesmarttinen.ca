@@ -1,25 +1,20 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import {Link, graphql} from 'gatsby';
 
 import Layout from '../../components/Layout';
 
 export default function TagsPage({location, data}) {
-    const {
-        allMarkdownRemark: {group},
-        site: {
-            siteMetadata: {title},
-        },
-    } = data;
+    const tags = data.tags.group;
     return (
         <Layout location={location}>
-            <Helmet title={title} />
             <div>
                 <h1>Tags</h1>
                 <ul>
-                    {group.map(tag => (
+                    {tags.map(tag => (
                         <li key={tag.fieldValue}>
-                            <Link to={`case-studies/tags/${tag.fieldValue}/`}>
+                            <Link
+                                to={`case-studies/tags/${tag.fieldValue}.html`}
+                            >
                                 {tag.fieldValue} ({tag.totalCount})
                             </Link>
                         </li>
@@ -32,14 +27,9 @@ export default function TagsPage({location, data}) {
 
 export const pageQuery = graphql`
     query {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        allMarkdownRemark(
+        tags: allMarkdownRemark(
             limit: 2000
-            filter: {frontmatter: {published: {ne: false}}}
+            filter: {fileAbsolutePath: {regex: "//src/content/case-studies//"}}
         ) {
             group(field: frontmatter___tags) {
                 fieldValue

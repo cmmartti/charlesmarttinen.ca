@@ -40,14 +40,6 @@ const SiteHeader = ({location, siteTitle}) => (
             <CollapsingTabs>
                 <Tab>
                     <HeaderLink
-                        isActive={location.pathname.includes('/projects.html')}
-                        to="/projects.html"
-                    >
-                        Projects
-                    </HeaderLink>
-                </Tab>
-                <Tab>
-                    <HeaderLink
                         isActive={location.pathname.includes('/resume.html')}
                         to="/resume.html"
                     >
@@ -59,7 +51,7 @@ const SiteHeader = ({location, siteTitle}) => (
                         isActive={location.pathname.includes('/contact.html')}
                         to="/contact.html"
                     >
-                        Contact Me
+                        Contact
                     </HeaderLink>
                 </Tab>
                 <Tab>

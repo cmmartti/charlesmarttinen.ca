@@ -1,4 +1,5 @@
 @import 'colours.scss';
+@import 'sizes.scss';
 
 @mixin element-underline($colour) {
     position: relative;
@@ -29,6 +30,7 @@
 }
 
 .header {
+    z-index: 100;
     background-color: $brand-colour;
     color: white;
     line-height: 1.15;
@@ -59,6 +61,8 @@
 .header nav {
     display: flex;
     align-items: stretch;
+    max-width: $site-max-width;
+    margin: 0 auto;
 
     .title {
         display: inline-block;
@@ -103,7 +107,7 @@
             top: 100%;
             right: 0;
             background: $brand-colour;
-            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px 1px hsla(0, 0%, 0%, 0.2);
         }
     }
 }
@@ -112,11 +116,14 @@
 .header nav {
     a,
     .moreBtn {
+        font-size: 1rem;
+        color: inherit;
         white-space: nowrap;
         padding: 0.63rem 1.2rem 0.4rem;
         -webkit-tap-highlight-color: transparent;
         display: block;
         min-width: auto;
+        text-decoration: none;
 
         // icons
         img,
@@ -189,30 +196,47 @@
 
 // Mobile
 .header nav {
-    @media (max-width: 47em) {
+    @media (max-width: 40em) {
         a,
         .moreBtn {
-            padding: 0.83rem 0.6rem 0.6rem;
-        }
-        .title a {
-            padding: 0.6rem;
+            padding-left: 0.6rem;
+            padding-right: 0.6rem;
         }
     }
-    @media (max-width: 24.5em) {
+    @media (max-width: 48em) {
+        a,
+        .moreBtn {
+            padding-top: 0.83rem;
+            padding-bottom: 0.6rem;
+        }
+        .title a {
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+        }
+    }
+    @media (max-width: 24em) {
+        // Break website title onto two lines
         .title {
             width: min-content;
-            flex: 0 0 7rem;
+            flex: 0 0 6.5rem;
             line-height: 1;
         }
         .title a {
             white-space: normal;
-            padding: 0.4rem 0.8rem;
+            padding: 0.3rem 0.6rem 0.3rem 0.6rem;
         }
 
-        a {
+        a,
+        .moreBtn {
             padding: 0.4rem 0.8rem;
             display: flex;
             align-items: center;
+        }
+    }
+    @media (max-width: 20.5em) {
+        a,
+        .moreBtn {
+            padding: 0.4rem 0.6rem;
         }
     }
 }

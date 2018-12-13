@@ -1,22 +1,58 @@
 # See instructions at https://www.netlifycms.org/docs/add-to-your-site/
 
 backend:
-    name: git-gateway
-    branch: master
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: CMS: Create {{collection}} “{{slug}}”
+    update: CMS: Update {{collection}} “{{slug}}”
+    delete: CMS: Delete {{collection}} “{{slug}}”
+    uploadMedia: CMS: Upload “{{path}}”
+    deleteMedia: CMS: Delete “{{path}}”
 
-media_folder: 'src/images'
-public_folder: '/images'
+display_url: https://charlesmarttinen.netlify.com
+logo_url: https://charlesmarttinen.netlify.com/images/logo.svg
+
+media_folder: 'static/assets'
+public_folder: '/assets'
 
 collections:
-    - name: 'case-studies'
-      label: 'Case Studies'
-      folder: 'src/pages/case-studies'
-      create: true
-      slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-      fields:
-          - {label: 'Title', name: 'title', widget: 'string'}
-          - {label: 'Publish Date', name: 'date', widget: 'datetime'}
-          - {label: 'File Name', name: 'filename', widget: 'string'}
-          - {label: 'Tags', name: 'tags', widget: 'list'}
-          - {label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false}
+  - pages: 'pages'
+    label: 'Pages'
+    extension: 'md'
+    files:
+      - label: 'Home Page'
+        name: 'homepage'
+        file: 'src/pages/index.md'
+        fields:
+          - {label: 'Date Updated', name: 'date', widget: 'datetime'}
           - {label: 'Body', name: 'body', widget: 'markdown'}
+          - {label: 'Portrait', name: 'image-src', widget: 'image'}
+          - {label: 'Image Alt Text', name: 'image-alt', widget: 'string'}
+
+  - name: 'case-studies'
+    label: 'Case Studies'
+    label_singular: 'Case Study'
+    extension: 'md'
+    folder: 'src/pages/case-studies'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
+      - {label: 'URL Slug', name: 'slug', widget: 'string'}
+      - {label: 'Tags', name: 'tags', widget: 'list'}
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: 'Excerpt',
+          name: 'excerpt.md',
+          widget: 'markdown',
+          required: false,
+          hint: Optional. If left empty, the body will be used instead. Should not contain images.
+        }
+      - {label: 'Body', name: 'body', widget: 'markdown'}

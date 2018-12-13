@@ -1,0 +1,162 @@
+@import 'colours.scss';
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: rgba($brand-colour, 0.19);
+    grid-gap: 2rem;
+    padding: 1.75rem 2rem;
+
+    .portrait {
+        img {
+            display: block;
+            object-fit: cover;
+            object-position: center 70%;
+            height: 100%;
+            width: 100%;
+            max-height: 24.5rem;
+            max-width: 100%;
+            border-radius: 0.4rem;
+            background-color: #59815f;
+        }
+    }
+    .intro {
+        .text {
+            max-width: 37rem;
+        }
+    }
+
+    ::selection {
+        background-color: $brand-colour;
+        color: white;
+    }
+}
+
+.projects {
+    padding: 1.75rem 2rem;
+    background-color: white;
+    & > * {
+        margin-top: 2rem;
+    }
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 2rem;
+
+    .imageScroller {
+        margin: 0 -1rem;
+        background: none;
+        height: 22rem;
+        overflow: hidden;
+        &:focus {
+            outline: none;
+        }
+
+        :global(.nav-button) {
+            height: 5rem;
+            width: 2.5rem;
+            top: calc(50% - 2.5rem);
+            background: rgba($brand-colour, 0.75);
+
+            box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
+            &--previous {
+                border-radius: 0 2.5rem 2.5rem 0;
+                left: -0.5rem;
+            }
+            &--next {
+                border-radius: 2.5rem 0 0 2.5rem;
+                right: -0.5rem;
+            }
+            &:active {
+                box-shadow: none;
+            }
+
+            &[disabled] {
+                display: none;
+            }
+        }
+        :global(.scroll-container) {
+            mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 1rem,
+                black calc(100% - 1rem),
+                transparent
+            );
+        }
+        :global(.image-wrapper) {
+            margin-right: 1em;
+            &:first-child {
+                border-left: 1em solid transparent;
+            }
+            &:last-child {
+                border-right: 1em solid transparent;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
+            }
+            &:hover {
+                &::after {
+                    // box-shadow: inset 0 0 6px 0 hsla(0, 0%, 0%, 50%);
+                    display: none;
+                }
+            }
+        }
+        :global(.index-buttons-container) {
+            left: 0;
+            transform: none;
+            justify-content: flex-start;
+        }
+    }
+}
+
+.bottom {
+    grid-area: bottom;
+    color: #8a8a8a;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: white;
+}
+
+@media (max-width: 54em) {
+    .top {
+        grid-template-columns: 1fr 1fr;
+
+        .portrait img {
+            max-height: 35.5rem;
+            object-position: 30% 70%;
+        }
+    }
+    .project {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 40em) {
+    .top {
+        padding: 1.25rem 1.5rem;
+        grid-gap: 1.5rem;
+        grid-template-columns: 1fr;
+        .portrait {
+            order: 2;
+            img {
+                max-height: 18rem;
+                object-position: 10% 60%;
+            }
+        }
+    }
+    .projects {
+        padding: 1.25rem 1.5rem;
+    }
+    .project {
+        grid-gap: 1.5rem;
+    }
+}

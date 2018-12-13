@@ -1,0 +1,41 @@
+@import 'colours.scss';
+
+.details {
+    margin: 0.25rem 0 0.5rem;
+    color: #555;
+
+    & > * {
+        display: inline-block;
+        &:not(:last-child)::after {
+            content: '/';
+            margin: 0 0.5rem;
+        }
+    }
+
+    .date {
+        font-size: 0.8rem;
+        line-height: 1;
+        letter-spacing: 0.08rem;
+        color: #555;
+    }
+    time {
+        text-transform: uppercase;
+    }
+
+    .tag {
+        display: inline-block;
+        background: $brand-colour;
+        color: white;
+        padding: 0 0.3rem;
+        font-size: 0.8rem;
+
+        &:hover {
+            background: darken($brand-colour, 5%);
+            color: white;
+        }
+        &:focus {
+            background: $focus-colour;
+            color: black;
+        }
+    }
+}

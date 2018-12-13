@@ -1,0 +1,148 @@
+@import 'colours.scss';
+
+.page {
+    display: flex;
+}
+
+.content {
+    flex: 4 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    .article {
+        flex: 1;
+
+        .title {
+            line-height: 1.2;
+        }
+        :global(.gatsby-highlight) {
+            border-radius: 0.4rem;
+        }
+    }
+    .nextprev {
+        flex: 0;
+        margin-top: 2rem;
+
+        display: flex;
+        justify-content: space-between;
+
+        .next,
+        .previous {
+            min-width: 15rem;
+        }
+        .previous {
+            text-align: left;
+            margin-right: 2rem;
+        }
+        .next {
+            text-align: right;
+        }
+        // If there's no previous, make sure next is right-aligned
+        .next:first-child {
+            flex: 1;
+        }
+
+        @media (max-width: 40em) {
+            flex-wrap: wrap;
+
+            .next,
+            .previous {
+                flex: 1 1;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.sidebar {
+    flex: 1 0;
+    max-width: 12rem;
+    border-left: 1px solid #ccc;
+    padding: 1rem 0 1rem 1rem;
+    margin: 0 0 0 2rem;
+    font-size: 0.9rem;
+
+    .about {
+        margin-bottom: 1.5rem;
+
+        p:not(:first-of-type) {
+            margin-top: 0.5rem;
+        }
+
+        .portrait {
+            margin: 0 1rem 0.75rem 0;
+
+            img {
+                border-radius: 0.4rem;
+                width: 100%;
+                max-width: 10rem;
+                min-width: 5rem;
+                height: auto;
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+    }
+
+    .related {
+        li {
+            margin: 0.75rem 0;
+            line-height: 1.2;
+        }
+        li:last-child {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 50em) {
+    .page {
+        flex-direction: column;
+    }
+    .content {
+        // stretch the full width of the screen
+        :global(.gatsby-highlight) {
+            font-size: 0.8rem;
+            max-width: 100vw;
+            width: 100vw;
+            margin-left: calc((-100vw + 100%) / 2);
+            border-radius: 0;
+        }
+    }
+    .sidebar {
+        padding: 1rem 0 0 0;
+        max-width: 100%;
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 1rem 0 0 0;
+
+        display: grid;
+        grid-template: 'about divider related' / 1fr 1px 1fr;
+        grid-gap: 1rem;
+
+        .about {
+            grid-area: about;
+            display: flex;
+            margin: 0;
+        }
+        .related {
+            grid-area: related;
+        }
+        &::after {
+            grid-area: divider;
+            background: #ccc;
+            content: '';
+        }
+    }
+}
+
+@media (max-width: 32em) {
+    .sidebar {
+        grid-template:
+            'related'
+            'divider' 1px
+            'about';
+        // font-size: 1rem;
+    }
+}
