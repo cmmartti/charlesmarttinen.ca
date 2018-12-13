@@ -1,14 +1,14 @@
 # See instructions at https://www.netlifycms.org/docs/add-to-your-site/
 
 backend:
-  name: git-gateway
-  branch: master
-  commit_messages:
-    create: 'CMS: Create {{collection}} “{{slug}}”'
-    update: 'CMS: Update {{collection}} “{{slug}}”'
-    delete: 'CMS: Delete {{collection}} “{{slug}}”'
-    uploadMedia: 'CMS: Upload “{{path}}”'
-    deleteMedia: 'CMS: Delete “{{path}}”'
+    name: git-gateway
+    branch: master
+    commit_messages:
+        create: 'CMS: Create {{collection}} “{{slug}}”'
+        update: 'CMS: Update {{collection}} “{{slug}}”'
+        delete: 'CMS: Delete {{collection}} “{{slug}}”'
+        uploadMedia: 'CMS: Upload “{{path}}”'
+        deleteMedia: 'CMS: Delete “{{path}}”'
 
 display_url: https://charlesmarttinen.netlify.com
 logo_url: https://charlesmarttinen.netlify.com/images/logo.svg
@@ -17,68 +17,62 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - label: 'Pages'
-    name: pages
-    files:
-      - label: 'Home Page'
-        name: homepage
-        file: src/content/homepage.md
-        fields:
-          - {label: 'Date Updated', name: date, widget: datetime}
-          - {label: 'Image', name: 'image', widget: image}
-          - {label: 'Image Alt Text', name: 'image_alt', widget: string}
-          - {label: 'Body', name: 'body', widget: markdown}
-      - label: 'Résumé'
-        name: resume
-        file: src/content/resume.md
-        fields:
-          - {label: 'Date', name: date, widget: datetime}
-          - {label: 'Body', name: 'body', widget: markdown}
+    - label: 'Pages'
+      name: pages
+      files:
+          - label: 'Home Page'
+            name: homepage
+            file: src/content/homepage.md
+            fields:
+                - {label: 'Date Updated', name: date, widget: datetime}
+                - {label: 'Image', name: 'image', widget: image}
+                - {label: 'Image Alt Text', name: 'image_alt', widget: string}
+                - {label: 'Body', name: 'body', widget: markdown}
+          - label: 'Résumé'
+            name: resume
+            file: src/content/resume.md
+            fields:
+                - {label: 'Date', name: date, widget: datetime}
+                - {label: 'Body', name: 'body', widget: markdown}
 
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    extension: md
-    folder: src/content/projects
-    create: true
-    fields:
-      - {label: 'Title', name: title, widget: string}
-      - {label: 'Order', name: order, widget: number, valueType: int}
-      - {label: 'Date', name: 'date', widget: datetime}
-      - {
-          label: 'Images',
-          name: images,
-          widget: list
-          fields:
-            - {label: 'Image', name: src, widget: image}
-            - {label: 'Alt Text', name: alt, widget: string}
-            - {label: 'Title/Caption Text', name: title, widget: string}
-        }
-      - {label: 'Body', name: body, widget: markdown}
+    - name: 'projects'
+      label: 'Projects'
+      label_singular: 'Project'
+      extension: md
+      folder: src/content/projects
+      create: true
+      fields:
+          - {label: 'Title', name: title, widget: string}
+          - {label: 'Order', name: order, widget: number, valueType: int}
+          - {label: 'Date', name: 'date', widget: datetime}
+          - label: 'Images'
+            name: images
+            widget: list
+            fields:
+                - {label: 'Image', name: src, widget: image}
+                - {label: 'Alt Text', name: alt, widget: string}
+                - {label: 'Title/Caption Text', name: title, widget: string}
+          - {label: 'Body', name: body, widget: markdown}
 
-  - name: 'case-studies'
-    label: 'Case Studies'
-    label_singular: 'Case Study'
-    extension: md
-    folder: 'src/content/case-studies'
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    fields:
-      - {label: 'Title', name: title, widget: string}
-      - {label: 'Publish Date', name: 'date', widget: datetime}
-      - {label: 'URL Slug', name: slug, widget: string}
-      - {label: 'Tags', name: tags, widget: list}
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: image,
-          required: false,
-        }
-      - {
-          label: 'Excerpt',
-          name: excerpt,
-          widget: markdown,
-          required: false,
-          hint: 'Optional. If left empty, the body will be used instead. Should not contain images.'
-        }
-      - {label: 'Body', name: body, widget: markdown}
+    - name: 'case-studies'
+      label: 'Case Studies'
+      label_singular: 'Case Study'
+      extension: md
+      folder: 'src/content/case-studies'
+      create: true
+      slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+      fields:
+          - {label: 'Title', name: title, widget: string}
+          - {label: 'Publish Date', name: 'date', widget: datetime}
+          - {label: 'URL Slug', name: slug, widget: string}
+          - {label: 'Tags', name: tags, widget: list}
+          - label: 'Featured Image'
+            name: 'thumbnail'
+            widget: image
+            required: false
+          - label: 'Excerpt'
+            name: excerpt
+            widget: markdown
+            required: false
+            hint: 'Optional. If left empty, the body will be used instead. Should usually not contain images.'
+          - {label: 'Body', name: body, widget: markdown}
