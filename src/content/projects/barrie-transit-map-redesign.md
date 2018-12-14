@@ -1,15 +1,15 @@
 ---
-order: 10
-title: Official Barrie Transit Map
+order: 1
+title: Barrie Transit Map Redesign
 date: '2018-11-16'
 images:
-  - src: /images/barrie-transit-map-official.png
+  - src: /images/barrie-transit-map-lenses.png
     alt: ''
     title: ''
-  - src: /images/barrie-transit-map-official-central.png
+  - src: /images/barrie-transit-map.png
     alt: ''
     title: ''
-  - src: /images/barrie-transit-map-official-north.png
+  - src: /images/barrie-transit-map-key.png
     alt: ''
     title: ''
 ---

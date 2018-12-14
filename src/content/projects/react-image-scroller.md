@@ -5,30 +5,31 @@ date: '2018-12-12'
 images:
   - alt: 'A large, snow-covered, 10 foot fir tree beneath a canopy of spruce trees.'
     src: /images/snowy-tree.png
-  - alt: 'A well-trod path through a sunny, lush green meadow.'
-    src: /images/path.jpg
-    title: ''
   - alt: >-
       A close-up photo of a Brown Knapweed flower (pink, with many small
       petals).
     src: /images/flower.jpg
+  - alt: 'A well-trod path through a sunny, lush green meadow.'
+    src: /images/path.jpg
   - alt: Shale beach sunset.
     src: /images/shale-beach-sunset.jpg
 ---
-(This one, here →, or here ↓)
 
-A scrolling image gallery for React. Unlike every other image gallery, this one is designed to show multiple images at once, without cropping them. It is not designed to be a cinematic experience, but rather an alternative to splashing a bunch of images on screen directly.
+(On this page, on the right or below.)
 
-Each sub component is independently customisable and replaceable, and adding your own styles is easy. (This approach inspired by [React-Select](https://react-select.com/).
+A scrolling image gallery component for React. Unlike every other image gallery, this one is designed to show multiple images at once, without cropping them. It is not designed to be a cinematic experience, but an alternative to splashing a bunch of images on screen directly.
 
-<details>
-<summary>Technologies used</summary>
+Each sub-component is independently replaceable, and adding custom styles is easy.
 
- - [React](https://reactjs.org/)
- - CSS-in-JS styles with [Emotion](https://emotion.sh/)
- - Uses [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for scrolling interactions
+<details><summary>Details</summary>
+
+ - <a href="https://reactjs.org/">React</a>
+ - CSS-in-JS styles with <a href="https://emotion.sh/">Emotion</a>
+ - Uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver">IntersectionObserver</a> for scrolling interactions
  - Custom Webpack setup
 
 </details>
 
-Published on npm as [react-image-scroller](https://www.npmjs.com/package/react-image-scroller). The source code is available on [GitHub](https://github.com/cmmartti/react-image-scroller).
+Published on npm as [react-image-scroller](https://www.npmjs.com/package/react-image-scroller).
+
+[View the source code on GitHub](https://github.com/cmmartti/react-image-scroller).
