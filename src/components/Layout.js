@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
-// import ViewportSize from './ViewportSize';
+import ViewportSize from './ViewportSize';
 import './Layout.global.scss';
 
 const Layout = ({children, location, className, ...props}) => (
@@ -46,7 +46,7 @@ const Layout = ({children, location, className, ...props}) => (
                     {children}
                 </main>
                 <SiteFooter />
-                {/* <ViewportSize /> */}
+                <ViewportSize />
             </>
         )}
     />
