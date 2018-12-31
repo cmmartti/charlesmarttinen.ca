@@ -129,7 +129,19 @@ ol {
         }
     }
 
-    // @extend .anchor-styles;
+    details > summary {
+        cursor: pointer;
+        border-radius: 0.2rem;
+        margin-left: -0.4rem;
+        padding: 0.1rem 0.4rem;
+        background: hsl(204, 17%, 95%);
+        &:hover {
+            background: hsl(204, 17%, 88%);
+        }
+        &:focus {
+            outline: 2px solid $focus-colour;
+        }
+    }
 }
 
 .form {

@@ -21,7 +21,7 @@ A scrolling image gallery component for React. Unlike every other image gallery,
 
 Each sub-component is independently replaceable, and adding custom styles is easy.
 
-<details><summary>Details</summary>
+<details><summary>Implementation Details</summary>
 
  - <a href="https://reactjs.org/">React</a>
  - CSS-in-JS styles with <a href="https://emotion.sh/">Emotion</a>
