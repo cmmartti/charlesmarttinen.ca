@@ -12,8 +12,8 @@ export default function HomePage({data, location}) {
     const imageSrc = image.childImageSharp.fluid.src;
 
     return (
-        <Layout location={location} className="typography">
-            <div className={styles.top}>
+        <Layout location={location} className="x">
+            <div className={styles.top + ' typography'}>
                 <div className={styles.portrait}>
                     <img src={imageSrc} alt={image_alt} />
                 </div>
@@ -24,7 +24,7 @@ export default function HomePage({data, location}) {
                     />
                 </div>
             </div>
-            <div className={styles.projects}>
+            <div className={styles.projects + ' typography'}>
                 <h2 id="projects">Projects</h2>
                 {projects.edges.map(project => (
                     <Project

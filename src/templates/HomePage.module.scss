@@ -42,7 +42,7 @@
     grid-area: bottom;
     color: #8a8a8a;
     font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     background: white;
 }
 
@@ -76,7 +76,7 @@
     .projects {
         padding: 1.25rem 1.5rem;
     }
-    .project {
-        grid-gap: 1.5rem;
+    .bottom {
+        padding: 1rem 1.5rem;
     }
 }
