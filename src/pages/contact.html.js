@@ -6,16 +6,19 @@ const ContactPage = ({location}) => (
     <Layout location={location} className="typography site-content-defaults">
         <h1>Contact Me</h1>
         <p>
-            You can reach me at{' '}
+            You can reach me by email at{' '}
             <a href="mailto:mail@charlesmarttinen.ca">
                 mail@charlesmarttinen.ca
-            </a>
-            .
+            </a>{' '}
+            or +1&nbsp;705-770-4095.
         </p>
 
+        <p>Alternatively, send me a message using the contact form below.</p>
         <p>
-            Alternatively, you can send me an email using the contact form
-            below.
+            You can also find me on{' '}
+            <a href="https://www.linkedin.com/in/cmmartti/">LinkedIn</a> and{' '}
+            <a href="https://github.com/cmmartti">GitHub</a> as{' '}
+            <strong>cmmartti</strong>.
         </p>
 
         <form

@@ -119,14 +119,15 @@ ol {
 
     hr {
         border: none;
+        border-top: 1px solid;
         // padding: 0 1rem 0;
         // color: inherit;
-        &::after {
-            content: '';
-            max-width: 26rem;
-            border-top: 1px solid;
-            display: block;
-        }
+        // &::after {
+        //     content: '';
+        //     max-width: 26rem;
+        //     border-top: 1px solid;
+        //     display: block;
+        // }
     }
 
     details > summary {
@@ -215,4 +216,12 @@ html,
 [aria-disabled],
 [disabled] {
     cursor: auto;
+}
+
+
+.gatsby-resp-image-link {
+    // display: inline !important;
+}
+.gatsby-resp-image-wrapper {
+    margin: 0 !important;
 }

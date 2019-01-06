@@ -4,7 +4,7 @@ import {Link} from 'gatsby';
 
 import {CollapsingTabs, Tab} from './CollapsingTabs';
 import styles from './SiteHeader.module.scss';
-import GithubLogoSvg from '../../images/github-octocat.svg';
+import GithubLogoSvg from '../../assets/github-octocat.svg';
 
 const HeaderLink = ({isActive, children, to, className, ...props}) => (
     <Link

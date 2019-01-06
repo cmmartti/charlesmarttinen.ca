@@ -40,12 +40,6 @@ exports.createPages = async ({actions, graphql}) => {
         component: path.resolve('src/templates/HomePage.js'),
     });
 
-    // Résume page
-    createPage({
-        path: '/resume.html',
-        component: path.resolve('src/templates/Resume.js'),
-    });
-
     // Get a list of all case studies
     const result = await graphql(`
         {

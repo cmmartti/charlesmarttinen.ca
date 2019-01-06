@@ -149,7 +149,7 @@ export const pageQuery = graphql`
             }
         }
 
-        portrait: file(absolutePath: {regex: "//src/images/me.jpg/"}) {
+        portrait: file(absolutePath: {regex: "//src/assets/me.jpg/"}) {
             childImageSharp {
                 resize(width: 200, height: 200, quality: 100) {
                     src
@@ -182,7 +182,7 @@ export const pageQuery = graphql`
         recent: allMarkdownRemark(
             sort: {order: DESC, fields: [frontmatter___datePublished]}
             filter: {
-                fileAbsolutePath: {regex: "//src/pages/case-studies//"}
+                fileAbsolutePath: {regex: "//src/content/case-studies//"}
                 fields: {path: {ne: $path}}
             }
             limit: 5
