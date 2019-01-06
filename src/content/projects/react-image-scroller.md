@@ -15,11 +15,9 @@ images:
     src: /images/shale-beach-sunset.jpg
 ---
 
-(On this page, on the right or below.)
+_December 2018_
 
-A scrolling image gallery component for React. Unlike every other image gallery, this one is designed to show multiple images at once, without cropping them. It is not designed to be a cinematic experience, but an alternative to splashing a bunch of images on screen directly.
-
-Each sub-component is independently replaceable, and adding custom styles is easy.
+Used on this page, a scrolling image gallery component for React. Unlike every other image gallery, this one is designed to show multiple images at once, without cropping them. It is not designed to be a cinematic experience, but an alternative to splashing a bunch of images on screen directly.
 
 <details><summary>Implementation Details</summary>
 
@@ -27,6 +25,7 @@ Each sub-component is independently replaceable, and adding custom styles is eas
  - CSS-in-JS styles with <a href="https://emotion.sh/">Emotion</a>
  - Uses <a href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver">IntersectionObserver</a> for scrolling interactions
  - Custom Webpack setup
+ - Each sub-component is independently replaceable and styleable
 
 </details>
 
