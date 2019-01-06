@@ -28,12 +28,6 @@ collections:
                 - {label: 'Image', name: 'image', widget: image}
                 - {label: 'Image Alt Text', name: 'image_alt', widget: string}
                 - {label: 'Body', name: 'body', widget: markdown}
-          - label: 'Résumé'
-            name: resume
-            file: src/content/resume.md
-            fields:
-                - {label: 'Date', name: date, widget: datetime}
-                - {label: 'Body', name: 'body', widget: markdown}
 
     - name: 'projects'
       label: 'Projects'
