@@ -59,6 +59,10 @@ export default function ResumePage({location}) {
                 </div>
 
                 <div>
+                    <p>Test-driven development (large GraphQL API)</p>
+                </div>
+
+                <div>
                     <h3>Languages</h3>
                     <p>
                         JavaScript (ES6+), HTML, CSS, Python, PHP, SQL (Oracle,
@@ -136,9 +140,6 @@ export default function ResumePage({location}) {
                     <p>Finish Carpenter</p>
                     <p>January 2009–March 2014</p>
                     <p>April 2017–August 2017</p>
-                    <p>
-                        Cleaned two public buildings and handled minor repairs
-                    </p>
                 </div>
             </ResumeSection>
             <ResumeSection title="Certifi&shy;cations">

@@ -10,7 +10,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
         actions.createNodeField({
             node,
             name: 'path',
-            value: `/case-studies/${node.frontmatter.slug}.html`,
+            value: `/blog/${node.frontmatter.slug}.html`,
         });
 
         // Make the HTML excerpt available from the fields field:
@@ -45,9 +45,7 @@ exports.createPages = async ({actions, graphql}) => {
         {
             caseStudies: allMarkdownRemark(
                 sort: {order: DESC, fields: [frontmatter___datePublished]}
-                filter: {
-                    fileAbsolutePath: {regex: "//src/content/case-studies//"}
-                }
+                filter: {fileAbsolutePath: {regex: "//src/content/blog//"}}
                 limit: 1000
             ) {
                 edges {
@@ -73,7 +71,7 @@ exports.createPages = async ({actions, graphql}) => {
     posts.forEach((post, i) => {
         createPage({
             path: post.node.fields.path,
-            component: path.resolve('src/templates/CaseStudy.js'),
+            component: path.resolve('src/templates/BlogEntry.js'),
             context: {
                 previous:
                     i === posts.length - 1
@@ -92,7 +90,7 @@ exports.createPages = async ({actions, graphql}) => {
     });
     tags.forEach(tag => {
         createPage({
-            path: `/case-studies/tags/${tag}.html`,
+            path: `/blog/tags/${tag}.html`,
             component: path.resolve('src/templates/TagsPage.js'),
             context: {tag},
         });

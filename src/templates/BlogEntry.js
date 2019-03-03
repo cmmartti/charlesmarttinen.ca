@@ -3,9 +3,9 @@ import {graphql, Link} from 'gatsby';
 
 import Layout from '../components/Layout';
 import DateAndTags from '../components/DateAndTags';
-import styles from './CaseStudy.module.scss';
+import styles from './BlogEntry.module.scss';
 
-export default function CaseStudy({data, location}) {
+export default function BlogEntry({data, location}) {
     const {markdownRemark, previous, next, related, recent} = data;
     const {frontmatter, html} = markdownRemark;
     const {
@@ -160,7 +160,7 @@ export const pageQuery = graphql`
         related: allMarkdownRemark(
             sort: {order: DESC, fields: [frontmatter___datePublished]}
             filter: {
-                fileAbsolutePath: {regex: "//src/content/case-studies//"}
+                fileAbsolutePath: {regex: "//src/content/blog//"}
                 frontmatter: {tags: {in: $tags}}
                 fields: {path: {ne: $path}}
             }
@@ -182,7 +182,7 @@ export const pageQuery = graphql`
         recent: allMarkdownRemark(
             sort: {order: DESC, fields: [frontmatter___datePublished]}
             filter: {
-                fileAbsolutePath: {regex: "//src/content/case-studies//"}
+                fileAbsolutePath: {regex: "//src/content/blog//"}
                 fields: {path: {ne: $path}}
             }
             limit: 5

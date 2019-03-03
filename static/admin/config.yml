@@ -48,11 +48,11 @@ collections:
                 - {label: 'Title/Caption Text', name: title, widget: string}
           - {label: 'Body', name: body, widget: markdown}
 
-    - name: 'case-studies'
+    - name: 'blog'
       label: 'Case Studies'
       label_singular: 'Case Study'
       extension: md
-      folder: 'src/content/case-studies'
+      folder: 'src/content/blog'
       create: true
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
       fields:

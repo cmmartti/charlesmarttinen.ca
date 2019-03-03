@@ -19,7 +19,7 @@ const DateAndTags = ({published, publishedISO, updated, updatedISO, tags}) => {
                     <React.Fragment key={tag}>
                         <Link
                             className={styles.tag}
-                            to={`case-studies/tags/${tag}.html`}
+                            to={`blog/tags/${tag}.html`}
                         >
                             {tag}
                         </Link>{' '}

@@ -56,8 +56,8 @@ const SiteHeader = ({location, siteTitle}) => (
                 </Tab>
                 <Tab>
                     <HeaderLink
-                        isActive={location.pathname.includes('/case-studies')}
-                        to="/case-studies/"
+                        isActive={location.pathname.includes('/blog')}
+                        to="/blog/"
                     >
                         Case Studies
                     </HeaderLink>

@@ -38,11 +38,11 @@ export default function TagsPage({location, pageContext, data}) {
                         image={image && image.childImageSharp.fluid.src}
                         excerptHtml={edge.node.fields.excerpt}
                         bodyHtml={edge.node.html}
-                        path={`/case-studies/${slug}.html`}
+                        path={`/blog/${slug}.html`}
                     />
                 );
             })}
-            <Link to="case-studies/tags/">All tags</Link>
+            <Link to="blog/tags/">All tags</Link>
         </Layout>
     );
 }
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
             sort: {fields: [frontmatter___datePublished], order: DESC}
             filter: {
                 frontmatter: {tags: {in: [$tag]}}
-                fileAbsolutePath: {regex: "//src/content/case-studies//"}
+                fileAbsolutePath: {regex: "//src/content/blog//"}
             }
         ) {
             totalCount

@@ -6,7 +6,7 @@ const ContactPage = ({location}) => (
     <Layout location={location} className="typography site-content-defaults">
         <h1>Contact Me</h1>
         <p>
-            You can reach me by email at{' '}
+            You can reach me at{' '}
             <a href="mailto:mail@charlesmarttinen.ca">
                 mail@charlesmarttinen.ca
             </a>{' '}

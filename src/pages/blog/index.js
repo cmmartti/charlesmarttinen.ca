@@ -36,7 +36,7 @@ export default function CaseStudiesIndex({data, location}) {
                         image={image && image.childImageSharp.resize.src}
                         excerptHtml={edge.node.fields.excerpt}
                         bodyHtml={edge.node.html}
-                        path={`/case-studies/${slug}.html`}
+                        path={`/blog/${slug}.html`}
                     />
                 );
             })}
@@ -48,7 +48,7 @@ export const pageQuery = graphql`
     query {
         allMarkdownRemark(
             sort: {order: DESC, fields: [frontmatter___datePublished]}
-            filter: {fileAbsolutePath: {regex: "/src/content/case-studies/"}}
+            filter: {fileAbsolutePath: {regex: "/src/content/blog/"}}
         ) {
             edges {
                 node {

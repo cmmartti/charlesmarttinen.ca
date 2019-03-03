@@ -20,6 +20,6 @@ This project was born out of frustration with the [official map](https://www.bar
 
 Based on a street grid exported from [OpenStreetMaps](https://www.openstreetmap.org/#map=13/44.3748/-79.6832) and processed in [Maperitive](http://maperitive.net/) before being imported into Adobe Illustrator.
 
-[Read the full case study](/case-studies/barrie-transit-map.html)
+[Read the full case study](/blog/barrie-transit-map.html)
 
 [Download the PDF](/static/barrie-transit-map.pdf)

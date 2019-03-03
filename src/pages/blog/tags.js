@@ -13,7 +13,7 @@ export default function TagsPage({location, data}) {
                     {tags.map(tag => (
                         <li key={tag.fieldValue}>
                             <Link
-                                to={`case-studies/tags/${tag.fieldValue}.html`}
+                                to={`blog/tags/${tag.fieldValue}.html`}
                             >
                                 {tag.fieldValue} ({tag.totalCount})
                             </Link>
@@ -29,7 +29,7 @@ export const pageQuery = graphql`
     query {
         tags: allMarkdownRemark(
             limit: 2000
-            filter: {fileAbsolutePath: {regex: "//src/content/case-studies//"}}
+            filter: {fileAbsolutePath: {regex: "//src/content/blog//"}}
         ) {
             group(field: frontmatter___tags) {
                 fieldValue

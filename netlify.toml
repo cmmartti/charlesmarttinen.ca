@@ -18,5 +18,5 @@
   from = "/resume"
   to = "/resume.html"
 [[redirects]]
-  from = "/case-studies"
-  to = "/case-studies/"
+  from = "/blog"
+  to = "/blog/"
