@@ -34,13 +34,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
 exports.createPages = async ({actions, graphql}) => {
     const {createPage} = actions;
 
-    // Home page
-    createPage({
-        path: '/',
-        component: path.resolve('src/templates/HomePage.js'),
-    });
-
-    // Get a list of all case studies
+    // Get a list of all blog entries
     const result = await graphql(`
         {
             caseStudies: allMarkdownRemark(

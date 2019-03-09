@@ -1,27 +1,46 @@
 import React from 'react';
-import {graphql} from 'gatsby';
+import {graphql, Link} from 'gatsby';
 
 import Layout from '../components/Layout';
 import Project from '../components/Project';
-import styles from './HomePage.module.scss';
+import styles from './index.module.scss';
 
 export default function HomePage({data, location}) {
-    const {homePage, projects} = data;
-    const {frontmatter, html} = homePage;
-    const {date, image, image_alt} = frontmatter;
-    const imageSrc = image.childImageSharp.fluid.src;
+    const {image, projects} = data;
 
     return (
         <Layout location={location} className="x">
             <div className={styles.top + ' typography'}>
                 <div className={styles.portrait}>
-                    <img src={imageSrc} alt={image_alt} />
+                    <img src={image.childImageSharp.fluid.src} alt="Me" />
                 </div>
                 <div className={styles.intro}>
-                    <div
-                        className={styles.text}
-                        dangerouslySetInnerHTML={{__html: html}}
-                    />
+                    <h1>Web Developer and Graphic Designer</h1>
+                    <h2>I like simplifying complexity.</h2>
+                    <p>
+                        That is, I like making complex things easy to use and
+                        understand, while still retaining the capabilities of a
+                        complex system.
+                    </p>
+                    <p>
+                        I primarily design and develop web applications and
+                        websites, but I have also done some print design,
+                        including re‑designing my city's transit map.
+                    </p>
+                    <h2>About Me</h2>
+                    <p>
+                        Based in Toronto, I completed the Graphic Design
+                        Production program at the Georgian College in May 2018.
+                        Since then, I have further developed my programming
+                        skills through full-time self-directed learning, on top
+                        of my previous programming experience at the Port of
+                        Wilmington, Delaware, and earlier forays into
+                        programming going back to high school.{' '}
+                    </p>
+                    <p>
+                        To read more about my skills and experience, see my{' '}
+                        <Link to="resume.html">online résumé</Link>.
+                    </p>
                 </div>
             </div>
             <div className={styles.projects + ' typography'}>
@@ -38,29 +57,17 @@ export default function HomePage({data, location}) {
                     />
                 ))}
             </div>
-            <div className={styles.bottom}>
-                <p>Last updated: {date}</p>
-            </div>
         </Layout>
     );
 }
 
 export const pageQuery = graphql`
     query {
-        homePage: markdownRemark(
-            fileAbsolutePath: {regex: "//src/content/homepage.md/"}
-        ) {
-            html
-            frontmatter {
-                date(formatString: "YYYY-MM-DD")
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 500) {
-                            src
-                        }
-                    }
+        image: file(relativePath: {eq: "images/me.jpg"}) {
+            childImageSharp {
+                fluid(maxWidth: 500) {
+                    src
                 }
-                image_alt
             }
         }
 

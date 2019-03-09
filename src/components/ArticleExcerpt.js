@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import DateAndTags from '../DateAndTags';
+import DateAndTags from './DateAndTags';
 import styles from './ArticleExcerpt.module.scss';
 
 function ArticleExcerpt({
