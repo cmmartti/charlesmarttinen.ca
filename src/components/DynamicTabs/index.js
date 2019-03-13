@@ -90,7 +90,7 @@ export default function DynamicTabs({
     useEffect(() => {
         function handleResize() {
             setMeasuringRender(true);
-            setMenuIsOpen(false);
+            // setMenuIsOpen(false);
         }
         window.addEventListener('resize', handleResize);
         return function cleanUp() {
@@ -138,9 +138,11 @@ export default function DynamicTabs({
 
     return (
         <Container {...commonProps} innerProps={{...props}}>
-            <TabContainer {...commonProps} innerRef={containerRef}>
-                {visibleTabs}
-            </TabContainer>
+            {visibleTabs.length > 0 && (
+                <TabContainer {...commonProps} innerRef={containerRef}>
+                    {visibleTabs}
+                </TabContainer>
+            )}
 
             {(measuringRender || overflowTabs.length > 0) && (
                 <MenuContainer {...commonProps} innerRef={overflowRef}>
