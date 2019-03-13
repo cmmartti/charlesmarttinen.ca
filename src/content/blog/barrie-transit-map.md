@@ -4,10 +4,18 @@ datePublished: 2019-01-03T04:26:30.084Z
 dateUpdated: 2019-01-03T04:26:30.084Z
 title: Re-drawing the Barrie Transit Map
 tags:
-  - project
-  - design
+  - map
+  - case-study
 image: /images/barrie-transit-map-lenses.png
-excerpt: ''
+excerpt: >-
+  Every good city has a public transit system, and every good transit system has
+  a map. But not all maps are made equal, and so over the past year or so, I've
+  spent some of my spare time re-drawing my city's mediocre bus map.
+
+
+  In this case study, I'll cover what a transit map is, what it's used for, and
+  what makes a good transit map, and the changes I made when re-drawing the City
+  of Barrie's bus map.
 ---
 
 Every good city has a public transit system, and every good transit system has a map. But not all maps are made equal, and so over the past year or so, I've spent some of my spare time re-drawing my city's mediocre bus map.
@@ -28,7 +36,7 @@ The map also serves as the basis for the mental model that riders use to navigat
 
 With the increasingly common use of smartphones, digital mapping apps like CityMapper and Google Maps have provided an alternate means of route planning, but not all people have access to them, particularly those with low incomes (who are less likely to have expendable income). Furthermore, they are more suited to on-the-spot navigation, not future planning, and typically require an active Internet connection. Thus, there is still a need for traditional static maps.
 
-# How are they used?
+## How are they used?
 
 Following the purposes discussed above, bus maps are used by transit users to plan a route between two points. First, the user locates these points on the map, then looks for a route that directly connects them, if possible. If either of their points is not directly served by a route, they need to select a walking route to the nearest bus stop, and if a single route does not connect the two points, they need to determine the best place to transfer to a different route.
 
@@ -80,7 +88,7 @@ Indeed, Barrie recently gained an express bus route (100), which travels alongsi
 
 ![](/images/example-3.png)
 
-### Lenses over congested areas
+## Lenses over congested areas
 
 Around the downtown terminal, Allandale Waterfront GO train station, and Park Place, a large number of routes travel along the same roads, creating this effect (this is the official map):
 
@@ -94,6 +102,6 @@ TfL's spider maps show a regional hub as a central map without route lines with 
 
 ![](/images/spider-map.png)
 
-## How did you make it?
+# How did you make it?
 
 My map is based on a street map exported from [OpenStreetMaps](https://www.openstreetmap.org/#map=13/44.3748/-79.6832) and processed in [Maperitive](http://maperitive.net/) before being imported into Adobe Illustrator, which I used to draw each of the map elements.

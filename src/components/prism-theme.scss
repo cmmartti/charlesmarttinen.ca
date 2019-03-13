@@ -28,13 +28,13 @@ pre[class*='language-'] {
 
 .gatsby-highlight {
     background: #112144;
-    margin: 1rem 0;
+    margin: 1em 0;
     overflow: auto;
     width: max-content;
     max-width: 100%;
     min-width: 75%;
     position: relative;
-    font-size: 0.9rem;
+    font-size: 0.9em;
 
     padding-left: 0;
 }
@@ -48,7 +48,7 @@ pre[class*='language-'] {
     display: flex;
 
     code {
-        margin: 1rem;
+        margin: 1em;
     }
 }
 
@@ -63,9 +63,9 @@ pre[class*='language-'] {
 .gatsby-highlight-code-line {
     background-color: hsla(80, 82%, 76%, 0.075);
     display: block;
-    margin-right: -1rem;
-    margin-left: -1rem;
-    padding-left: 1rem;
+    margin-right: -1em;
+    margin-left: -1em;
+    padding-left: 1em;
     position: relative;
 
     // Highlight the line number
@@ -73,7 +73,7 @@ pre[class*='language-'] {
         content: '';
         right: 100%;
         position: absolute;
-        width: 10rem;
+        width: 10em;
         height: 100%;
         background: yellowgreen;
     }
@@ -103,7 +103,7 @@ pre[class*='language-'].line-numbers > code {
     user-select: none;
     z-index: 2;
     background: hsla(0, 0%, 100%, 0.15);
-    padding: 1rem 0.4rem;
+    padding: 1em 0.4em;
 }
 
 .line-numbers-rows > span {
@@ -122,9 +122,9 @@ pre[class*='language-'].line-numbers > code {
 /*************
  Inline code */
 :not(pre) > code[class*='language-'] {
-    padding: 0.1rem;
+    padding: 0.1em;
     white-space: normal;
-    font-size: 0.9rem;
+    font-size: 0.9em;
 }
 
 /*******************

@@ -1,38 +1,39 @@
-@import 'colours.scss';
-
 .project {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-gap: 2rem;
-    padding: 1rem 0;
+    grid-gap: 2em;
+    padding: 1em 0;
+    background-color: white;
+    padding: 1em;
+    margin: 1em 0;
 
-    &:not(:first-of-type) {
-        border-top: 1px solid #ccc;
-    }
+    // &:not(:first-of-type) {
+    //     border-top: 1px solid #ccc;
+    // }
 
     .imageScroller {
-        margin: 0 -1rem;
+        margin: 0 -1em;
         background: none;
-        height: 22rem;
+        height: 22em;
         overflow: hidden;
         &:focus {
             outline: none;
         }
 
         :global(.nav-button) {
-            height: 5rem;
-            width: 2.5rem;
-            top: calc(50% - 2.5rem);
-            background: rgba($brand-colour, 0.75);
+            height: 5em;
+            width: 2.5em;
+            top: calc(50% - 2.5em);
+            background: rgba(hsl(210, 78%, 42%), 0.75);
 
             box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
             &--previous {
-                border-radius: 0 2.5rem 2.5rem 0;
-                left: -0.5rem;
+                border-radius: 0 2.5em 2.5em 0;
+                left: -0.5em;
             }
             &--next {
-                border-radius: 2.5rem 0 0 2.5rem;
-                right: -0.5rem;
+                border-radius: 2.5em 0 0 2.5em;
+                right: -0.5em;
             }
             &:active {
                 box-shadow: none;
@@ -46,8 +47,8 @@
             mask-image: linear-gradient(
                 to right,
                 transparent,
-                black 1rem,
-                black calc(100% - 1rem),
+                black 1em,
+                black calc(100% - 1em),
                 transparent
             );
         }
@@ -86,6 +87,6 @@
 @media (max-width: 54em) {
     .project {
         grid-template-columns: 1fr;
-        grid-gap: 1rem;
+        grid-gap: 1em;
     }
 }

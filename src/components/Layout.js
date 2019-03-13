@@ -1,59 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import {StaticQuery, graphql} from 'gatsby';
+import {useStaticQuery, graphql} from 'gatsby';
 import 'sanitize.css';
 import classNames from 'classnames';
+import 'focus-visible/dist/focus-visible.min.js';
 
-import SiteHeader from './SiteHeader';
-import SiteFooter from './SiteFooter';
+import Navigation from './Navigation';
 import ViewportSize from './ViewportSize';
 import './Layout.global.scss';
 
-const Layout = ({children, location, className, ...props}) => (
-    <StaticQuery
-        query={graphql`
-            query SiteTitleQuery {
+export default function Layout({children, location, className, ...props}) {
+    const data = useStaticQuery(
+        graphql`
+            query {
                 site {
                     siteMetadata {
                         title
                     }
                 }
             }
-        `}
-        render={data => (
-            <>
-                <Helmet
-                    title={data.site.siteMetadata.title}
-                    meta={[
-                        {name: 'description', content: 'Sample'},
-                        {name: 'keywords', content: 'sample, something'},
-                    ]}
-                >
-                    <html lang="en" />
-                </Helmet>
-                <SiteHeader
-                    siteTitle={data.site.siteMetadata.title}
-                    location={location}
-                />
-                <main
-                    className={classNames(
-                        'site-content',
-                        className || 'site-content-defaults'
-                    )}
-                    {...props}
-                >
-                    {children}
-                </main>
-                <SiteFooter />
-                <ViewportSize />
-            </>
-        )}
-    />
-);
+        `
+    );
+    const title = data.site.siteMetadata.title;
+    return (
+        <>
+            <Helmet
+                title={title}
+                // meta={[
+                //     {name: 'description', content: 'Sample'},
+                //     {name: 'keywords', content: 'sample, something'},
+                // ]}
+            >
+                <html lang="en" />
+            </Helmet>
 
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-};
+            <header className="site-header">
+                <Navigation siteTitle={title} location={location} />
+            </header>
+            <main className={classNames('site-content', className)} {...props}>
+                {children}
+            </main>
+            <footer className="site-footer">
+                <Navigation siteTitle={title} location={location} flip />
+            </footer>
 
-export default Layout;
+            {/* <ViewportSize /> */}
+        </>
+    );
+}

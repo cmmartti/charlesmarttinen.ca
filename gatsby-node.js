@@ -85,7 +85,7 @@ exports.createPages = async ({actions, graphql}) => {
     tags.forEach(tag => {
         createPage({
             path: `/blog/tags/${tag}.html`,
-            component: path.resolve('src/templates/TagsPage.js'),
+            component: path.resolve('src/templates/TagPage.js'),
             context: {tag},
         });
     });

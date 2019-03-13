@@ -33,7 +33,8 @@ module.exports = {
                             withWebp: true,
                             showCaptions: true,
                             quality: 100,
-                            wrapperStyle: 'margin-left: 0; margin-right: 0;',
+                            wrapperStyle: '',
+                            linkImagesToOriginal: true,
                         },
                     },
                     {

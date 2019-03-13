@@ -1,11 +1,7 @@
-@import 'colours.scss';
-
 .top {
     display: grid;
-    grid-template-columns: minmax(15rem, 1fr) 2fr;
-    background: rgba($brand-colour, 0.19);
-    grid-gap: 2rem;
-    padding: 1.75rem 2rem;
+    grid-template-columns: minmax(15em, 1fr) 2fr;
+    grid-gap: 2em;
 
     .portrait {
         img {
@@ -14,42 +10,24 @@
             object-position: center 70%;
             height: 100%;
             width: 100%;
-            max-height: 24.5rem;
+            max-height: 24.5em;
             max-width: 100%;
-            border-radius: 0.4rem;
+            border-radius: 0.4em;
             background-color: #59815f;
             margin: 0 auto;
         }
     }
     .intro {
-        max-width: 37rem;
+        max-width: 37em;
     }
-
-    ::selection {
-        background-color: $brand-colour;
-        color: white;
-    }
-}
-
-.projects {
-    padding: 1.75rem 2rem;
-    background-color: white;
-}
-
-.bottom {
-    grid-area: bottom;
-    color: #8a8a8a;
-    font-size: 0.8rem;
-    padding: 1rem 2rem;
-    background: white;
 }
 
 @media (max-width: 54em) {
     .top {
-        // grid-template-columns: minmax(15rem, 1fr) 2fr;
+        // grid-template-columns: minmax(15em, 1fr) 2fr;
 
         .portrait img {
-            max-height: 20rem;
+            max-height: 20em;
             object-position: 30% 70%;
         }
     }
@@ -60,21 +38,15 @@
 
 @media (max-width: 44em) {
     .top {
-        padding: 1.25rem 1.5rem;
-        grid-gap: 1.5rem;
+        // padding: 1.25em 1.5em;
+        grid-gap: 1.5em;
         grid-template-columns: 1fr;
         .portrait {
             order: 2;
             img {
-                max-width: 18rem;
+                max-width: 18em;
                 object-position: 10% 60%;
             }
         }
-    }
-    .projects {
-        padding: 1.25rem 1.5rem;
-    }
-    .bottom {
-        padding: 1rem 1.5rem;
     }
 }

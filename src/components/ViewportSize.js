@@ -11,9 +11,9 @@ const style = {
     bottom: 0,
     background: 'hsla(0, 0%, 0%, 0.6)',
     color: 'white',
-    padding: '0.2rem 0.2rem 0.1rem 0.4rem',
-    fontSize: '0.9rem',
-    borderRadius: '0.25rem 0 0 0',
+    padding: '0.2em 0.2em 0.1em 0.4em',
+    fontSize: '0.9em',
+    borderRadius: '0.25em 0 0 0',
     opacity: 0.5,
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'gatsby';
+import {css} from 'emotion';
 
 import DateAndTags from './DateAndTags';
-import styles from './ArticleExcerpt.module.scss';
 
 function ArticleExcerpt({
     title,
@@ -14,9 +14,58 @@ function ArticleExcerpt({
     path,
 }) {
     return (
-        <section className={styles.excerpt}>
-            <div className={styles.main}>
-                <h2 className={styles.title}>
+        <section
+            className={css`
+                display: flex;
+                padding: 1em;
+                margin: 1em 0;
+                width: 100%;
+                background-color: white;
+                @media (max-width: 55em) {
+                    display: block;
+                }
+            `}
+        >
+            <div
+                className={css`
+                    flex: 0 0;
+                    order: 1;
+                    max-width: 20em;
+                    max-height: 20em;
+                    min-width: 20em;
+                `}
+            >
+                <Link to={path} aria-hidden tabIndex="-1">
+                    {image && (
+                        <img
+                            src={image}
+                            alt=""
+                            className={css`
+                                max-height: 100%;
+                                max-width: 100%;
+                                min-height: 10em;
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                                object-position: center center;
+                                border: 1px solid #ccc;
+                            `}
+                        />
+                    )}
+                </Link>
+            </div>
+
+            <div
+                className={css`
+                    margin-right: 2em;
+                    flex: 1;
+                `}
+            >
+                <h2
+                    className={css`
+                        line-height: 1.2;
+                    `}
+                >
                     <Link to={path}>{title}</Link>
                 </h2>
                 <DateAndTags {...dates} tags={tags} />
@@ -24,9 +73,7 @@ function ArticleExcerpt({
                     {excerptHtml ? (
                         <>
                             <div
-                                dangerouslySetInnerHTML={{
-                                    __html: excerptHtml,
-                                }}
+                                dangerouslySetInnerHTML={{__html: excerptHtml}}
                             />
                             <p>
                                 <Link to={path}>Read more...</Link>
@@ -41,11 +88,6 @@ function ArticleExcerpt({
                         </>
                     )}
                 </div>
-            </div>
-            <div className={styles.image}>
-                <Link to={path} aria-hidden tabIndex="-1">
-                    {image && <img src={image} alt="" />}
-                </Link>
             </div>
         </section>
     );

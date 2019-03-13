@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql, Link} from 'gatsby';
 
 import Layout from '../components/Layout';
+import Prose from '../components/Prose';
 import DateAndTags from '../components/DateAndTags';
 import styles from './BlogEntry.module.scss';
 
@@ -20,19 +21,21 @@ export default function BlogEntry({data, location}) {
     const portrait = data.portrait.childImageSharp.resize.src;
 
     return (
-        <Layout
-            location={location}
-            className={styles.page + ' site-content-defaults'}
-        >
+        <Layout location={location} className={styles.page}>
             <div className={styles.content}>
-                <article className={styles.article}>
-                    <h1 className={styles.title}>{title}</h1>
-                    <DateAndTags {...dates} tags={tags} />
-                    <div
-                        className={styles.body + ' typography'}
-                        dangerouslySetInnerHTML={{__html: html}}
-                    />
-                </article>
+                <Prose>
+                    <p>
+                        <Link to="/blog">&lt; All writing</Link>
+                    </p>
+                    <article className={styles.article}>
+                        <h1 className={styles.title}>{title}</h1>
+                        <DateAndTags {...dates} tags={tags} />
+                        <div
+                            className={styles.body + ' typography'}
+                            dangerouslySetInnerHTML={{__html: html}}
+                        />
+                    </article>
+                </Prose>
 
                 <ul className={styles.nextprev}>
                     {previous && (

@@ -1,20 +1,31 @@
 import React from 'react';
-import {Link, graphql} from 'gatsby';
+import {Link, graphql, useStaticQuery} from 'gatsby';
 
 import Layout from '../../components/Layout';
 
-export default function TagsPage({location, data}) {
-    const tags = data.tags.group;
+export default function TagsPage({location}) {
+    const {tags} = useStaticQuery(graphql`
+        query {
+            tags: allMarkdownRemark(
+                limit: 2000
+                filter: {fileAbsolutePath: {regex: "//src/content/blog//"}}
+            ) {
+                group(field: frontmatter___tags) {
+                    fieldValue
+                    totalCount
+                }
+            }
+        }
+    `);
+
     return (
         <Layout location={location}>
             <div>
                 <h1>Tags</h1>
                 <ul>
-                    {tags.map(tag => (
+                    {tags.group.map(tag => (
                         <li key={tag.fieldValue}>
-                            <Link
-                                to={`blog/tags/${tag.fieldValue}.html`}
-                            >
+                            <Link to={`blog/tags/${tag.fieldValue}.html`}>
                                 {tag.fieldValue} ({tag.totalCount})
                             </Link>
                         </li>
@@ -24,17 +35,3 @@ export default function TagsPage({location, data}) {
         </Layout>
     );
 }
-
-export const pageQuery = graphql`
-    query {
-        tags: allMarkdownRemark(
-            limit: 2000
-            filter: {fileAbsolutePath: {regex: "//src/content/blog//"}}
-        ) {
-            group(field: frontmatter___tags) {
-                fieldValue
-                totalCount
-            }
-        }
-    }
-`;

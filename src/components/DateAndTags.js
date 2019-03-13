@@ -3,7 +3,13 @@ import {Link} from 'gatsby';
 
 import styles from './DateAndTags.module.scss';
 
-const DateAndTags = ({published, publishedISO, updated, updatedISO, tags}) => {
+export default function DateAndTags({
+    published,
+    publishedISO,
+    updated,
+    updatedISO,
+    tags,
+}) {
     return (
         <div className={styles.details}>
             <time dateTime={publishedISO} className={styles.date}>
@@ -14,20 +20,21 @@ const DateAndTags = ({published, publishedISO, updated, updatedISO, tags}) => {
                     Updated <time dateTime={updatedISO}>{updated}</time>
                 </span>
             )}
-            <span>
-                {tags.map(tag => (
-                    <React.Fragment key={tag}>
-                        <Link
-                            className={styles.tag}
-                            to={`blog/tags/${tag}.html`}
-                        >
-                            {tag}
-                        </Link>{' '}
-                    </React.Fragment>
-                ))}
-            </span>
+            {tags.length > 0 && (
+                <span>
+                    {tags.map(tag => (
+                        <React.Fragment key={tag}>
+                            {' '}
+                            <Link
+                                className={styles.tag}
+                                to={`blog/tags/${tag}.html`}
+                            >
+                                {tag}
+                            </Link>
+                        </React.Fragment>
+                    ))}
+                </span>
+            )}
         </div>
     );
-};
-
-export default DateAndTags;
+}

@@ -1,5 +1,3 @@
-@import 'colours.scss';
-
 .page {
     display: flex;
 }
@@ -17,23 +15,23 @@
             line-height: 1.2;
         }
         :global(.gatsby-highlight) {
-            border-radius: 0.4rem;
+            border-radius: 0.4em;
         }
     }
     .nextprev {
         flex: 0;
-        margin-top: 2rem;
+        margin-top: 2em;
 
         display: flex;
         justify-content: space-between;
 
         .next,
         .previous {
-            min-width: 15rem;
+            min-width: 15em;
         }
         .previous {
             text-align: left;
-            margin-right: 2rem;
+            margin-right: 2em;
         }
         .next {
             text-align: right;
@@ -49,7 +47,7 @@
             .next,
             .previous {
                 flex: 1 1;
-                margin-bottom: 1rem;
+                margin-bottom: 1em;
             }
         }
     }
@@ -57,27 +55,27 @@
 
 .sidebar {
     flex: 1 0;
-    max-width: 12rem;
+    max-width: 12em;
     border-left: 1px solid #ccc;
-    padding: 1rem 0 1rem 1rem;
-    margin: 0 0 0 2rem;
-    font-size: 0.9rem;
+    padding: 1em 0 1em 1em;
+    margin: 0 0 0 2em;
+    font-size: 0.9em;
 
     .about {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5em;
 
         p:not(:first-of-type) {
-            margin-top: 0.5rem;
+            margin-top: 0.5em;
         }
 
         .portrait {
-            margin: 0 1rem 0.75rem 0;
+            margin: 0 1em 0.75em 0;
 
             img {
-                border-radius: 0.4rem;
+                border-radius: 0.4em;
                 width: 100%;
-                max-width: 10rem;
-                min-width: 5rem;
+                max-width: 10em;
+                min-width: 5em;
                 height: auto;
                 object-fit: cover;
                 object-position: center center;
@@ -87,7 +85,7 @@
 
     .related {
         li {
-            margin: 0.75rem 0;
+            margin: 0.75em 0;
             line-height: 1.2;
         }
         li:last-child {
@@ -103,7 +101,7 @@
     .content {
         // stretch the full width of the screen
         :global(.gatsby-highlight) {
-            font-size: 0.8rem;
+            font-size: 0.8em;
             max-width: 100vw;
             width: 100vw;
             margin-left: calc((-100vw + 100%) / 2);
@@ -111,15 +109,15 @@
         }
     }
     .sidebar {
-        padding: 1rem 0 0 0;
+        padding: 1em 0 0 0;
         max-width: 100%;
         border: none;
         border-top: 1px solid #ccc;
-        margin: 1rem 0 0 0;
+        margin: 1em 0 0 0;
 
         display: grid;
         grid-template: 'about divider related' / 1fr 1px 1fr;
-        grid-gap: 1rem;
+        grid-gap: 1em;
 
         .about {
             grid-area: about;
@@ -143,6 +141,6 @@
             'related'
             'divider' 1px
             'about';
-        // font-size: 1rem;
+        // font-size: 1em;
     }
 }
