@@ -14,11 +14,16 @@ export default function TagsPage({location, pageContext, data}) {
 
     return (
         <Layout location={location}>
-            <h1>{tagHeader}</h1>
+            <p>
+                <Link to="/blog/tags/" className="underline-on-hover">
+                    &lt; All tags
+                </Link>
+            </p>
+
+            <h1 style={{lineHeight: 1.2}}>{tagHeader}</h1>
             {edges.map(edge => {
                 const {
                     id,
-                    slug,
                     title,
                     published,
                     publishedISO,
@@ -38,11 +43,10 @@ export default function TagsPage({location, pageContext, data}) {
                         image={image && image.childImageSharp.fluid.src}
                         excerptHtml={edge.node.fields.excerpt}
                         bodyHtml={edge.node.html}
-                        path={`/blog/${slug}.html`}
+                        path={edge.node.fields.path}
                     />
                 );
             })}
-            <Link to="blog/tags/">All tags</Link>
         </Layout>
     );
 }
@@ -67,7 +71,6 @@ export const pageQuery = graphql`
                         publishedISO: datePublished(formatString: "YYYY-MM-DD")
                         updated: dateUpdated(formatString: "MMMM D, YYYY")
                         updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
-                        slug
                         title
                         tags
                         image {
@@ -82,6 +85,7 @@ export const pageQuery = graphql`
                     }
                     fields {
                         excerpt
+                        path
                     }
                 }
             }

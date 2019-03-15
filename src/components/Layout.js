@@ -44,7 +44,7 @@ export default function Layout({children, location, className, ...props}) {
                 <Navigation siteTitle={title} location={location} flip />
             </footer>
 
-            {/* <ViewportSize /> */}
+            <ViewportSize />
         </>
     );
 }

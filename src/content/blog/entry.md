@@ -1,5 +1,5 @@
 ---
-slug: '2018-11-16-some-code'
+slug: '2018-11-17-some-code'
 title: A Case Study containing some code
 datePublished: 2018-11-16T02:26:30.084Z
 dateUpdated: 2018-11-16T02:26:30.084Z
@@ -16,9 +16,8 @@ excerpt: |
 
 For example, see this piece of code in action:
 
-```jsx{1,2,7,8,9,10,11,12,15,27}{numberLines: true}
+```jsx{7,8,9,10,11,12,15,27}{numberLines: true}
 import React from 'react';
-import {graphql} from 'gatsby';
 
 import Layout from '../components/Layout';
 
@@ -30,7 +29,11 @@ export default function Template({data, location}) {
         <Layout location={location}>
             <h1>{frontmatter.title}</h1>
             <h2>{frontmatter.date}</h2>
-            <div dangerouslySetInnerHTML={{__html: html}} />
+            <div
+                dangerouslySetInnerHTML={{
+                    __html: html
+                }}
+            />
         </Layout>
     );
 }

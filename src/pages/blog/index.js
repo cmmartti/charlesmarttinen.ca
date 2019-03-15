@@ -3,7 +3,6 @@ import {graphql, useStaticQuery, Link} from 'gatsby';
 
 import Layout from '../../components/Layout';
 import ArticleExcerpt from '../../components/ArticleExcerpt';
-import Prose from '../../components/Prose';
 
 export default function CaseStudiesIndex({location}) {
     const {blogEntries} = useStaticQuery(graphql`
@@ -25,7 +24,6 @@ export default function CaseStudiesIndex({location}) {
                             )
                             updated: dateUpdated(formatString: "MMMM D, YYYY")
                             updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
-                            slug
                             title
                             tags
                             image {
@@ -40,6 +38,7 @@ export default function CaseStudiesIndex({location}) {
                         }
                         fields {
                             excerpt
+                            path
                         }
                     }
                 }
@@ -49,23 +48,27 @@ export default function CaseStudiesIndex({location}) {
 
     return (
         <Layout location={location}>
-            <Prose>
+            <div
+                style={{padding: '0 var(--content-padding)'}}
+                className="typography"
+            >
                 <h1>Writing</h1>
                 <p>
-                    Every once in a while, I pull out a pen and notebook and
+                    Every once in a while, I pull out a notebook and pencil and
                     write about something that interests me.
                 </p>
                 <p>
                     If you'd like to comment on something I've written,{' '}
-                    <Link to="contact.html">shoot me an email</Link>. If it's
-                    something others might be interested in too, I'll add it to the
-                    article as a reader comment.
+                    <Link to="/contact.html">shoot me an email</Link>. If it's
+                    of interest to others, I'll add it to the article as a
+                    reader comment (please supply a name to use if you'd like to
+                    be attributed).
                 </p>
-            </Prose>
+            </div>
+
             {blogEntries.edges.map(edge => {
                 const {
                     id,
-                    slug,
                     title,
                     published,
                     publishedISO,
@@ -89,7 +92,7 @@ export default function CaseStudiesIndex({location}) {
                         image={image && image.childImageSharp.resize.src}
                         excerptHtml={edge.node.fields.excerpt}
                         bodyHtml={edge.node.html}
-                        path={`/blog/${slug}.html`}
+                        path={edge.node.fields.path}
                     />
                 );
             })}

@@ -6,7 +6,7 @@ title: Re-drawing the Barrie Transit Map
 tags:
   - map
   - case-study
-image: /images/barrie-transit-map-lenses.png
+image: /images/transit-map-closeup.png
 excerpt: >-
   Every good city has a public transit system, and every good transit system has
   a map. But not all maps are made equal, and so over the past year or so, I've
@@ -26,7 +26,7 @@ Transit maps encompasses things like maps for subway and commuter trains, but he
 
 --------------------------------------------------------------------------------
 
-# What is a transit map?
+## What is a transit map?
 
 The primary purpose of a transit map is to inform users of available services, and how these services can be accessed. This is altogether different from a regular street map, and so it may not contain features normally present on a street map. Streets, for example, might be missing altogether.
 
@@ -36,13 +36,13 @@ The map also serves as the basis for the mental model that riders use to navigat
 
 With the increasingly common use of smartphones, digital mapping apps like CityMapper and Google Maps have provided an alternate means of route planning, but not all people have access to them, particularly those with low incomes (who are less likely to have expendable income). Furthermore, they are more suited to on-the-spot navigation, not future planning, and typically require an active Internet connection. Thus, there is still a need for traditional static maps.
 
-## How are they used?
+### How are they used?
 
 Following the purposes discussed above, bus maps are used by transit users to plan a route between two points. First, the user locates these points on the map, then looks for a route that directly connects them, if possible. If either of their points is not directly served by a route, they need to select a walking route to the nearest bus stop, and if a single route does not connect the two points, they need to determine the best place to transfer to a different route.
 
 In addition, maps are used in both paper and on-screen formats (PDF). Paper maps may be posted on a wall or in a fold-up pocket map, and PDF maps might be used on a smart phone or at a PC. The design of the map needs to make all of these use cases as easy to perform as possible.
 
-# Design Constraints
+## Design Constraints
 
 A good map is selective in what information it displays, based on whether it serves the primary purposes and use cases. There is limited space on a transit map, and any information that does not serve these primary purposes only adds noise, detracting from other important elements.
 
@@ -64,23 +64,23 @@ It is fortunate, then, that Barrie has relatively few routes. Few enough that ea
 
 It is also important that the map is small enough that it is still practical. Preferably, the map should be small enough that it can easily be made into a pocket map, but large enough that it is still viewable without a magnifying glass. With some careful use of large font sizes, thick route lines, and an inset area of the map, I was able to fit my map onto a regular letter size page (8.5"x11"). This also means that most people will be able to print it out on their home printers. Of course, this does not leave enough room for even a legend, relegating it to the reverse side of the page, so I have also designed the map in a large, roomier size of 11"x17". Both options are available as PDF files.
 
-# Other map elements
+## Other map elements
 
 Not everything needs an explanation, so I will briefly cover those of interest.
 
-## One-way arrows (see image above)
+### One-way arrows (see image above)
 
 Along portions of some routes, buses travel in only one direction, and the map needs to reflect this. Usually, this is done with some sort of arrow, as can be seen on Toronto's map below and in [this collection of one-way arrows](http://transitmaps.tumblr.com/post/93730157560/one-way-arrows) that Cameron Booth put together on his [Transit Maps blog](http://www.transitmap.net/).
 
 ![](/images/ttc-2.png)
 
-## Parks
+### Parks
 
 Though not at all necessary, I have also shown parks and wooded areas as lightly-shaded green areas on the map. This is mostly for aesthetic reasons, but also to more accurately convey the "shape" of the city to users.
 
 ![](/images/example-2.png)
 
-## Express routes and stops
+### Express routes and stops
 
 Unlike subways, buses can stop at any point along their routes, and stops are often placed so close together that there is no point in showing where buses stop (the answer is "everywhere"). This is also why bus maps generally match real geography quite closely, whereas rapid transit systems like subways can only be accessed at stations (thus, all the areas in between stations are irrelevant). However, express bus services resemble subways in that stops are spread far apart, so it is important to communicate to passengers where these stops are.
 
@@ -88,7 +88,7 @@ Indeed, Barrie recently gained an express bus route (100), which travels alongsi
 
 ![](/images/example-3.png)
 
-## Lenses over congested areas
+### Lenses over congested areas
 
 Around the downtown terminal, Allandale Waterfront GO train station, and Park Place, a large number of routes travel along the same roads, creating this effect (this is the official map):
 
@@ -102,6 +102,6 @@ TfL's spider maps show a regional hub as a central map without route lines with 
 
 ![](/images/spider-map.png)
 
-# How did you make it?
+## How did you make it?
 
 My map is based on a street map exported from [OpenStreetMaps](https://www.openstreetmap.org/#map=13/44.3748/-79.6832) and processed in [Maperitive](http://maperitive.net/) before being imported into Adobe Illustrator, which I used to draw each of the map elements.

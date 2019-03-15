@@ -16,79 +16,54 @@ function ArticleExcerpt({
     return (
         <section
             className={css`
-                display: flex;
-                padding: 1em;
-                margin: 1em 0;
-                width: 100%;
                 background-color: white;
-                @media (max-width: 55em) {
-                    display: block;
-                }
-            `}
-        >
-            <div
-                className={css`
-                    flex: 0 0;
-                    order: 1;
-                    max-width: 20em;
-                    max-height: 20em;
-                    min-width: 20em;
-                `}
-            >
-                <Link to={path} aria-hidden tabIndex="-1">
-                    {image && (
-                        <img
-                            src={image}
-                            alt=""
-                            className={css`
-                                max-height: 100%;
-                                max-width: 100%;
-                                min-height: 10em;
-                                height: 100%;
-                                width: 100%;
-                                object-fit: cover;
-                                object-position: center center;
-                                border: 1px solid #ccc;
-                            `}
-                        />
-                    )}
-                </Link>
-            </div>
+                border: 1px solid #ccd3db;
+                margin: 0.75em 0;
+                padding: var(--content-padding);
 
+                /* Child element has partial margin-bottom (because of the margin on
+                    the floated image). */
+                padding-bottom: calc(var(--content-padding) - 0.5em);
+            ` + ' typography'}
+        >
+            <h2 style={{lineHeight: 1.2, margin: 0}}>
+                <Link className="underline-on-hover" to={path}>
+                    {title}
+                </Link>
+            </h2>
+            <DateAndTags {...dates} tags={tags} />
+            {image && (
+                <Link to={path} aria-hidden tabIndex="-1">
+                    <img
+                        src={image}
+                        alt=""
+                        className={css`
+                            margin: 0.25em 0 0.5em 0.75em;
+                            float: right;
+                            width: 10em;
+                            height: 10em;
+                            object-fit: cover;
+                            max-width: 100%;
+                            border: 1px solid #ccc;
+
+                            @media (max-width: 20em) {
+                                float: none;
+                                margin-left: 0;
+                            }
+                        `}
+                    />
+                </Link>
+            )}
             <div
-                className={css`
-                    margin-right: 2em;
-                    flex: 1;
-                `}
-            >
-                <h2
-                    className={css`
-                        line-height: 1.2;
-                    `}
-                >
-                    <Link to={path}>{title}</Link>
-                </h2>
-                <DateAndTags {...dates} tags={tags} />
-                <div className="typography">
-                    {excerptHtml ? (
-                        <>
-                            <div
-                                dangerouslySetInnerHTML={{__html: excerptHtml}}
-                            />
-                            <p>
-                                <Link to={path}>Read more...</Link>
-                            </p>
-                        </>
-                    ) : (
-                        <>
-                            <div dangerouslySetInnerHTML={{__html: bodyHtml}} />
-                            <p>
-                                <Link to={path}>Perma-link</Link>
-                            </p>
-                        </>
-                    )}
-                </div>
-            </div>
+                style={{flex: '1'}}
+                dangerouslySetInnerHTML={{__html: excerptHtml || bodyHtml}}
+            />
+            <p>
+                <Link className="underline-on-hover" to={path}>
+                    {excerptHtml ? 'Read more...' : 'Perma-link'}
+                </Link>
+            </p>
+            <div style={{clear: 'both'}} />
         </section>
     );
 }

@@ -1,11 +1,10 @@
 .details {
-    margin: 0.25em 0 0.5em;
+    margin: 0 0 0.5em;
     color: #555;
-    line-height: 1.75;
+    line-height: 1.2;
 
     > * {
         display: inline-block;
-        font-size: 0.8em;
         &:not(:last-child)::after {
             content: '/';
             margin: 0 0.5em;
@@ -14,35 +13,12 @@
     }
 
     .date {
+        font-size: 0.825em;
         color: #555;
         line-height: 1;
         letter-spacing: 0.08em;
     }
     time {
         text-transform: uppercase;
-    }
-
-    .tag {
-        line-height: 1.5;
-        display: inline-block;
-        background: hsl(210, 78%, 42%);
-        color: white;
-        padding: 0 0.4em;
-        text-decoration: none;
-
-        &:hover {
-            background: darken(hsl(210, 78%, 42%), 5%);
-            color: white;
-            text-decoration: underline;
-        }
-        &:visited {
-            color: white;
-            background-color: #5d39a0;
-        }
-        &:focus {
-            background: hsl(39, 100%, 64%);
-            color: black;
-            text-decoration: underline;
-        }
     }
 }

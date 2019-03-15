@@ -3,7 +3,6 @@ import {Link} from 'gatsby';
 import {css} from 'emotion';
 
 import Layout from '../components/Layout';
-import Prose from '../components/Prose';
 import resumePdf from '../assets/résumé.pdf';
 
 function Section({title, children}) {
@@ -38,7 +37,7 @@ function Section({title, children}) {
             <div
                 className={
                     css`
-                        flex: 4;
+                        flex: 4.75;
                         min-width: 0;
                         margin: 0 0.5em;
 
@@ -59,7 +58,10 @@ function Section({title, children}) {
 export default function ResumePage({location}) {
     return (
         <Layout location={location}>
-            <Prose>
+            <div
+                style={{padding: '0 var(--content-padding)'}}
+                className="typography"
+            >
                 <h1>Résumé</h1>
                 <p>
                     You can download this résumé in PDF format{' '}
@@ -67,7 +69,7 @@ export default function ResumePage({location}) {
                     it.
                 </p>
                 <p>
-                    <Link to="contact.html">Contact me</Link>, or view my{' '}
+                    <Link to="/contact.html">Contact me</Link>, or view my{' '}
                     <a href="https://linkedin.com/in/charles-marttinen">
                         LinkedIn profile
                     </a>
@@ -208,7 +210,7 @@ export default function ResumePage({location}) {
                         <p>July 2015</p>
                     </div>
                 </Section>
-            </Prose>
+            </div>
         </Layout>
     );
 }

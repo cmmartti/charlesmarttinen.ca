@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'gatsby';
+import {css} from 'emotion';
 
 import styles from './DateAndTags.module.scss';
 
@@ -26,10 +27,11 @@ export default function DateAndTags({
                         <React.Fragment key={tag}>
                             {' '}
                             <Link
-                                className={styles.tag}
-                                to={`blog/tags/${tag}.html`}
+                                className="underline-on-hover"
+                                style={{fontSize: '0.9em'}}
+                                to={`/blog/tags/${tag}.html`}
                             >
-                                {tag}
+                                [{tag}]
                             </Link>
                         </React.Fragment>
                     ))}

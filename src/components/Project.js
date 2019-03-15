@@ -15,7 +15,7 @@ export default function Project({title, htmlBody, images}) {
                 components={{IndexButtonsContainer: () => null}}
             >
                 {images.map(image => (
-                    <img src={image.src} alt={image.alt} />
+                    <img key={image.src} src={image.src} alt={image.alt} />
                 ))}
             </ImageScroller>
         </div>

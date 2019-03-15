@@ -24,7 +24,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
                 .toString();
         }
         actions.createNodeField({
-            node: node,
+            node,
             name: 'excerpt',
             value: value,
         });
@@ -34,10 +34,9 @@ exports.onCreateNode = ({node, actions, getNode}) => {
 exports.createPages = async ({actions, graphql}) => {
     const {createPage} = actions;
 
-    // Get a list of all blog entries
-    const result = await graphql(`
+    const {errors, data} = await graphql(`
         {
-            caseStudies: allMarkdownRemark(
+            blogEntries: allMarkdownRemark(
                 sort: {order: DESC, fields: [frontmatter___datePublished]}
                 filter: {fileAbsolutePath: {regex: "//src/content/blog//"}}
                 limit: 1000
@@ -56,12 +55,12 @@ exports.createPages = async ({actions, graphql}) => {
             }
         }
     `);
-    if (result.errors) {
-        return Promise.reject(result.errors);
+    if (errors) {
+        return Promise.reject(errors);
     }
 
     // Posts pages
-    const posts = result.data.caseStudies.edges;
+    const posts = data.blogEntries.edges;
     posts.forEach((post, i) => {
         createPage({
             path: post.node.fields.path,

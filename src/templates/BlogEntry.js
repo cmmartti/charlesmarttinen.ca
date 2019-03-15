@@ -1,14 +1,14 @@
 import React from 'react';
 import {graphql, Link} from 'gatsby';
+import {css} from 'emotion';
 
 import Layout from '../components/Layout';
-import Prose from '../components/Prose';
 import DateAndTags from '../components/DateAndTags';
 import styles from './BlogEntry.module.scss';
 
 export default function BlogEntry({data, location}) {
-    const {markdownRemark, previous, next, related, recent} = data;
-    const {frontmatter, html} = markdownRemark;
+    const {article, previous, next, related, archive} = data;
+    const {frontmatter, html} = article;
     const {
         title,
         published,
@@ -22,37 +22,45 @@ export default function BlogEntry({data, location}) {
 
     return (
         <Layout location={location} className={styles.page}>
-            <div className={styles.content}>
-                <Prose>
-                    <p>
-                        <Link to="/blog">&lt; All writing</Link>
-                    </p>
-                    <article className={styles.article}>
-                        <h1 className={styles.title}>{title}</h1>
-                        <DateAndTags {...dates} tags={tags} />
-                        <div
-                            className={styles.body + ' typography'}
-                            dangerouslySetInnerHTML={{__html: html}}
-                        />
-                    </article>
-                </Prose>
+            <div
+                className={'typography ' + styles.content}
+                style={{padding: '0 var(--content-padding)'}}
+            >
+                <p>
+                    <Link to="/blog" className="underline-on-hover">
+                        &lt; All writing
+                    </Link>
+                </p>
+                <article className={styles.article}>
+                    <h1 className={styles.title}>{title}</h1>
+                    <DateAndTags {...dates} tags={tags} />
+                    <div dangerouslySetInnerHTML={{__html: html}} />
+                </article>
 
-                <ul className={styles.nextprev}>
+                <p>
+                    If you'd like to comment on something I've written,{' '}
+                    <Link to="/contact.html">shoot me an email</Link>. If it's
+                    of interest to others, I'll add it to the article as a
+                    reader comment (please supply a name to use if you'd like to
+                    be attributed).
+                </p>
+
+                <ul>
                     {previous && (
-                        <li className={styles.previous}>
+                        <li>
                             <Link
                                 to={previous.fields.path}
                                 rel="prev"
                                 title="Previous"
                             >
-                                ← {previous.frontmatter.title}
+                                &lt; {previous.frontmatter.title}
                             </Link>
                         </li>
                     )}
                     {next && (
-                        <li className={styles.next}>
+                        <li>
                             <Link to={next.fields.path} rel="next" title="Next">
-                                {next.frontmatter.title} →
+                                {next.frontmatter.title} &gt;
                             </Link>
                         </li>
                     )}
@@ -60,55 +68,31 @@ export default function BlogEntry({data, location}) {
             </div>
 
             <div className={styles.sidebar}>
-                <div className={styles.about}>
-                    <div className={styles.portrait}>
-                        <img src={portrait} alt="me" />
-                    </div>
-                    <div className={styles.abouttext}>
-                        <p>
-                            Case studies by Charles Marttinen (
-                            <a
-                                href="https://github.com/cmmartti"
-                                title="GitHub profile"
-                            >
-                                cmmartti
-                            </a>
-                            ).
-                        </p>
-                        <p>
-                            I write about objects and concepts with interesting
-                            insights.
-                        </p>
-                    </div>
+                <div>
+                    <img src={portrait} alt="me" />
+                    <p>
+                        Written by Charles Marttinen (
+                        <a
+                            href="https://github.com/cmmartti"
+                            title="GitHub profile"
+                        >
+                            cmmartti
+                        </a>
+                        ), web developer and graphic designer.
+                    </p>
                 </div>
-
-                {related ? (
-                    <div className={styles.related}>
-                        <h3>Related</h3>
-                        <ul>
-                            {related.edges.map(edge => (
-                                <li key={edge.node.id}>
-                                    <Link to={edge.node.fields.path}>
-                                        {edge.node.frontmatter.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ) : (
-                    <div className={styles.related}>
-                        <h3>Recent</h3>
-                        <ul>
-                            {recent.edges.map(edge => (
-                                <li key={edge.node.id}>
-                                    <Link to={edge.node.fields.path}>
-                                        {edge.node.frontmatter.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                <div>
+                    <h3>{related ? 'Related' : 'Archive'}</h3>
+                    <ul>
+                        {(related || archive).edges.map(edge => (
+                            <li key={edge.node.id}>
+                                <Link to={edge.node.fields.path}>
+                                    {edge.node.frontmatter.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </Layout>
     );
@@ -116,7 +100,7 @@ export default function BlogEntry({data, location}) {
 
 export const pageQuery = graphql`
     query($path: String!, $previous: String, $next: String, $tags: [String]!) {
-        markdownRemark(fields: {path: {eq: $path}}) {
+        article: markdownRemark(fields: {path: {eq: $path}}) {
             html
             frontmatter {
                 title
@@ -182,7 +166,7 @@ export const pageQuery = graphql`
             }
         }
 
-        recent: allMarkdownRemark(
+        archive: allMarkdownRemark(
             sort: {order: DESC, fields: [frontmatter___datePublished]}
             filter: {
                 fileAbsolutePath: {regex: "//src/content/blog//"}

@@ -1,5 +1,5 @@
 ---
-slug: '2018-11-16-some-code'
+slug: '2018-11-20-some-code'
 title: A Case Study containing some code
 datePublished: 2018-11-16T02:26:30.084Z
 dateUpdated: 2018-11-16T02:26:30.084Z
@@ -16,7 +16,7 @@ excerpt: |
 
 For example, see this piece of code in action:
 
-```jsx{1,2,7,8,9,10,11,12,15,27}{numberLines: true}
+```jsx{7,8,9,10,11,12,15,27}{numberLines: true}
 import React from 'react';
 import {graphql} from 'gatsby';
 
@@ -34,6 +34,19 @@ export default function Template({data, location}) {
         </Layout>
     );
 }
+
+export const pageQuery = graphql`
+    query($path: String!) {
+        markdownRemark(frontmatter: {path: {eq: $path}}) {
+            html
+            frontmatter {
+                date(formatString: "YYYY-MM-DD")
+                path
+                title
+            }
+        }
+    }
+`;
 ```
 
 As you can see the `<Template />` components renders a page for a given path.

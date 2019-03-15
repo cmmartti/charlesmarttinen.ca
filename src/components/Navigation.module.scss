@@ -1,4 +1,13 @@
 .navbar {
+    // font-size: 1.1em;
+    margin: var(--nav-padding);
+    &:not(.flip) {
+        margin-bottom: 0;
+    }
+    &.flip {
+        margin-top: 0;
+    }
+
     // Horizontal connector line
     position: relative;
     &::after {
@@ -87,7 +96,6 @@
 
         :local(.tab) + :local(.tab) {
             margin: 0;
-            // margin-top: 0.5em;
         }
         :local(.tab.title) {
             flex: 0 0;
@@ -98,7 +106,6 @@
 
 .tab {
     line-height: 1;
-    font-size: 1em;
     white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
     background-color: #ccd3db;
@@ -155,7 +162,7 @@
     a {
         // Manually line up the baselines, while still stretching the full
         // height of the header (not possible with `align-items: baseline`)
-        padding: 0.4rem 0.8em 0.375rem;
+        padding: 0.4rem 0.825em 0.375rem;
     }
 }
 

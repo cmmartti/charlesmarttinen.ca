@@ -25,7 +25,7 @@ export default function TagsPage({location}) {
                 <ul>
                     {tags.group.map(tag => (
                         <li key={tag.fieldValue}>
-                            <Link to={`blog/tags/${tag.fieldValue}.html`}>
+                            <Link to={`/blog/tags/${tag.fieldValue}.html`}>
                                 {tag.fieldValue} ({tag.totalCount})
                             </Link>
                         </li>

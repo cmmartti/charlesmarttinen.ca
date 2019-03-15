@@ -28,10 +28,6 @@ export default function DynamicTabs({
     const [measuringRender, setMeasuringRender] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
-    const containerRef = useRef(null);
-    const buttonRef = useRef(null);
-    const overflowRef = useRef(null);
-
     // 2. componentDidMount
     useEffect(() => {
         setIsMounted(true);
@@ -39,36 +35,36 @@ export default function DynamicTabs({
     }, []);
 
     // 3. Measure DOM elements
-    useLayoutEffect(
-        () => {
-            if (measuringRender) {
-                // Get the child tab elements
-                const tabElements = Array.from(containerRef.current.children);
+    const tabContainerRef = useRef(null);
+    const menuButtonRef = useRef(null);
+    useLayoutEffect(() => {
+        if (measuringRender) {
+            // Get the child tab elements
+            const tabElements = Array.from(tabContainerRef.current.children);
 
-                // HTMLElement.offsetLeft measures from the nearest positioned parent
-                // element, so force the tab container to be positioned.
-                containerRef.current.style.position = 'relative';
+            // HTMLElement.offsetLeft measures from the nearest positioned parent
+            // element, so force the tab container to be positioned.
+            tabContainerRef.current.style.position = 'relative';
 
-                const visible = [];
-                tabElements.forEach((tab, index) => {
-                    let stopWidth = tab.offsetLeft + tab.offsetWidth;
+            const visible = [];
+            tabElements.forEach((tab, index) => {
+                let stopWidth = tab.offsetLeft + tab.offsetWidth;
 
-                    // Don't count the width of the More button unless it will be visible
-                    if (visible.length === tabElements.length - 1)
-                        stopWidth -= buttonRef.current.offsetWidth;
+                // Don't count the width of the More button unless it will be visible
+                if (visible.length === tabElements.length - 1)
+                    stopWidth -= menuButtonRef.current.offsetWidth;
 
-                    if (containerRef.current.offsetWidth >= stopWidth)
-                        visible.push(index);
-                });
-                setVisibleTabIndices(visible);
-                setMeasuringRender(false);
-            }
-        },
-        [measuringRender]
-    );
+                if (tabContainerRef.current.offsetWidth >= stopWidth)
+                    visible.push(index);
+            });
+            setVisibleTabIndices(visible);
+            setMeasuringRender(false);
+        }
+    }, [measuringRender]);
 
     // Close the menu on outside clicks
-    useOnClickOutside(overflowRef, () => {
+    const menuContainerRef = useRef(null);
+    useOnClickOutside(menuContainerRef, () => {
         setMenuIsOpen(false);
     });
 
@@ -99,12 +95,9 @@ export default function DynamicTabs({
     }, []);
 
     // ** Trigger a measuringRender when the tabs (children) prop changes
-    useEffect(
-        () => {
-            setMeasuringRender(true);
-        },
-        [children]
-    );
+    useEffect(() => {
+        setMeasuringRender(true);
+    }, [children]);
 
     // Add props to each tab
     const allTabs = React.Children.map(children, (tab, index) => {
@@ -139,16 +132,16 @@ export default function DynamicTabs({
     return (
         <Container {...commonProps} innerProps={{...props}}>
             {visibleTabs.length > 0 && (
-                <TabContainer {...commonProps} innerRef={containerRef}>
+                <TabContainer {...commonProps} innerRef={tabContainerRef}>
                     {visibleTabs}
                 </TabContainer>
             )}
 
             {(measuringRender || overflowTabs.length > 0) && (
-                <MenuContainer {...commonProps} innerRef={overflowRef}>
+                <MenuContainer {...commonProps} innerRef={menuContainerRef}>
                     <MenuButton
                         {...commonProps}
-                        innerRef={buttonRef}
+                        innerRef={menuButtonRef}
                         innerProps={{
                             onClick: () => setMenuIsOpen(!menuIsOpen),
                             'aria-haspopup': true,
