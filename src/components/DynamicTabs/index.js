@@ -107,6 +107,7 @@ export default function DynamicTabs({
     });
 
     // Collect the visible and overflow tabs for rendering
+    let currentIsInMenu = false;
     let visibleTabs = [];
     const overflowTabs = [];
     if (!isMounted || measuringRender) {
@@ -116,6 +117,9 @@ export default function DynamicTabs({
             if (visibleTabIndices.includes(index)) {
                 visibleTabs.push(tab);
             } else {
+                if (tab.props.isActive) {
+                    currentIsInMenu = true;
+                }
                 overflowTabs.push(tab);
             }
         });
@@ -127,7 +131,7 @@ export default function DynamicTabs({
         ...components,
     };
 
-    const commonProps = {classNamePrefix, menuIsOpen};
+    const commonProps = {classNamePrefix, menuIsOpen, currentIsInMenu};
 
     return (
         <Container {...commonProps} innerProps={{...props}}>

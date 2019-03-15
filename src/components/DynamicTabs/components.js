@@ -6,7 +6,9 @@ export function Container({classNamePrefix, menuIsOpen, children, innerProps}) {
     return (
         <div
             className={classNames({
-                [css`display: flex`]: true,
+                [css`
+                    display: flex;
+                `]: true,
                 [classNamePrefix + '__container']: true,
                 [classNamePrefix + '__container--menu-is-open']: menuIsOpen,
             })}
@@ -27,7 +29,10 @@ export function TabContainer({
     return (
         <div
             className={classNames({
-                [css`display: flex; min-width: 0`]: true,
+                [css`
+                    display: flex;
+                    min-width: 0;
+                `]: true,
                 [classNamePrefix + '__tab-container']: true,
                 [classNamePrefix + '__tab-container--menu-is-open']: menuIsOpen,
             })}
@@ -49,7 +54,9 @@ export function MenuContainer({
     return (
         <div
             className={classNames({
-                [css`position: relative`]: true,
+                [css`
+                    position: relative;
+                `]: true,
                 [classNamePrefix + '__menu-container']: true,
                 [classNamePrefix +
                 '__menu-container--menu-is-open']: menuIsOpen,
@@ -65,6 +72,7 @@ export function MenuContainer({
 export function MenuButton({
     classNamePrefix,
     menuIsOpen,
+    currentIsInMenu,
     innerProps,
     innerRef,
 }) {
@@ -73,6 +81,8 @@ export function MenuButton({
             className={classNames({
                 [classNamePrefix + '__menu-button']: true,
                 [classNamePrefix + '__menu-button--menu-is-open']: menuIsOpen,
+                [classNamePrefix +
+                '__menu-button--current-is-in-menu']: currentIsInMenu,
             })}
             ref={innerRef}
             title="More"

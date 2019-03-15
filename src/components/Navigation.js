@@ -14,13 +14,12 @@ function Tab({isActive = false, isTitle = false, children}) {
                 [styles.active]: isActive,
                 [styles.title]: isTitle,
             })}
+            aria-current={isActive ? 'page' : 'false'}
         >
             {children}
         </div>
     );
 }
-
-console.log(styles);
 
 export default function Navigation({location, siteTitle, flip = false}) {
     return (

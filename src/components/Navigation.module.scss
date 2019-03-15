@@ -60,6 +60,10 @@
         //     background: hsla(0, 0, 0, 0.08);
         // }
 
+        &--current-is-in-menu {
+            background: hsl(210, 78%, 42%) !important;
+            color: white;
+        }
         &--menu-is-open {
             // Vertical connector line
             position: relative;
