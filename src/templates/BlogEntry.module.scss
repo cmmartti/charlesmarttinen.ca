@@ -1,81 +1,45 @@
 .page {
     display: flex;
-}
 
-.content {
-    flex: 4 1;
-}
-.sidebar {
-    flex: 1 0;
-    max-width: 12em;
-    border-left: 2px solid #ccd3db;
-    padding: 1em 0 1em 1em;
-    margin: 0 0 0 2em;
-    font-size: 0.9em;
-    > * + * {
-        margin-top: 1.5em;
+    .content {
+        flex: 4 1;
+        padding: 0 0 0 var(--content-padding);
+        display: flex;
+        flex-direction: column;
     }
 
-    img {
-        margin-bottom: 0.5em;
-        margin-right: 1em;
-        width: 100%;
-        max-width: 10em;
-        min-width: 5em;
-        height: auto;
-        object-fit: cover;
-        object-position: center center;
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        margin: 0.75em 0;
-        line-height: 1.2;
-        &:last-child {
-            margin: 0;
+    .sidebar {
+        flex: 1 0;
+        max-width: 12em;
+        border-left: 2px solid #ccd3db;
+        padding: 1em 0 1em 1em;
+        margin: 0 0 0 2em;
+        font-size: 0.9em;
+        > * + * {
+            margin-top: 1.5em;
+            display: block;
         }
-    }
-}
 
-.article {
-    flex: 1;
-
-    .title {
-        line-height: 1.2;
-    }
-}
-.nextprev {
-    flex: 0;
-    margin-top: 2em;
-
-    display: flex;
-    justify-content: space-between;
-
-    .next,
-    .previous {
-        min-width: 15em;
-    }
-    .previous {
-        text-align: left;
-        margin-right: 2em;
-    }
-    .next {
-        text-align: right;
-    }
-    // If there's no previous, make sure next is right-aligned
-    .next:first-of-type {
-        flex: 1;
-    }
-
-    @media (max-width: 40em) {
-        flex-wrap: wrap;
-
-        .next,
-        .previous {
-            flex: 1 1;
-            margin-bottom: 1em;
+        img {
+            margin-bottom: 0.5em;
+            margin-right: 1em;
+            width: 100%;
+            max-width: 10em;
+            min-width: 5em;
+            height: auto;
+            object-fit: cover;
+            object-position: center center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 0.75em 0;
+            line-height: 1.2;
+            &:last-child {
+                margin: 0;
+            }
         }
     }
 }
@@ -83,47 +47,64 @@
 @media (max-width: 50em) {
     .page {
         flex-direction: column;
-    }
-    .content {
-        :global(.gatsby-highlight) {
-            font-size: 0.825em;
-            --gatsby-highlight-adjust-width: calc(
-                var(--body-padding) + var(--content-padding)
-            );
+
+        .content {
+            padding: 0 var(--content-padding);
+            :global(.gatsby-highlight) {
+                font-size: 0.825em;
+                --gatsby-highlight-adjust-width: calc(
+                    var(--body-padding) + var(--content-padding)
+                );
+            }
+        }
+        .sidebar {
+            margin: 1em var(--content-padding);
+            padding: 0;
+            max-width: 100%;
+            border: none;
+            border-top: 2px solid #ccd3db;
+
+            img {
+                max-width: 8em;
+                float: left;
+            }
+            > * {
+                margin: 0;
+                &::after {
+                    content: '';
+                    display: table;
+                    clear: both;
+                }
+            }
         }
     }
-    .sidebar {
-        padding: 1em 0 0 0;
-        max-width: 100%;
-        border: none;
-        border-top: 2px solid #ccd3db;
-        margin: 1em 0 0 0;
+}
 
-        display: grid;
-        grid-template: 'about divider related' / 1fr 2px 1fr;
-        grid-gap: 1em;
-
-        .about {
-            grid-area: about;
-            display: flex;
+@media (max-width: 50em) and (min-width: 32em) {
+    .page .sidebar {
+        display: flex;
+        > * {
+            flex: 1;
             margin: 0;
+            padding-top: 1em;
         }
-        .related {
-            grid-area: related;
-        }
-        &::after {
-            grid-area: divider;
-            background: #ccd3db;
-            content: '';
+        > * + * {
+            border-left: 2px solid #ccd3db;
+            padding-left: 1em;
+            margin-left: 1em;
         }
     }
 }
 
 @media (max-width: 32em) {
-    .sidebar {
-        grid-template:
-            'related'
-            'divider' 2px
-            'about';
+    .page .sidebar {
+        padding-top: 1em;
+        img {
+            max-width: 5em;
+        }
+
+        > * + * {
+            margin-top: 0.5em;
+        }
     }
 }

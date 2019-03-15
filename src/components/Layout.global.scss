@@ -86,6 +86,12 @@ p, h1, h2, h3, h4, ul, ol, hr {
     margin: 0;
 }
 
+hr {
+    border: none;
+    border-top: 2px solid #ccd3db;
+    margin: 1em 0;
+}
+
 ul,
 ol {
     padding: 0;
@@ -113,6 +119,12 @@ ol {
         }
     }
 
+    hr {
+        border: none;
+        border-top: 2px solid #ccd3db;
+        margin-top: 0.6em;
+    }
+
     p + h1,
     p + h2,
     p + h3,
@@ -135,10 +147,6 @@ ol {
         ol {
             padding-left: 1.2em;
         }
-    }
-    hr {
-        border: none;
-        border-top: 2px solid #ccd3db;
     }
     details > summary {
         cursor: pointer;

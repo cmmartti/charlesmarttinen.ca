@@ -6,6 +6,52 @@ import Layout from '../components/Layout';
 import DateAndTags from '../components/DateAndTags';
 import styles from './BlogEntry.module.scss';
 
+function PrevNext({previous, next}) {
+    return (
+        <ul
+            className={css`
+                list-style-type: none;
+                padding: 0;
+
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > * {
+                    min-width: 15em;
+                    list-style: none;
+                    flex: 1 1;
+                    margin-top: 1em;
+                    @media (max-width: 19em) {
+                        min-width: 100%;
+                    }
+                }
+            `}
+        >
+            {previous && (
+                <li style={{marginRight: '2em'}}>
+                    <Link to={previous.path} rel="prev" title="Previous">
+                        &lt;&nbsp;{previous.title}
+                    </Link>
+                </li>
+            )}
+            {next && (
+                <li
+                    className={css`
+                        text-align: right;
+                        &:first-child {
+                            flex: 1;
+                        }
+                    `}
+                >
+                    <Link to={next.path} rel="next" title="Next">
+                        {next.title}&nbsp;&gt;
+                    </Link>
+                </li>
+            )}
+        </ul>
+    );
+}
+
 export default function BlogEntry({data, location}) {
     const {article, previous, next, related, archive} = data;
     const {frontmatter, html} = article;
@@ -22,21 +68,37 @@ export default function BlogEntry({data, location}) {
 
     return (
         <Layout location={location} className={styles.page}>
-            <div
-                className={'typography ' + styles.content}
-                style={{padding: '0 var(--content-padding)'}}
-            >
-                <p>
-                    <Link to="/blog" className="underline-on-hover">
-                        &lt; All writing
-                    </Link>
-                </p>
-                <article className={styles.article}>
-                    <h1 className={styles.title}>{title}</h1>
-                    <DateAndTags {...dates} tags={tags} />
-                    <div dangerouslySetInnerHTML={{__html: html}} />
-                </article>
+            <div className={styles.content}>
+                <div style={{flex: 1}} className="typography">
+                    <p>
+                        <Link to="/blog" className="underline-on-hover">
+                            &lt; All writing
+                        </Link>
+                    </p>
 
+                    <article>
+                        <h1 style={{lineHeight: 1.2}}>{title}</h1>
+                        <DateAndTags {...dates} tags={tags} />
+                        <div dangerouslySetInnerHTML={{__html: html}} />
+                    </article>
+                </div>
+
+                <PrevNext
+                    previous={
+                        previous && {
+                            path: previous.fields.path,
+                            title: previous.frontmatter.title,
+                        }
+                    }
+                    next={
+                        next && {
+                            path: next.fields.path,
+                            title: next.frontmatter.title,
+                        }
+                    }
+                />
+
+                <hr />
                 <p>
                     If you'd like to comment on something I've written,{' '}
                     <Link to="/contact.html">shoot me an email</Link>. If it's
@@ -44,27 +106,6 @@ export default function BlogEntry({data, location}) {
                     reader comment (please supply a name to use if you'd like to
                     be attributed).
                 </p>
-
-                <ul>
-                    {previous && (
-                        <li>
-                            <Link
-                                to={previous.fields.path}
-                                rel="prev"
-                                title="Previous"
-                            >
-                                &lt; {previous.frontmatter.title}
-                            </Link>
-                        </li>
-                    )}
-                    {next && (
-                        <li>
-                            <Link to={next.fields.path} rel="next" title="Next">
-                                {next.frontmatter.title} &gt;
-                            </Link>
-                        </li>
-                    )}
-                </ul>
             </div>
 
             <div className={styles.sidebar}>
@@ -78,7 +119,7 @@ export default function BlogEntry({data, location}) {
                         >
                             cmmartti
                         </a>
-                        ), web developer and graphic designer.
+                        ), a web developer and graphic designer from the Toronto region.
                     </p>
                 </div>
                 <div>

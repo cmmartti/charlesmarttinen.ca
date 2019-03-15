@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, graphql} from 'gatsby';
+import {css} from 'emotion';
 
 import Layout from '../components/Layout';
 import ArticleExcerpt from '../components/ArticleExcerpt';
@@ -10,17 +11,20 @@ export default function TagsPage({location, pageContext, data}) {
 
     const tagHeader = `${totalCount} post${
         totalCount === 1 ? '' : 's'
-    } tagged with "${tag}"`;
+    } tagged with [${tag}]`;
 
     return (
         <Layout location={location}>
-            <p>
-                <Link to="/blog/tags/" className="underline-on-hover">
-                    &lt; All tags
-                </Link>
-            </p>
+            <div style={{padding: '0 var(--content-padding'}}>
+                <p>
+                    <Link to="/blog/tags/" className="underline-on-hover">
+                        &lt; All tags
+                    </Link>
+                </p>
 
-            <h1 style={{lineHeight: 1.2}}>{tagHeader}</h1>
+                <h1 style={{lineHeight: 1.2}}>{tagHeader}</h1>
+            </div>
+
             {edges.map(edge => {
                 const {
                     id,
