@@ -38,6 +38,7 @@ body {
 }
 
 #___gatsby > div {
+    padding: 0;
     padding: var(--body-padding);
 
     // Prevent Chrome for Android from boosting font sizes

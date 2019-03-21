@@ -3,6 +3,7 @@
 
     .content {
         flex: 4 1;
+        padding: 0 0 0 1em;
         padding: 0 0 0 var(--content-padding);
         display: flex;
         flex-direction: column;
@@ -49,6 +50,7 @@
         flex-direction: column;
 
         .content {
+            padding: 0 1em;
             padding: 0 var(--content-padding);
             :global(.gatsby-highlight) {
                 font-size: 0.825em;
@@ -58,6 +60,7 @@
             }
         }
         .sidebar {
+            margin: 1em 1em;
             margin: 1em var(--content-padding);
             padding: 0;
             max-width: 100%;

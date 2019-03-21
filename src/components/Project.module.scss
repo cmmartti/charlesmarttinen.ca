@@ -5,7 +5,9 @@
     background-color: white;
     border: 1px solid #ccd3db;
 
+    margin: 1em 0;
     margin: var(--content-padding) 0;
+    padding: 1em;
     padding: var(--content-padding);
 
     // &:not(:first-of-type) {
@@ -17,9 +19,11 @@
         background: none;
         height: 22em;
         overflow: hidden;
+        border-radius: 0;
         &:focus {
             outline: none;
         }
+        border: 1px solid red;
 
         :global(.nav-button) {
             height: 5em;

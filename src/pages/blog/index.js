@@ -1,5 +1,6 @@
 import React from 'react';
 import {graphql, useStaticQuery, Link} from 'gatsby';
+import {css} from 'emotion';
 
 import Layout from '../../components/Layout';
 import ArticleExcerpt from '../../components/ArticleExcerpt';
@@ -49,8 +50,12 @@ export default function CaseStudiesIndex({location}) {
     return (
         <Layout location={location}>
             <div
-                style={{padding: '0 var(--content-padding)'}}
-                className="typography"
+                className={
+                    css`
+                        padding: 0 1em;
+                        padding: 0 var(--content-padding);
+                    ` + ' typography'
+                }
             >
                 <h1>Writing</h1>
                 <p>

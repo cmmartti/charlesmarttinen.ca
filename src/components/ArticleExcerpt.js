@@ -15,16 +15,20 @@ function ArticleExcerpt({
 }) {
     return (
         <section
-            className={css`
-                background-color: white;
-                border: 1px solid #ccd3db;
-                margin: 0.75em 0;
-                padding: var(--content-padding);
+            className={
+                css`
+                    background-color: white;
+                    border: 1px solid #ccd3db;
+                    margin: 0.75em 0;
+                    padding: 1rem;
+                    padding: var(--content-padding);
 
-                /* Child element has partial margin-bottom (because of the margin on
+                    /* Child element has partial margin-bottom (because of the margin on
                     the floated image). */
-                padding-bottom: calc(var(--content-padding) - 0.5em);
-            ` + ' typography'}
+                    padding-bottom: 0.5em;
+                    padding-bottom: calc(var(--content-padding) - 0.5em);
+                ` + ' typography'
+            }
         >
             <h2 style={{lineHeight: 1.2, margin: 0}}>
                 <Link className="underline-on-hover" to={path}>

@@ -15,7 +15,14 @@ export default function TagsPage({location, pageContext, data}) {
 
     return (
         <Layout location={location}>
-            <div style={{padding: '0 var(--content-padding'}}>
+            <div
+                className={
+                    css`
+                        padding: 0 1em;
+                        padding: 0 var(--content-padding);
+                    ` + ' typography'
+                }
+            >
                 <p>
                     <Link to="/blog/tags/" className="underline-on-hover">
                         &lt; All tags

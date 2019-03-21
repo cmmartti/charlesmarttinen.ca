@@ -59,8 +59,12 @@ export default function ResumePage({location}) {
     return (
         <Layout location={location}>
             <div
-                style={{padding: '0 var(--content-padding)'}}
-                className="typography"
+                className={
+                    css`
+                        padding: 0 1em;
+                        padding: 0 var(--content-padding);
+                    ` + ' typography'
+                }
             >
                 <h1>Résumé</h1>
                 <p>

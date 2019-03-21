@@ -50,8 +50,12 @@ export default function HomePage({location}) {
     return (
         <Layout location={location}>
             <div
-                className="typography"
-                style={{padding: '0 var(--content-padding)'}}
+                className={
+                    css`
+                        padding: 0 1em;
+                        padding: 0 var(--content-padding);
+                    ` + ' typography'
+                }
             >
                 <h1>Web Developer and Graphic Designer</h1>
                 <h2>I like simplifying complexity.</h2>
@@ -63,6 +67,9 @@ export default function HomePage({location}) {
                             margin: 0 0 1em 1em;
                             display: block;
                             max-width: 12em;
+                            @media (max-width: 32em) {
+                                max-width: 8em;
+                            }
                         `}
                         src={image.childImageSharp.fluid.src}
                         alt="Me"
@@ -92,7 +99,7 @@ export default function HomePage({location}) {
 
                 <h2 id="projects">Projects</h2>
             </div>
-            <div className={styles.projects + ' typography'}>
+            <div className={styles.projects}>
                 {projects.edges.map(project => (
                     <Project
                         key={project.node.id}
