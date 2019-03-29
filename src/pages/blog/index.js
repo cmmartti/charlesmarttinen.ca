@@ -62,13 +62,13 @@ export default function CaseStudiesIndex({location}) {
                     Every once in a while, I pull out a notebook and pencil and
                     write about something that interests me.
                 </p>
-                <p>
+                {/* <p>
                     If you'd like to comment on something I've written,{' '}
                     <Link to="/contact.html">shoot me an email</Link>. If it's
                     of interest to others, I'll add it to the article as a
                     reader comment (please supply a name to use if you'd like to
                     be attributed).
-                </p>
+                </p> */}
             </div>
 
             {blogEntries.edges.map(edge => {

@@ -119,21 +119,24 @@ export default function BlogEntry({data, location}) {
                         >
                             cmmartti
                         </a>
-                        ), a web developer and graphic designer from the Toronto region.
+                        ), a web developer and graphic designer from the Toronto
+                        region.
                     </p>
                 </div>
-                <div>
-                    <h3>{related ? 'Related' : 'Archive'}</h3>
-                    <ul>
-                        {(related || archive).edges.map(edge => (
-                            <li key={edge.node.id}>
-                                <Link to={edge.node.fields.path}>
-                                    {edge.node.frontmatter.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                {(related || archive) && (
+                    <div>
+                        <h3>{related ? 'Related' : 'Archive'}</h3>
+                        <ul>
+                            {(related || archive).edges.map(edge => (
+                                <li key={edge.node.id}>
+                                    <Link to={edge.node.fields.path}>
+                                        {edge.node.frontmatter.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </Layout>
     );
