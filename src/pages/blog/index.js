@@ -59,7 +59,7 @@ export default function CaseStudiesIndex({location}) {
             >
                 <h1>Writing</h1>
                 <p>
-                    Every once in a while, I pull out a notebook and pencil and
+                    Every once in a while, I'll pull out a notebook and pencil and
                     write about something that interests me.
                 </p>
                 {/* <p>

@@ -5,6 +5,7 @@ dateUpdated: 2019-03-29T07:19:00.084Z
 title: Empty for now
 tags:
   - tag
-image: null
+image: /images/blank.png
+
 excerpt: null
 ---
