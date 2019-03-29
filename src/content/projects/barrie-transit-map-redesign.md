@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: Barrie Transit Map Redesign
 date: '2018-11-16'
 images:

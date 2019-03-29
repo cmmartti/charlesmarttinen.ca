@@ -6,18 +6,21 @@ import styles from './Project.module.scss';
 export default function Project({title, htmlBody, images}) {
     return (
         <div className={styles.project}>
-            <div className={styles.description + ' typography'}>
-                <h3>{title}</h3>
-                <div dangerouslySetInnerHTML={{__html: htmlBody}} />
+            <div className={styles.content}>
+                <div className="typography">
+                    <h3>{title}</h3>
+                    <div dangerouslySetInnerHTML={{__html: htmlBody}} />
+                </div>
+                <ImageScroller
+                    className={styles.imageScroller}
+                    components={{IndexButtonsContainer: () => null}}
+                >
+                    {images.map(image => (
+                        <img key={image.src} src={image.src} alt={image.alt} />
+                    ))}
+                </ImageScroller>
+                <div style={{clear: 'both'}} />
             </div>
-            <ImageScroller
-                className={styles.imageScroller}
-                components={{IndexButtonsContainer: () => null}}
-            >
-                {images.map(image => (
-                    <img key={image.src} src={image.src} alt={image.alt} />
-                ))}
-            </ImageScroller>
         </div>
     );
 }

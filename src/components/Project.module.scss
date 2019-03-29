@@ -1,7 +1,4 @@
 .project {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 2em;
     background-color: white;
     border: 1px solid #ccd3db;
 
@@ -9,89 +6,128 @@
     margin: var(--content-padding) 0;
     padding: 1em;
     padding: var(--content-padding);
+}
 
-    // &:not(:first-of-type) {
-    //     border-top: 1px solid #ccc;
-    // }
-
-    .imageScroller {
-        margin: 0 -1em;
-        background: none;
-        height: 22em;
-        overflow: hidden;
-        border-radius: 0;
-        &:focus {
-            outline: none;
+/*
+   Use a separate wrapper around the content to contain absolutely-positioned children
+   inside .project's padding box.
+*/
+.content {
+    /*
+       The image gallery comes last in the source order, but we want to float it as if
+       it came first. Solution: float a ::before pseudo element to create space, then
+       absolutely position the image gallery.
+    */
+    @media (min-width: 45em) {
+        position: relative;
+        &::before {
+            content: '';
+            float: right;
+            margin: 0 0 0.5em 0;
         }
-        border: 1px solid red;
-
-        :global(.nav-button) {
-            height: 5em;
-            width: 2.5em;
-            top: calc(50% - 2.5em);
-            background: rgba(hsl(210, 78%, 42%), 0.75);
-
-            box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
-            &--previous {
-                border-radius: 0 2.5em 2.5em 0;
-                left: -0.5em;
-            }
-            &--next {
-                border-radius: 2.5em 0 0 2.5em;
-                right: -0.5em;
-            }
-            &:active {
-                box-shadow: none;
-            }
-
-            &[disabled] {
-                display: none;
-            }
+        &::before,
+        .imageScroller {
+            width: 70%;
+            height: 31em;
         }
-        :global(.scroll-container) {
-            mask-image: linear-gradient(
-                to right,
-                transparent,
-                black 1em,
-                black calc(100% - 1em),
-                transparent
-            );
+        .imageScroller {
+            position: absolute;
+            right: 0;
+            top: 0;
         }
-        :global(.image-wrapper) {
-            margin-right: 1em;
-            &:first-of-type {
-                border-left: 1em solid transparent;
-            }
-            &:last-child {
-                border-right: 1em solid transparent;
-            }
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
-            }
-            &:hover {
-                &::after {
-                    // box-shadow: inset 0 0 6px 0 hsla(0, 0%, 0%, 50%);
-                    display: none;
-                }
-            }
-        }
-        :global(.index-buttons-container) {
-            left: 0;
-            transform: none;
-            justify-content: flex-start;
+    }
+
+    @media (max-width: 45em) {
+        .imageScroller {
+            margin-top: 1em;
+            margin-left: calc(-1 * var(--content-padding));
+            margin-right: calc(-1 * var(--content-padding));
         }
     }
 }
 
-@media (max-width: 54em) {
-    .project {
-        grid-template-columns: 1fr;
-        grid-gap: 1em;
+.imageScroller {
+    background: none;
+    overflow: hidden;
+    border-radius: 0;
+    &:focus {
+        outline: none;
+    }
+
+    :global(.nav-buttons-container) {
+        position: block;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0.5em;
+    }
+
+    :global(.nav-button) {
+        position: static;
+        height: auto;
+        width: auto;
+        background: hsl(210, 78%, 42%);
+        border-radius: 0.1em;
+
+        &:hover:not([disabled]) {
+            background: hsl(210, 78%, 47%);
+        }
+        &:active:not([disabled]) {
+            background: hsl(210, 78%, 38%);
+        }
+        &:focus {
+            outline: 4px solid hsl(39, 100%, 64%);
+        }
+        &[disabled] {
+            opacity: 0.5;
+            transition: opacity ease-out 0.15s;
+        }
+    }
+    :global(.nav-button) + :global(.nav-button) {
+        margin-left: 0.5em;
+    }
+    :global(.scroll-container) {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 1em,
+            black calc(100% - 1em),
+            transparent
+        );
+    }
+    :global(.image-wrapper) {
+        pointer-events: none;
+        > * {
+            pointer-events: auto;
+        }
+
+        margin-right: 1em;
+        &:first-of-type {
+            border-left: 1em solid transparent;
+            border-width: var(--content-padding);
+        }
+        &:last-child {
+            border-right: 1em solid transparent;
+            border-width: var(--content-padding);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
+        }
+        &:hover {
+            &::after {
+                // box-shadow: inset 0 0 6px 0 hsla(0, 0%, 0%, 50%);
+                display: none;
+            }
+        }
+    }
+    :global(.index-buttons-container) {
+        left: 0;
+        transform: none;
+        justify-content: flex-start;
     }
 }

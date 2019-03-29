@@ -1,6 +1,6 @@
 ---
 title: React Image Scroller
-order: 2
+order: 3
 date: '2018-12-12'
 images:
   - alt: 'A large, snow-covered, 10 foot fir tree beneath a canopy of spruce trees.'
@@ -17,6 +17,8 @@ images:
 
 _December 2018_
 
+**[Live demo](https://cmmartti.github.io/react-image-scroller/) • [Source code](https://github.com/cmartti/react-image-scroller)**
+
 Used on this page, a scrolling image gallery component for React. Unlike every other image gallery, this one is designed to show multiple images at once, without cropping them. It is not designed to be a cinematic experience, but an alternative to splashing a bunch of images on screen directly.
 
 <details><summary>Implementation Details</summary>
@@ -30,5 +32,3 @@ Used on this page, a scrolling image gallery component for React. Unlike every o
 </details>
 
 Published on npm as [react-image-scroller](https://www.npmjs.com/package/react-image-scroller).
-
-[View the source code on GitHub](https://github.com/cmmartti/react-image-scroller).

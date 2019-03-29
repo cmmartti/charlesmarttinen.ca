@@ -32,7 +32,7 @@ export default function HomePage({location}) {
                             images {
                                 src {
                                     childImageSharp {
-                                        fluid(maxHeight: 400) {
+                                        fluid(maxHeight: 1000) {
                                             src
                                         }
                                     }
@@ -94,7 +94,8 @@ export default function HomePage({location}) {
                 </p>
                 <p>
                     To read more about my skills and experience, see my{' '}
-                    <Link to="/resume.html">online résumé</Link>.
+                    <Link to="/resume.html">online résumé</Link> or have a look
+                    through some of my projects below.
                 </p>
 
                 <h2 id="projects">Projects</h2>
