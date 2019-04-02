@@ -80,7 +80,7 @@ export default function HomePage({location}) {
                 </p>
                 <p>
                     I primarily design and develop web applications and
-                    websites, but I have also done some print design, including
+                    websites, but I have also done some graphic design, including
                     re‑designing my city's transit map.
                 </p>
                 <h2>About Me</h2>

@@ -112,15 +112,21 @@ export default function BlogEntry({data, location}) {
                 <div>
                     <img src={portrait} alt="me" />
                     <p>
-                        Written by Charles Marttinen (
+                        I am Charles Marttinen (
                         <a
                             href="https://github.com/cmmartti"
                             title="GitHub profile"
                         >
                             cmmartti
                         </a>
-                        ), a web developer and graphic designer from the Toronto
-                        region.
+                        ), a web developer from the Toronto region.
+                    </p>
+                    <p>
+                        Every once in a while, I'll pull out a notebook and
+                        pencil and write about something that interests me.
+                    </p>
+                    <p>
+                        <a href="/rss.xml">RSS Feed</a>
                     </p>
                 </div>
                 {(related || archive) && (

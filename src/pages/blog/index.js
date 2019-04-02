@@ -59,8 +59,19 @@ export default function CaseStudiesIndex({location}) {
             >
                 <h1>Writing</h1>
                 <p>
-                    Every once in a while, I'll pull out a notebook and pencil and
-                    write about something that interests me.
+                    I am Charles Marttinen (
+                    <a
+                        href="https://github.com/cmmartti"
+                        title="GitHub profile"
+                    >
+                        cmmartti
+                    </a>
+                    ), a web developer from the Toronto region. Every once in a
+                    while, I'll pull out a notebook and pencil and write about
+                    something that interests me.{' '}
+                </p>
+                <p>
+                    <a href="/rss.xml">RSS Feed</a>
                 </p>
                 {/* <p>
                     If you'd like to comment on something I've written,{' '}
@@ -69,6 +80,7 @@ export default function CaseStudiesIndex({location}) {
                     reader comment (please supply a name to use if you'd like to
                     be attributed).
                 </p> */}
+                {/* <p /> */}
             </div>
 
             {blogEntries.edges.map(edge => {
