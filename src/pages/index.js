@@ -80,8 +80,12 @@ export default function HomePage({location}) {
                 </p>
                 <p>
                     I primarily design and develop web applications and
-                    websites, but I have also done some graphic design, including
-                    re‑designing my city's transit map.
+                    websites, but I have also done some graphic design,
+                    including{' '}
+                    <a href="/blog/barrie-transit-map.html">
+                        re‑designing my city's transit map
+                    </a>
+                    .
                 </p>
                 <h2>About Me</h2>
                 <p>
@@ -94,7 +98,7 @@ export default function HomePage({location}) {
                 </p>
                 <p>
                     To read more about my skills and experience, see my{' '}
-                    <Link to="/resume.html">online résumé</Link> or have a look
+                    <Link to="/resume.html">online résumé</Link> or look
                     through some of my projects below.
                 </p>
 

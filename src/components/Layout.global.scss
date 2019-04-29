@@ -1,6 +1,6 @@
 :root {
     font-family: Roboto, Akkurat, DIN, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    // font-size: 16px;
     line-height: 1.45;
     text-size-adjust: 100%;
     box-sizing: border-box;
@@ -15,18 +15,19 @@
     @media (max-width: 50rem) {
         --body-padding: 0.75rem;
         --content-padding: 0.75rem;
-        font-size: 17px;
+        // font-size: 17px;
     }
     @media (max-width: 30em) {
         --nav-padding: 0.25rem;
         --body-padding: 0.5rem;
         --content-padding: 0.75rem;
-        font-size: 18px;
+        // font-size: 18px;
+        line-height: 1.35;
     }
     @media (max-width: 23em) {
         --nav-padding: 0.5rem;
         --body-padding: 0rem;
-        font-size: 17px;
+        // font-size: 17px;
         line-height: 1.3;
     }
 }
@@ -105,19 +106,51 @@ ol {
     color: white;
 }
 
-.typography {
-    p {
-        font-size: 1em;
+.gatsby-resp-image-wrapper {
+    margin: 0 !important;
+    // display: inline-block !important;
+}
+
+.gatsby-resp-image-link {
+    // display: inline-block !important;
+    // min-width: 100px;
+    height: auto;
+    // background: red;
+
+    > * {
+        flex: 1 0;
     }
+}
+
+.typography {
+    //prettier-ignore
+    div, p, ul, ol, h1, h2, h3, h4, hr, details, figure {
+        // margin: 0;
+        & + *, div + & {
+            margin-top: 0.6em;
+        }
+    }
+
     //prettier-ignore
     h1, h2, h3, h4 {
         line-height: 1.25;
     }
-    //prettier-ignore
-    div, p, ul, ol, h1, h2, h3, h4, hr, details {
-        // margin: 0;
-        & + *, div + & {
-            margin-top: 0.6em;
+
+    p {
+        font-size: 1em;
+    }
+
+    figure {
+        margin: 1em 0;
+        background: white;
+
+        figcaption {
+            background: white;
+            padding: 0.325em 0.5em;
+            // color: dimgray;
+            font-size: 0.9em;
+            // font-weight: 600;
+            // line-height: 1.4;
         }
     }
 
@@ -139,6 +172,9 @@ ol {
             list-style-type: square;
         }
     }
+    ol {
+        list-style-type: decimal;
+    }
     ol ol {
         list-style-type: lower-latin;
     }
@@ -155,13 +191,13 @@ ol {
         border-radius: 0.2em;
         margin-left: -0.4em;
         padding: 0.1em 0.4em;
-        background: hsl(204, 17%, 95%);
-        &:hover {
-            background: hsl(204, 17%, 88%);
-        }
-        &:focus {
-            outline: 2px solid hsl(39, 100%, 64%);
-        }
+        // background: hsl(204, 17%, 95%);
+        // &:hover {
+        //     background: hsl(204, 17%, 88%);
+        // }
+        // &:focus {
+        //     outline: 2px solid hsl(39, 100%, 64%);
+        // }
     }
 }
 
@@ -245,11 +281,4 @@ html,
 [aria-disabled],
 [disabled] {
     cursor: auto;
-}
-
-.gatsby-resp-image-link {
-    // display: inline !important;
-}
-.gatsby-resp-image-wrapper {
-    margin: 0 !important;
 }

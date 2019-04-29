@@ -20,3 +20,6 @@
 [[redirects]]
   from = "/blog"
   to = "/blog/"
+[[redirects]]
+  from = "/map/barrie"
+  to = "/blog/barrie-transit-map.html"

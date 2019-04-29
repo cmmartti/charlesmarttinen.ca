@@ -3,7 +3,7 @@ import {Link} from 'gatsby';
 import {css} from 'emotion';
 
 import Layout from '../components/Layout';
-import resumePdf from '../assets/résumé.pdf';
+// import resumePdf from '../assets/résumé.pdf';
 
 function Section({title, children}) {
     return (
@@ -67,11 +67,11 @@ export default function ResumePage({location}) {
                 }
             >
                 <h1>Résumé</h1>
-                <p>
+                {/* <p>
                     You can download this résumé in PDF format{' '}
                     <a href={resumePdf}>here</a>. Thanks for taking a look at
                     it.
-                </p>
+                </p> */}
                 <p>
                     <Link to="/contact.html">Contact me</Link>, or view my{' '}
                     <a href="https://linkedin.com/in/charles-marttinen">

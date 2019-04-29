@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql, useStaticQuery, Link} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import {css} from 'emotion';
 
 import Layout from '../../components/Layout';
@@ -73,14 +73,6 @@ export default function CaseStudiesIndex({location}) {
                 <p>
                     <a href="/rss.xml">RSS Feed</a>
                 </p>
-                {/* <p>
-                    If you'd like to comment on something I've written,{' '}
-                    <Link to="/contact.html">shoot me an email</Link>. If it's
-                    of interest to others, I'll add it to the article as a
-                    reader comment (please supply a name to use if you'd like to
-                    be attributed).
-                </p> */}
-                {/* <p /> */}
             </div>
 
             {blogEntries.edges.map(edge => {

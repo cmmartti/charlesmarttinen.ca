@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import 'focus-visible/dist/focus-visible.min.js';
 
 import Navigation from './Navigation';
-import ViewportSize from './ViewportSize';
+// import ViewportSize from './ViewportSize';
 import './Layout.global.scss';
 
 export default function Layout({children, location, className, ...props}) {
@@ -44,7 +44,7 @@ export default function Layout({children, location, className, ...props}) {
                 <Navigation siteTitle={title} location={location} flip />
             </footer>
 
-            <ViewportSize />
+            {/* <ViewportSize /> */}
         </>
     );
 }

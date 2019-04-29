@@ -12,6 +12,7 @@ function PrevNext({previous, next}) {
             className={css`
                 list-style-type: none;
                 padding: 0;
+                margin-bottom: 1em;
 
                 display: flex;
                 justify-content: space-between;
@@ -83,6 +84,15 @@ export default function BlogEntry({data, location}) {
                     </article>
                 </div>
 
+                <hr />
+                <p>
+                    If you'd like to comment on something I've written,{' '}
+                    <Link to="/contact.html">shoot me an email</Link>. If it's
+                    of interest to others, I'll add it to the article as a
+                    reader comment (please supply a name to use if you'd like to
+                    be attributed).
+                </p>
+
                 <PrevNext
                     previous={
                         previous && {
@@ -97,15 +107,6 @@ export default function BlogEntry({data, location}) {
                         }
                     }
                 />
-
-                <hr />
-                <p>
-                    If you'd like to comment on something I've written,{' '}
-                    <Link to="/contact.html">shoot me an email</Link>. If it's
-                    of interest to others, I'll add it to the article as a
-                    reader comment (please supply a name to use if you'd like to
-                    be attributed).
-                </p>
             </div>
 
             <div className={styles.sidebar}>
@@ -129,11 +130,27 @@ export default function BlogEntry({data, location}) {
                         <a href="/rss.xml">RSS Feed</a>
                     </p>
                 </div>
-                {(related || archive) && (
+
+                {related.edges.length > 0 && (
                     <div>
-                        <h3>{related ? 'Related' : 'Archive'}</h3>
+                        <h3>Related</h3>
                         <ul>
-                            {(related || archive).edges.map(edge => (
+                            {related.edges.map(edge => (
+                                <li key={edge.node.id}>
+                                    <Link to={edge.node.fields.path}>
+                                        {edge.node.frontmatter.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {archive.edges.length > 0 && (
+                    <div>
+                        <h3>Archive</h3>
+                        <ul>
+                            {archive.edges.map(edge => (
                                 <li key={edge.node.id}>
                                     <Link to={edge.node.fields.path}>
                                         {edge.node.frontmatter.title}
@@ -159,13 +176,9 @@ export const pageQuery = graphql`
                 updated: dateUpdated(formatString: "MMMM D, YYYY")
                 updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
                 tags
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 500) {
-                            src
-                        }
-                    }
-                }
+            }
+            fields {
+                path
             }
         }
 

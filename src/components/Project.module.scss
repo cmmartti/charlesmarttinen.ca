@@ -6,6 +6,10 @@
     margin: var(--content-padding) 0;
     padding: 1em;
     padding: var(--content-padding);
+
+    &:focus {
+        outline: none;
+    }
 }
 
 /*
@@ -13,121 +17,136 @@
    inside .project's padding box.
 */
 .content {
+    .gallery {
+        display: flex;
+        flex-direction: column;
+
+        .scroller {
+            flex: 1;
+        }
+    }
+
     /*
        The image gallery comes last in the source order, but we want to float it as if
        it came first. Solution: float a ::before pseudo element to create space, then
-       absolutely position the image gallery.
+       absolutely position the image gallery in that space.
     */
     @media (min-width: 45em) {
         position: relative;
         &::before {
             content: '';
             float: right;
-            margin: 0 0 0.5em 0;
+            margin: 0 0 0.5em 1em;
+            // z-index: 100;
         }
         &::before,
-        .imageScroller {
+        .gallery {
             width: 70%;
             height: 31em;
         }
-        .imageScroller {
+        .gallery {
             position: absolute;
             right: 0;
             top: 0;
+        }
+        .text {
+            z-index: 101;
+            background: hsla(0, 0%, 100%, 0.5);
         }
     }
 
     @media (max-width: 45em) {
-        .imageScroller {
+        .gallery {
             margin-top: 1em;
             margin-left: calc(-1 * var(--content-padding));
             margin-right: calc(-1 * var(--content-padding));
+            height: 25em;
+        }
+        .navButtonsContainer {
+            margin-right: var(--content-padding);
         }
     }
 }
 
-.imageScroller {
-    background: none;
-    overflow: hidden;
-    border-radius: 0;
-    &:focus {
-        outline: none;
-    }
-
-    :global(.nav-buttons-container) {
-        position: block;
+.gallery {
+    .navButtonsContainer {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 0.5em;
-    }
 
-    :global(.nav-button) {
-        position: static;
-        height: auto;
-        width: auto;
-        background: hsl(210, 78%, 42%);
-        border-radius: 0.1em;
-
-        &:hover:not([disabled]) {
-            background: hsl(210, 78%, 47%);
-        }
-        &:active:not([disabled]) {
-            background: hsl(210, 78%, 38%);
-        }
-        &:focus {
-            outline: 4px solid hsl(39, 100%, 64%);
-        }
-        &[disabled] {
-            opacity: 0.5;
-            transition: opacity ease-out 0.15s;
-        }
-    }
-    :global(.nav-button) + :global(.nav-button) {
-        margin-left: 0.5em;
-    }
-    :global(.scroll-container) {
-        mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 1em,
-            black calc(100% - 1em),
-            transparent
-        );
-    }
-    :global(.image-wrapper) {
-        pointer-events: none;
-        > * {
-            pointer-events: auto;
+        > * + * {
+            margin-left: 0.5em;
         }
 
-        margin-right: 1em;
-        &:first-of-type {
-            border-left: 1em solid transparent;
-            border-width: var(--content-padding);
+        .countLabel {
+            font-style: italic;
         }
-        &:last-child {
-            border-right: 1em solid transparent;
-            border-width: var(--content-padding);
-        }
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-shadow: inset 0 0 3px 0 hsla(0, 0%, 0%, 50%);
-        }
-        &:hover {
-            &::after {
-                // box-shadow: inset 0 0 6px 0 hsla(0, 0%, 0%, 50%);
-                display: none;
+        .navButton {
+            background: hsl(210, 78%, 42%);
+            border-radius: 0.1em;
+            color: white;
+            border: none;
+
+            &:not([disabled]) {
+                &:hover {
+                    background: hsl(210, 78%, 47%);
+                }
+                &:active {
+                    background: hsl(210, 78%, 38%);
+                }
+                &:focus {
+                    outline: 4px solid hsl(39, 100%, 64%);
+                }
+            }
+            &[disabled] {
+                opacity: 0.5;
+                transition: opacity ease-out 0.15s;
             }
         }
     }
-    :global(.index-buttons-container) {
-        left: 0;
-        transform: none;
-        justify-content: flex-start;
+
+    .scroller {
+        display: flex;
+        overflow-x: auto;
+        &:focus {
+            outline: none;
+        }
+
+        // scrollbar-width: none;
+        // -ms-overflow-style: none;
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
+
+        > * {
+            margin-right: 1em;
+        }
+
+        .imageWrapper {
+            background: gray;
+
+            pointer-events: none;
+            * {
+                pointer-events: auto;
+            }
+
+            img {
+                width: auto;
+                height: 100%;
+                display: block;
+            }
+
+            // Overlaid inset shadow
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                box-shadow: inset 0 0 5px hsla(0, 0%, 0%, 0.5);
+            }
+        }
     }
 }

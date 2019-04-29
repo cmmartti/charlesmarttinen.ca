@@ -1,25 +1,32 @@
 ---
 order: 4
-title: Barrie Transit Map Redesign
+title: Barrie Transit Map Re-design
 date: '2018-11-16'
 images:
-  - src: /images/barrie-transit-map-lenses.png
-    alt: ''
-    title: ''
-  - src: /images/barrie-transit-map.png
-    alt: ''
-    title: ''
-  - src: /images/barrie-transit-map-key.png
-    alt: ''
-    title: ''
+    - src: /images/bus-map-barrie.png
+      alt: ''
+      title: ''
+    - src: /images/bus-map-barrie-back.png
+      alt: ''
+      title: ''
+    - src: /images/bus-map-barrie_slide2.png
+      alt: ''
+      title: ''
+    - src: /images/bus-map-barrie_slide3.png
+      alt: ''
+      title: ''
+    - src: /images/bus-map-barrie_slide1.png
+      alt: ''
+      title: ''
 ---
 
-_2018_
+A complete re-design of my local bus map with Adobe Illustrator and InDesign, focusing on usability.
 
-This project was born out of frustration with the [official map](https://www.barrie.ca/Living/Getting%20Around/BarrieTransit/Documents/Barrie-Transit-Network-Map.pdf) [PDF], which has the right idea but suffers greatly from poor execution, inconsistency, and a general case of ugliness. This re-design takes what the official map got right and corrects what it did poorly in a visually-pleasing manner.
+I documented the process in an illustrated post called **[Re&#8209;drawing the Barrie Transit Map](/blog/barrie-transit-map.html)** where I explain my thinking behind different parts of my design using some simple rules I came up with:
 
-Based on a street grid exported from [OpenStreetMaps](https://www.openstreetmap.org/#map=13/44.3748/-79.6832) and processed in [Maperitive](http://maperitive.net/) before being imported into Adobe Illustrator.
+1. The routes are the roads
+2. Routes must be easily traceable
+3. Use the correct scale
+4. Anticipate confusion
 
-[Read the full case study](/blog/barrie-transit-map.html)
-
-[Download the PDF](/static/barrie-transit-map.pdf)
+**[Blog post](/blog/barrie-transit-map.html) • [Download](/blog/barrie-transit-map.html#download)**

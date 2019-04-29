@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'gatsby';
-import {css} from 'emotion';
 
 import styles from './DateAndTags.module.scss';
 

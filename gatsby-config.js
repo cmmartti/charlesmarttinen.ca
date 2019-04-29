@@ -36,10 +36,14 @@ module.exports = {
                         // Automatic resizing, etc. for images used in Markdown files
                         resolve: 'gatsby-remark-images',
                         options: {
-                            withWebp: true,
+                            withWebp: false,
                             showCaptions: true,
                             quality: 100,
-                            wrapperStyle: '',
+                            maxWidth: 700,
+
+                            // fluidResult options: https://github.com/gatsbyjs/gatsby/blob/27e4a6ac8996138c1e14a1848ec3ce3eed057c12/packages/gatsby-plugin-sharp/src/index.js#L496
+                            // wrapperStyle: fluidResult =>
+                            //     `width:${fluidResult.presentationWidth}px;`,
                             linkImagesToOriginal: true,
                         },
                     },

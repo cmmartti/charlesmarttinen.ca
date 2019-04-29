@@ -52,15 +52,30 @@
     .page {
         flex-direction: column;
 
+        /*
+           Push code blocks and images to the very edge of the screen, while lining
+           up the text with the rest of the content.
+        */
         .content {
-            padding: 0 1em;
+            // padding: 0 1em;
             padding: 0 var(--content-padding);
+
+            --adjust-width: calc(var(--body-padding) + var(--content-padding));
+
             :global(.gatsby-highlight) {
                 font-size: 0.825em;
-                --gatsby-highlight-adjust-width: calc(
-                    var(--body-padding) + var(--content-padding)
-                );
+                --gatsby-highlight-adjust-width: var(--adjust-width);
             }
+
+            // figcaption,
+            // :global(.gatsby-resp-image-wrapper) {
+            //     margin-left: calc(-1 * var(--adjust-width)) !important;
+            //     margin-right: calc(-1 * var(--adjust-width)) !important;
+            // }
+            // figcaption {
+            //     padding-left: 1em;
+            //     padding-right: 1em;
+            // }
         }
         .sidebar {
             margin: 1em 1em;
