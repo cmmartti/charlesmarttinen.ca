@@ -1,7 +1,7 @@
 ---
 slug: barrie-transit-map
-datePublished: 2019-04-27T04:01
-dateUpdated: 2019-04-27T04:01
+datePublished: 2019-04-29T04:01
+dateUpdated: 2019-04-29T04:01
 title: Re-drawing the Barrie Transit Map
 tags:
     - map

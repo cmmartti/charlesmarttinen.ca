@@ -1,8 +1,8 @@
 ---
-slug: 2019-03-15-snowbrush
+slug: 2019-04-29-snowbrush-lighter-is-better
 title: 'Tales of a snow brush: Lighter is better'
-datePublished: 2019-04-27T04:00
-dateUpdated: 2019-04-27T04:00
+datePublished: 2019-04-29T04:00
+dateUpdated: 2019-04-29T04:00
 image: /images/blank.png
 tags: []
 excerpt: |
