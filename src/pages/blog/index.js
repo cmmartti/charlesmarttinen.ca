@@ -48,7 +48,7 @@ export default function CaseStudiesIndex({location}) {
     `);
 
     return (
-        <Layout location={location}>
+        <Layout location={location} title="Writing">
             <div
                 className={
                     css`

@@ -68,7 +68,7 @@ export default function BlogEntry({data, location}) {
     const portrait = data.portrait.childImageSharp.resize.src;
 
     return (
-        <Layout location={location} className={styles.page}>
+        <Layout location={location} className={styles.page} title={title}>
             <div className={styles.content}>
                 <div style={{flex: 1}} className="typography">
                     <p>

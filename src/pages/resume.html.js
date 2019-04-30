@@ -57,7 +57,7 @@ function Section({title, children}) {
 
 export default function ResumePage({location}) {
     return (
-        <Layout location={location}>
+        <Layout location={location} title="Résumé">
             <div
                 className={
                     css`

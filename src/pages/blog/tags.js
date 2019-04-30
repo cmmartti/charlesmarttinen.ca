@@ -19,7 +19,7 @@ export default function TagsPage({location}) {
     `);
 
     return (
-        <Layout location={location}>
+        <Layout location={location} title="Tags">
             <div>
                 <h1>Tags</h1>
                 <ul>

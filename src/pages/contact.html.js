@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 
 const ContactPage = ({location}) => (
     <Layout
+        title="Contact"
         location={location}
         className={
             css`

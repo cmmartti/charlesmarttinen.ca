@@ -9,7 +9,13 @@ import Navigation from './Navigation';
 // import ViewportSize from './ViewportSize';
 import './Layout.global.scss';
 
-export default function Layout({children, location, className, ...props}) {
+export default function Layout({
+    children,
+    location,
+    className,
+    title,
+    ...props
+}) {
     const data = useStaticQuery(
         graphql`
             query {
@@ -21,11 +27,11 @@ export default function Layout({children, location, className, ...props}) {
             }
         `
     );
-    const title = data.site.siteMetadata.title;
+    const siteTitle = data.site.siteMetadata.title;
     return (
         <>
             <Helmet
-                title={title}
+                title={title ? `${title} - ${siteTitle}` : siteTitle}
                 // meta={[
                 //     {name: 'description', content: 'Sample'},
                 //     {name: 'keywords', content: 'sample, something'},
@@ -35,13 +41,13 @@ export default function Layout({children, location, className, ...props}) {
             </Helmet>
 
             <header className="site-header">
-                <Navigation siteTitle={title} location={location} />
+                <Navigation siteTitle={siteTitle} location={location} />
             </header>
             <main className={classNames('site-content', className)} {...props}>
                 {children}
             </main>
             <footer className="site-footer">
-                <Navigation siteTitle={title} location={location} flip />
+                <Navigation siteTitle={siteTitle} location={location} flip />
             </footer>
 
             {/* <ViewportSize /> */}
