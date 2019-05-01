@@ -1,18 +1,13 @@
 import React from 'react';
-import {css} from 'emotion';
 
 import Layout from '../components/Layout';
+import styles from './contact.module.scss';
 
 const ContactPage = ({location}) => (
     <Layout
         title="Contact"
         location={location}
-        className={
-            css`
-                padding: 0 1em;
-                padding: 0 var(--content-padding);
-            ` + ' typography'
-        }
+        className={styles.page}
     >
         <h1>Contact Me</h1>
         <p>

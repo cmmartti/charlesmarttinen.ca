@@ -1,11 +1,11 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
-import {css} from 'emotion';
 
 import Layout from '../../components/Layout';
 import ArticleExcerpt from '../../components/ArticleExcerpt';
+import styles from './index.module.scss';
 
-export default function CaseStudiesIndex({location}) {
+export default function BlogIndex({location}) {
     const {blogEntries} = useStaticQuery(graphql`
         query {
             blogEntries: allMarkdownRemark(
@@ -38,7 +38,7 @@ export default function CaseStudiesIndex({location}) {
                             }
                         }
                         fields {
-                            excerpt
+                            excerptHtml
                             path
                         }
                     }
@@ -49,14 +49,7 @@ export default function CaseStudiesIndex({location}) {
 
     return (
         <Layout location={location} title="Writing">
-            <div
-                className={
-                    css`
-                        padding: 0 1em;
-                        padding: 0 var(--content-padding);
-                    ` + ' typography'
-                }
-            >
+            <div className={styles.intro}>
                 <h1>Writing</h1>
                 <p>
                     I am Charles Marttinen (
@@ -76,8 +69,9 @@ export default function CaseStudiesIndex({location}) {
             </div>
 
             {blogEntries.edges.map(edge => {
+                const {id, html} = edge.node;
+                const {excerptHtml, path} = edge.node.fields;
                 const {
-                    id,
                     title,
                     published,
                     publishedISO,
@@ -99,9 +93,9 @@ export default function CaseStudiesIndex({location}) {
                         }}
                         tags={tags}
                         image={image && image.childImageSharp.resize.src}
-                        excerptHtml={edge.node.fields.excerpt}
-                        bodyHtml={edge.node.html}
-                        path={edge.node.fields.path}
+                        excerptHtml={excerptHtml}
+                        bodyHtml={html}
+                        path={path}
                     />
                 );
             })}

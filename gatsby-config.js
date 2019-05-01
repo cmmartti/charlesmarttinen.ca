@@ -96,7 +96,7 @@ module.exports = {
                                     query.site.siteMetadata.siteUrl +
                                     fields.path;
                                 return {
-                                    description: fields.excerpt,
+                                    description: fields.excerptHtml,
                                     title: frontmatter.title,
                                     date: frontmatter.datePublished,
                                     url,
@@ -128,7 +128,7 @@ module.exports = {
                                         node {
                                             html
                                             frontmatter {datePublished title tags}
-                                            fields {excerpt path}
+                                            fields {excerptHtml path}
                                         }
                                     }
                                 }
@@ -142,7 +142,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sass',
             options: {
-                includePaths: ['src/theme'],
+                includePaths: ['src/'],
             },
         },
         'gatsby-plugin-react-svg',

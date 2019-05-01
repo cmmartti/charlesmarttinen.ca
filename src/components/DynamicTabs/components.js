@@ -1,14 +1,11 @@
 import React from 'react';
-import {css} from 'emotion';
 import classNames from 'classnames';
 
 export function Container({classNamePrefix, menuIsOpen, children, innerProps}) {
     return (
         <div
+            style={{display: 'flex'}}
             className={classNames({
-                [css`
-                    display: flex;
-                `]: true,
                 [classNamePrefix + '__container']: true,
                 [classNamePrefix + '__container--menu-is-open']: menuIsOpen,
             })}
@@ -28,11 +25,8 @@ export function TabContainer({
 }) {
     return (
         <div
+            style={{display: 'flex', minWidth: 0}}
             className={classNames({
-                [css`
-                    display: flex;
-                    min-width: 0;
-                `]: true,
                 [classNamePrefix + '__tab-container']: true,
                 [classNamePrefix + '__tab-container--menu-is-open']: menuIsOpen,
             })}
@@ -53,10 +47,8 @@ export function MenuContainer({
 }) {
     return (
         <div
+            style={{position: 'relative'}}
             className={classNames({
-                [css`
-                    position: relative;
-                `]: true,
                 [classNamePrefix + '__menu-container']: true,
                 [classNamePrefix +
                 '__menu-container--menu-is-open']: menuIsOpen,
@@ -97,13 +89,13 @@ export function MenuButton({
 export function Menu({classNamePrefix, children, innerProps}) {
     return (
         <div
+            style={{
+                position: 'absolute',
+                right: 0,
+                display: 'flex',
+                flexDirection: 'column',
+            }}
             className={classNames({
-                [css`
-                    position: absolute;
-                    right: 0;
-                    display: flex;
-                    flex-direction: column;
-                `]: true,
                 [classNamePrefix + '__menu']: true,
             })}
             {...innerProps}

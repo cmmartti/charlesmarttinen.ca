@@ -1,0 +1,11 @@
+@page {
+    margin: 0mm;
+
+    @bottom-right {
+        content: '';
+    }
+
+    @bottom-left {
+        content: '';
+    }
+}

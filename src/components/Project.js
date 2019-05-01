@@ -44,7 +44,7 @@ export default function Project({title, htmlBody, images}) {
             onClick={e => e.target.focus()}
         >
             <div className={styles.content}>
-                <div className={'typography ' + styles.text}>
+                <div className={styles.text}>
                     <h3>{title}</h3>
                     <div dangerouslySetInnerHTML={{__html: htmlBody}} />
                 </div>

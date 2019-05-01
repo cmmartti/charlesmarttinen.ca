@@ -1,3 +1,5 @@
+@import 'shared';
+
 .page {
     display: flex;
 
@@ -7,6 +9,44 @@
         padding: 0 0 0 var(--content-padding);
         display: flex;
         flex-direction: column;
+
+        .text {
+            @extend %typography;
+
+            flex: 1;
+            .title {
+                line-height: 1.2;
+            }
+        }
+
+        .prevnext {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1em;
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            > * {
+                min-width: 15em;
+                list-style: none;
+                flex: 1 1;
+                margin-top: 1em;
+                @media (max-width: 19em) {
+                    min-width: 100%;
+                }
+            }
+
+            .prev {
+                margin-right: 2em;
+            }
+            .next {
+                text-align: right;
+                &:first-child {
+                    flex: 1;
+                }
+            }
+        }
     }
 
     .sidebar {

@@ -1,0 +1,8 @@
+@import 'shared';
+
+.intro {
+    @extend %typography;
+
+    padding: 0 1em;
+    padding: 0 var(--content-padding);
+}

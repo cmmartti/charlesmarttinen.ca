@@ -1,6 +1,5 @@
 import React from 'react';
 import {graphql, Link, useStaticQuery} from 'gatsby';
-import {css} from 'emotion';
 
 import Layout from '../components/Layout';
 import Project from '../components/Project';
@@ -49,28 +48,13 @@ export default function HomePage({location}) {
 
     return (
         <Layout location={location}>
-            <div
-                className={
-                    css`
-                        padding: 0 1em;
-                        padding: 0 var(--content-padding);
-                    ` + ' typography'
-                }
-            >
+            <div className={styles.intro}>
                 <h1>Web Developer and Graphic Designer</h1>
                 <h2>I like simplifying complexity.</h2>
 
                 <p>
                     <img
-                        className={css`
-                            float: right;
-                            margin: 0 0 1em 1em;
-                            display: block;
-                            max-width: 12em;
-                            @media (max-width: 32em) {
-                                max-width: 8em;
-                            }
-                        `}
+                        className={styles.picture}
                         src={image.childImageSharp.fluid.src}
                         alt="Me"
                     />
@@ -98,13 +82,13 @@ export default function HomePage({location}) {
                 </p>
                 <p>
                     To read more about my skills and experience, see my{' '}
-                    <Link to="/resume.html">online résumé</Link> or look
-                    through some of my projects below.
+                    <Link to="/resume.html">online résumé</Link> or look through
+                    some of my projects below.
                 </p>
 
                 <h2 id="projects">Projects</h2>
             </div>
-            <div className={styles.projects}>
+            <div>
                 {projects.edges.map(project => (
                     <Project
                         key={project.node.id}

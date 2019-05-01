@@ -1,35 +1,24 @@
 import React from 'react';
 import {Link, graphql} from 'gatsby';
-import {css} from 'emotion';
 
 import Layout from '../components/Layout';
 import ArticleExcerpt from '../components/ArticleExcerpt';
+import styles from './TagPage.module.scss';
 
 export default function TagsPage({location, pageContext, data}) {
     const {tag} = pageContext;
     const {edges, totalCount} = data.allMarkdownRemark;
 
-    const tagHeader = `${totalCount} post${
-        totalCount === 1 ? '' : 's'
-    } tagged with [${tag}]`;
-
     return (
         <Layout location={location}>
-            <div
-                className={
-                    css`
-                        padding: 0 1em;
-                        padding: 0 var(--content-padding);
-                    ` + ' typography'
-                }
-            >
+            <div className={styles.intro}>
                 <p>
-                    <Link to="/blog/tags/" className="underline-on-hover">
-                        &lt; All tags
-                    </Link>
+                    <Link to="/blog/tags/">&lt; All tags</Link>
                 </p>
 
-                <h1 style={{lineHeight: 1.2}}>{tagHeader}</h1>
+                <h1 className={styles.title}>{`${totalCount} post${
+                    totalCount === 1 ? '' : 's'
+                } tagged with [${tag}]`}</h1>
             </div>
 
             {edges.map(edge => {
@@ -43,7 +32,12 @@ export default function TagsPage({location, pageContext, data}) {
                     tags,
                     image,
                 } = edge.node.frontmatter;
-                const dates = {published, publishedISO, updated, updatedISO};
+                const dates = {
+                    published,
+                    publishedISO,
+                    updated,
+                    updatedISO,
+                };
 
                 return (
                     <ArticleExcerpt
@@ -52,7 +46,7 @@ export default function TagsPage({location, pageContext, data}) {
                         dates={dates}
                         tags={tags}
                         image={image && image.childImageSharp.fluid.src}
-                        excerptHtml={edge.node.fields.excerpt}
+                        excerptHtml={edge.node.fields.excerptHtml}
                         bodyHtml={edge.node.html}
                         path={edge.node.fields.path}
                     />
@@ -95,7 +89,7 @@ export const pageQuery = graphql`
                         }
                     }
                     fields {
-                        excerpt
+                        excerptHtml
                         path
                     }
                 }

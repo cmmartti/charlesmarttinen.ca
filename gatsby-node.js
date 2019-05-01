@@ -14,7 +14,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
         });
 
         // Make the HTML excerpt available from the fields field:
-        // query {allMarkdownRemark {edges {node {fields {excerpt}}}}}
+        // query {allMarkdownRemark {edges {node {fields {excerptHtml}}}}}
         const {excerpt} = node.frontmatter;
         let value = null;
         if (excerpt !== null && excerpt !== '' && excerpt !== '\n') {
@@ -25,7 +25,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
         }
         actions.createNodeField({
             node,
-            name: 'excerpt',
+            name: 'excerptHtml',
             value: value,
         });
     }

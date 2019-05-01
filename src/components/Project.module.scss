@@ -1,3 +1,5 @@
+@import 'shared';
+
 .project {
     background-color: white;
     border: 1px solid #ccd3db;
@@ -17,6 +19,9 @@
    inside .project's padding box.
 */
 .content {
+    .text {
+        @extend %typography;
+    }
     .gallery {
         display: flex;
         flex-direction: column;

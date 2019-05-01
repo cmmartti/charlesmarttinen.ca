@@ -1,56 +1,19 @@
 import React from 'react';
-import {Link} from 'gatsby';
-import {css} from 'emotion';
 
 import Layout from '../components/Layout';
-// import resumePdf from '../assets/résumé.pdf';
+import styles from './resume.module.scss';
+
+import pdf from '../marttinen-charles_resume.pdf';
+import GithubLogoSvg from '../assets/github-octocat.svg';
+import LinkedInLogoSvg from '../assets/linkedin-in.svg';
+import EnvelopeSvg from '../assets/envelope.svg';
+import PhoneSvg from '../assets/phone.svg';
 
 function Section({title, children}) {
     return (
-        <div
-            className={css`
-                display: flex;
-                margin: 1em 0;
-                @media (max-width: 45em) {
-                    display: block;
-                    margin-bottom: 2em;
-                }
-            `}
-        >
-            <h2
-                className={css`
-                    flex: 1;
-                    min-width: 0em;
-                    max-width: 20em;
-                    text-align: right;
-                    padding-top: 0.5em;
-                    margin-right: 0.25em;
-                    @media (max-width: 45em) {
-                        max-width: none;
-                        text-align: left;
-                        padding: 0;
-                    }
-                `}
-            >
-                {title}
-            </h2>
-            <div
-                className={
-                    css`
-                        flex: 4.75;
-                        min-width: 0;
-                        margin: 0 0.5em;
-
-                        & > * {
-                            border-left: 1px solid black;
-                            padding-left: 0.75em;
-                            margin-bottom: 1em;
-                        }
-                    ` + ' typography'
-                }
-            >
-                {children}
-            </div>
+        <div className={styles.section}>
+            <h2 className={styles.title}>{title}</h2>
+            <div className={styles.content}>{children}</div>
         </div>
     );
 }
@@ -58,161 +21,161 @@ function Section({title, children}) {
 export default function ResumePage({location}) {
     return (
         <Layout location={location} title="Résumé">
-            <div
-                className={
-                    css`
-                        padding: 0 1em;
-                        padding: 0 var(--content-padding);
-                    ` + ' typography'
-                }
-            >
-                <h1>Résumé</h1>
-                {/* <p>
-                    You can download this résumé in PDF format{' '}
-                    <a href={resumePdf}>here</a>. Thanks for taking a look at
-                    it.
-                </p> */}
-                <p>
-                    <Link to="/contact.html">Contact me</Link>, or view my{' '}
-                    <a href="https://linkedin.com/in/charles-marttinen">
-                        LinkedIn profile
-                    </a>
-                    .
-                </p>
-                <hr />
+            <div className={styles.page}>
+                <div className="noprint">
+                    <p>
+                        <a href={pdf}>Download PDF</a>
+                    </p>
+                    <hr />
+                </div>
+
+                <div className={styles.header}>
+                    <h1 className={styles.title}>Charles Marttinen</h1>
+                    <div className={styles.contact}>
+                        <div>
+                            <p>
+                                <PhoneSvg aria-label="Telephone" />{' '}
+                                <a href="tel:+17057704095">
+                                    +1&nbsp;705&#8209;770&#8209;4095
+                                </a>
+                            </p>
+                            <p>
+                                <EnvelopeSvg aria-label="E-mail" />{' '}
+                                <a href="mailto:mail@charlesmarttinen.ca">
+                                    mail@charlesmarttinen.ca
+                                </a>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <GithubLogoSvg aria-label="GitHub" />{' '}
+                                <a
+                                    href="https://github.com/cmmartti"
+                                    target="_blank"
+                                >
+                                    GitHub.com/cmmartti
+                                </a>
+                            </p>
+                            <p>
+                                <LinkedInLogoSvg aria-label="Linked In" />{' '}
+                                <a
+                                    href="https://www.linkedin.com/in/cmmartti/"
+                                    target="_blank"
+                                >
+                                    Linkedin.com/in/cmmartti
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <Section title="Summary">
+                    <div>
+                        <p>
+                            Full stack developer experienced in designing and
+                            building web applications and APIs in React and
+                            Python/PHP.
+                        </p>
+                    </div>
+                </Section>
+
                 <Section title="Skills">
-                    <div>
-                        <h3>Front-end</h3>
-                        <p>
-                            I am proficient in modern JavaScript, the DOM,
-                            React, semantic HTML, and CSS (with Sass). I enjoy
-                            creating custom CSS styles from scratch (like on
-                            this site), and I have experience creating
-                            fully-accessible custom input elements, like menus
-                            and search-ahead dropdowns.
-                        </p>
-                    </div>
+                    <h3>Front-end/Browser</h3>
+                    <ul>
+                        <li>
+                            JavaScript (ES5+): browser DOM API, React, Redux,
+                            GraphQL and REST APIs, jQuery
+                        </li>
+                        <li>Familiar with React-Native</li>
+                        <li>Accessible HTML and advanced CSS (Sass)</li>
+                    </ul>
 
-                    <div>
-                        <h3>Back-end</h3>
-                        <p>
-                            I have used Python, Node, and PHP to create
-                            applications and APIs on top of relational
-                            databases. At my previous job, using PHP and Symfony
-                            Framework, I started the re‑development of the
-                            internal inventory system which involved writing
-                            high performance SQL queries to interface with a
-                            legacy Oracle database.
-                        </p>
-                        <p>
-                            More recently, I have created a large, open-source
-                            GraphQL API for{' '}
-                            <a href="https://pokeapi.co">PokéAPI</a> using
-                            Python, Django, and{' '}
-                            <a href="https://graphene-python.org/">
-                                Graphene-Python
-                            </a>
-                            .
-                        </p>
-                    </div>
+                    <h3>Back-end</h3>
+                    <ul>
+                        <li>
+                            Python (Django), Graphene-Python (GraphQL
+                            server), PHP (Symfony Framework), Node.js
+                        </li>
+                        <li>SQL (Oracle, MySQL, PostgresQL)</li>
+                    </ul>
 
-                    <div>
-                        <p>Test-driven development (large GraphQL API)</p>
-                    </div>
-
-                    <div>
-                        <h3>Languages</h3>
-                        <p>
-                            JavaScript (ES6+), HTML, CSS, Python, PHP, SQL
-                            (Oracle, MySQL, PostgresQL).
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3>Libraries</h3>
-                        <p>
-                            React, Graphene-Python (GraphQL), Apollo GraphQL,
-                            Symfony Framework (PHP), and jQuery, among others.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3>Design</h3>
-                        <p>Adobe Illustrator, InDesign, Photoshop</p>
-                        <p>UI/UX design</p>
-                    </div>
+                    <h3>Design</h3>
+                    <ul>
+                        <li>UI design focusing on usability and UX</li>
+                        <li>
+                            Adobe Suite (XD, Illustrator, InDesign, Photoshop)
+                        </li>
+                        <li>Vector graphics and logos</li>
+                    </ul>
                 </Section>
+
                 <Section title="Education">
-                    <div>
-                        <h3>Self-directed learning</h3>
-                        <p>Spring 2018–Present</p>
-                        <p>
-                            <em>See </em>
-                        </p>
-                    </div>
+                    <h3>Self-directed</h3>
+                    <p>
+                        <em>Web Development</em> / Spring 2018 – Present
+                        (full-time)
+                    </p>
+                    <h3>Georgian College of Applied Arts and Technology</h3>
+                    <p>
+                        Diploma in <em>Graphic Design Production</em> / Fall
+                        2016 – Spring 2018
+                    </p>
+                    <h3>Ontario Secondary School Diploma</h3>
+                    <p>2013</p>
+                </Section>
 
-                    <div>
-                        <h3>Georgian College of Applied Arts and Technology</h3>
-                        <p>Graphic Design Production</p>
-                        <p>Fall 2016—Spring 2018</p>
-                    </div>
+                <Section title="Experience">
+                    <h3>
+                        <a href="https://pokeapi.co">PokéAPI</a> (Open Source
+                        Public REST API)
+                    </h3>
+                    <p>
+                        <em>Core Maintainer (volunteer)</em> / Summer 2018 –
+                        Present
+                    </p>
+                    <p>
+                        I re-built and maintain the website, handle support
+                        requests, and helped migrate to new static hosting.
+                    </p>
+
+                    <h3>Port of Wilmington, Delaware</h3>
+                    <p>
+                        <em>Software Programmer</em> / March 2015 – May 2016
+                    </p>
+                    <ul>
+                        <li>
+                            Redesigned and began long-term rebuild of company
+                            Intranet based on Symfony Framework (PHP)
+                        </li>
+                        <li>
+                            Built pilots of web-based forklift-mounted tablet
+                            system for managing pallet movements within
+                            warehouses and mobile web-app for tracking shipping
+                            container movements for use in the field (React)
+                        </li>
+                        <li>Created and used REST and SOAP web APIs</li>
+                    </ul>
+
+                    <h3>The City of Barrie</h3>
+                    <p>
+                        <em>Facilities Generalist</em> / Spring 2014 – March
+                        2015
+                    </p>
+                    <p>
+                        Cleaned two public buildings and handled minor repairs.
+                    </p>
+
+                    <h3>Marttinen Finish Carpentry</h3>
+                    <p>2009–2014, Spring/Summer 2017</p>
                 </Section>
-                <Section title="Work Experience">
-                    <div>
-                        <h3>Port of Wilmington, Delaware</h3>
-                        <em>Software Programmer</em>
-                        <p>March 2015–May 2016</p>
-                        <ul>
-                            <li>
-                                Focused on graphic and user experience design
-                            </li>
-                            <li>
-                                Redesigned and began long-term rebuild of
-                                company Intranet
-                            </li>
-                            <li>
-                                Designed and built web-based forklift-mounted
-                                tablet system for managing pallet movements
-                                within warehouses
-                            </li>
-                            <li>
-                                Designed and built mobile web-app for tracking
-                                shipping container movements for use in the
-                                field
-                            </li>
-                            <li>Created and used REST and SOAP web APIs</li>
-                            <li>
-                                Used the following technologies extensively:
-                                Oracle SQL , PHP, CSS/HTML, JavaScript, Symfony2
-                                framework, React.js
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>The City of Barrie</h3>
-                        <p>Facilities Generalist</p>
-                        <p>Spring 2014–March 2015</p>
-                        <p>
-                            Cleaned two public buildings and handled minor
-                            repairs
-                        </p>
-                    </div>
-                    <div>
-                        <h3>Marttinen Finish Carpentry</h3>
-                        <p>Finish Carpenter</p>
-                        <p>January 2009–March 2014</p>
-                        <p>April 2017–August 2017</p>
-                    </div>
-                </Section>
-                <Section title="Certifi&shy;cations">
-                    <div>
-                        <h3>
-                            <a href="http://www.zend.com/en/yellow-pages/ZEND027372">
-                                Zend Certified PHP Engineer
-                            </a>
-                        </h3>
-                        <p>July 2015</p>
-                    </div>
+
+                <Section title="Misc.">
+                    <h3>
+                        <a href="http://www.zend.com/en/yellow-pages/ZEND027372">
+                            Zend PHP Engineer Certification
+                        </a>{' '}
+                    </h3>
+                    <p>July 2015</p>
                 </Section>
             </div>
         </Layout>
