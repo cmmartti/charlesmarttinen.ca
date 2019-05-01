@@ -72,7 +72,7 @@
         min-width: 0;
         margin: 0 0.25em;
         border-left: 1px solid black;
-        padding-left: 0.6em;
+        padding: 0.2em 0 0.2em 0.6em;
         > * + * {
             margin-top: 1em;
         }
@@ -94,7 +94,7 @@
             bottom: 0;
         }
 
-        h3 {
+        h3:not(:first-child) {
             margin: 0.5em 0 0 0;
             font-size: 1em;
         }
