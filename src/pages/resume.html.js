@@ -73,8 +73,8 @@ export default function ResumePage({location}) {
                     <div>
                         <p>
                             Full stack developer experienced in designing and
-                            building web applications and APIs in React and
-                            Python/PHP.
+                            building web applications and APIs in JavaScript
+                            (React + TypeScript) and Python/Node/PHP.
                         </p>
                     </div>
                 </Section>
@@ -83,20 +83,23 @@ export default function ResumePage({location}) {
                     <h3>Front-end/Browser</h3>
                     <ul>
                         <li>
-                            JavaScript (ES5+): browser DOM API, React, Redux,
-                            GraphQL and REST APIs, jQuery
+                            JavaScript (ES5+): browser DOM API, TypeScript,
+                            React, Redux, GatsbyJS, GraphQL and REST APIs,
+                            jQuery
                         </li>
-                        <li>Familiar with React-Native</li>
                         <li>Accessible HTML and advanced CSS (Sass)</li>
                     </ul>
 
                     <h3>Back-end</h3>
                     <ul>
                         <li>
-                            Python (Django), Graphene-Python (GraphQL
-                            server), PHP (Symfony Framework), Node.js
+                            Node.js with TypeScript, Python (Django),
+                            Graphene-Python (GraphQL server), PHP (Symfony
+                            Framework)
                         </li>
                         <li>SQL (Oracle, MySQL, PostgresQL)</li>
+                        <li>Firebase, CircleCI, Linux, Netlify</li>
+                        <li>Test-driven development</li>
                     </ul>
 
                     <h3>Design</h3>
@@ -109,25 +112,10 @@ export default function ResumePage({location}) {
                     </ul>
                 </Section>
 
-                <Section title="Education">
-                    <h3>Self-directed</h3>
-                    <p>
-                        <em>Web Development</em> / Spring 2018 – Present
-                        (full-time)
-                    </p>
-                    <h3>Georgian College of Applied Arts and Technology</h3>
-                    <p>
-                        Diploma in <em>Graphic Design Production</em> / Fall
-                        2016 – Spring 2018
-                    </p>
-                    <h3>Ontario Secondary School Diploma</h3>
-                    <p>2013</p>
-                </Section>
-
                 <Section title="Experience">
                     <h3>
-                        <a href="https://pokeapi.co">PokéAPI</a> (Open Source
-                        Public REST API)
+                        <a href="https://pokeapi.co">PokéAPI</a> (open source
+                        public REST API for Pokémon data)
                     </h3>
                     <p>
                         <em>Core Maintainer (volunteer)</em> / Summer 2018 –
@@ -135,7 +123,14 @@ export default function ResumePage({location}) {
                     </p>
                     <p>
                         I re-built and maintain the website, handle support
-                        requests, and helped migrate to new static hosting.
+                        requests, and helped migrate to new static hosting on
+                        Firebase with automated deployments using CircleCI.
+                    </p>
+
+                    <h3>Marttinen Finish Carpentry</h3>
+                    <p>
+                        <em>Finish Carpenter</em> / July 2019 – Present, January
+                        – May 2017, 2009 – 2014
                     </p>
 
                     <h3>Port of Wilmington, Delaware</h3>
@@ -164,9 +159,21 @@ export default function ResumePage({location}) {
                     <p>
                         Cleaned two public buildings and handled minor repairs.
                     </p>
+                </Section>
 
-                    <h3>Marttinen Finish Carpentry</h3>
-                    <p>2009–2014, Spring/Summer 2017</p>
+                <Section title="Education">
+                    <h3>Self-directed</h3>
+                    <p>
+                        <em>Web Development</em> / May 2018 – June 2019
+                        (full-time)
+                    </p>
+                    <h3>Georgian College of Applied Arts and Technology</h3>
+                    <p>
+                        Diploma in <em>Graphic Design Production</em> /
+                        September 2016 – May 2018
+                    </p>
+                    <h3>Ontario Secondary School Diploma</h3>
+                    <p>2013</p>
                 </Section>
 
                 <Section title="Misc.">

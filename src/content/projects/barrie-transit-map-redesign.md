@@ -9,13 +9,13 @@ images:
     - src: /images/bus-map-barrie-back.png
       alt: ''
       title: ''
-    - src: /images/bus-map-barrie_slide2.png
-      alt: ''
-      title: ''
     - src: /images/bus-map-barrie_slide3.png
       alt: ''
       title: ''
     - src: /images/bus-map-barrie_slide1.png
+      alt: ''
+      title: ''
+    - src: /images/bus-map-barrie_slide2.png
       alt: ''
       title: ''
 ---

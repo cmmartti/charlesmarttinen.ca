@@ -26,3 +26,5 @@ This project demonstrates end-to-end understanding of the development process, i
 -   **Git:** Regular, discrete commits with (usually) well-crafted commit messages.
 
 **[Go to the live application →](https://pokemon-finder.netlify.com)**
+
+Note: I've received reports that Pokémon Finder may not work on iOS devices. Once I get a testing device, I will try to fix the bug.
