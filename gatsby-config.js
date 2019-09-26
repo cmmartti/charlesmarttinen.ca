@@ -157,14 +157,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-netlify-cms',
-        {
-            resolve: 'gatsby-plugin-emotion',
-            option: {
-                sourceMap: true,
-                autoLabel: true,
-                labelFormat: '[filename]--[local]',
-            },
-        },
 
         {
             resolve: 'gatsby-plugin-manifest',
