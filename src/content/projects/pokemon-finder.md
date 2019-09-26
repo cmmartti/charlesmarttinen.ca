@@ -11,7 +11,7 @@ images:
       title: ''
 ---
 
-**[Live demo](https://pokemon-finder.netlify.com) • [Source code](https://github.com/cmartti/pokemon-finder)**
+**[Live demo](https://pokemon-finder.netlify.com) • [Source code](https://github.com/cmmartti/pokemon-finder)**
 
 A fully-developed proof of concept for a dynamic browser-based reporting application, for analysing data from the popular video game _Pokémon_. Built with React using a GraphQL API based on the open source [PokéAPI](https://pokeapi.co) project.
 
