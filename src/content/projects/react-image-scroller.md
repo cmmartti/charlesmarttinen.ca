@@ -3,7 +3,7 @@ title: React Image Scroller
 order: 3
 date: '2018-12-12'
 images:
-    - src: /images/snowy-tree.png
+    - src: /images/snowy-tree.jpg
       alt: 'A large, snow-covered, 10 foot fir tree beneath a canopy of spruce trees.'
     - src: /images/flower.jpg
       alt: A close-up photo of a Brown Knapweed flower (pink, with many small
