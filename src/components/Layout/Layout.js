@@ -5,8 +5,8 @@ import 'sanitize.css';
 import classNames from 'classnames';
 import 'focus-visible/dist/focus-visible.min.js';
 
-import Navigation from './Navigation';
-// import ViewportSize from './ViewportSize';
+import Navigation from '../Navigation';
+// import ViewportSize from '../ViewportSize';
 import './Layout.global.scss';
 
 export default function Layout({

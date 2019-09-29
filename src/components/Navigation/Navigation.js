@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import {Link} from 'gatsby';
 
-import DynamicTabs from './DynamicTabs';
+import DynamicTabs from '../DynamicTabs';
 import styles from './Navigation.module.scss';
-import GithubLogoSvg from '../assets/github-octocat.svg';
+import GithubLogoSvg from '../../assets/github-octocat.svg';
 
 function Tab({isActive = false, isTitle = false, children}) {
     return (

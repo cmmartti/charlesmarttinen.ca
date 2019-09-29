@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import DateAndTags from './DateAndTags';
+import DateAndTags from '../DateAndTags';
 import styles from './ArticleExcerpt.module.scss';
 
-function ArticleExcerpt({
+export default function ArticleExcerpt({
     title,
     dates,
     tags,
@@ -39,5 +39,3 @@ function ArticleExcerpt({
         </section>
     );
 }
-
-export default ArticleExcerpt;
