@@ -1,7 +1,7 @@
 ---
 slug: barrie-transit-map
 datePublished: 2019-04-29T04:01
-dateUpdated: 2019-04-29T04:01
+dateUpdated: 2019-09-28T21:25
 title: Re-drawing the Barrie Transit Map
 tags:
     - map
@@ -79,13 +79,13 @@ But elsewhere, where multiple routes travel along the same roads, it's a cramped
 
 ![Congestion in downtown Barrie](/images/barrie-transit-map-downtown.png "Downtown Barrie on the old map. There are nineteen lines converging on a single point—it's no wonder it doesn't work.")
 
-This is usually solved by using an inset area of the map, but, inspired by Transport for London's [bus spider maps](https://tfl.gov.uk/maps_/bus-spider-maps), I decided to try a different approach that I call **x-ray lenses**. This is a box over an area of the map that cuts through the clutter by concentrating multiple routes into a single line:
+This is usually solved by using an inset area of the map, but I decided to try a different approach that I call **x-ray lenses**. This is a box over an area of the map that cuts through the clutter by concentrating multiple routes into a single line:
 
 ![](/images/bus-map-barrie_3.png)
 
 The area within the box is small enough that we can rely on users to use simple deduction to determine where exactly routes run. Notably, all three of the x-ray lenses are placed over major transfer stops that all buses stop at. (It wasn't necessary on this map, but the x-ray lens could also be paired with an inset if the area within the lens is too complicated to follow on its own.)
 
-Although not quite the same thing, TfL's spider maps show a regional hub as a central map without route lines with spider lines for each route spreading out from each side:
+This approach was inspired by Transport for London's [bus spider maps](https://tfl.gov.uk/maps_/bus-spider-maps). Although not quite the same thing, TfL's spider maps show a regional hub as a central map without route lines with spider lines for each route spreading out from each side:
 
 ![](/images/spider-map.png 'A portion of the Wembley Stadium bus spider map in London.')
 
@@ -105,9 +105,9 @@ Using the correct scale means making labels and other elements large enough to r
 
 But sometimes confusion is caused by something a little more insidious: **ambiguity**. When you become intimately familiar with a design, it's easy to overlook when it fails to communicate the intended message. To anticipate what parts of the design may cause confusion, step into the shoes of someone totally unfamiliar with the system and see it from his point of view.
 
-One of the first times I used the Barrie bus system highlighted such a problem with the old map. I remember being at the Downtown Terminal and trying to figure out which one of four Route 8 buses I should be boarding: 8A-NB, 8A-SB, 8B-NB, or 8B-SB. A confusing experience to be sure, because Route 8 (an amalgamation of two previous routes) actually crosses itself in the middle, and the old map does a bad of job of communicating this unusual service pattern.
+One of the first times I used the Barrie bus system highlighted such a problem with the old map. I remember being at the Downtown Terminal and trying to figure out which one of four Route 8 buses I should be boarding: 8A-NB, 8A-SB, 8B-NB, or 8B-SB. A confusing experience to be sure, because Route 8 (an amalgamation of two previous routes) actually crosses itself in the middle, and the old map does a bad job of communicating this unusual service pattern.
 
-To fix this, rather that going straight to using a plethora of miniscule labelled arrows spread across the page like the old map, I took a step back and realised that in the general case, each route has two important pieces of information attached to it: where it runs, and the direction/destination nameboards of buses that drive it. Importantly, these are **two separate concerns** that don't necessarily need to be presented together. This is because (for example) the passenger first identifies that Route 2 takes him where he needs to go, and _only then_ does he care whether he needs to take '2A&nbsp;Dunlop' or '2B&nbsp;Park&nbsp;Place'.
+To fix this, rather than going straight to using a plethora of miniscule labelled arrows spread across the page like the old map, I took a step back and realised that in the general case, each route has two important pieces of information attached to it: where it runs, and the direction/destination nameboards of buses that drive it. Importantly, these are **two separate concerns** that don't necessarily need to be presented together. This is because (for example) the passenger first identifies that Route 2 takes him where he needs to go, and _only then_ does he care whether he needs to take '2A&nbsp;Dunlop' or '2B&nbsp;Park&nbsp;Place'.
 
 Critically, this means that route destinations/directions don't need to be on the map at all, and can instead be shifted to the reverse side of the map and rendered as simple single-purpose graphics:
 
