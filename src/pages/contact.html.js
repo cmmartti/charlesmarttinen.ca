@@ -4,11 +4,7 @@ import Layout from '../components/Layout';
 import styles from './contact.module.scss';
 
 const ContactPage = ({location}) => (
-    <Layout
-        title="Contact"
-        location={location}
-        className={styles.page}
-    >
+    <Layout title="Contact" location={location} className={styles.page}>
         <h1>Contact Me</h1>
         <p>
             You can reach me at{' '}
@@ -33,15 +29,15 @@ const ContactPage = ({location}) => (
         >
             <div>
                 <label htmlFor="name">Your Name</label>
-                <input type="text" name="name" id="name" />
+                <input type="text" name="name" id="name" required={true} />
             </div>
             <div>
                 <label htmlFor="email">Your Email Address</label>
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" required={true} />
             </div>
             <div>
                 <label htmlFor="message">Message</label>
-                <textarea name="message" id="message" />
+                <textarea name="message" id="message" required={true} />
             </div>
             <div>
                 <button type="submit">Send</button>
