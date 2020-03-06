@@ -125,7 +125,7 @@ The rules above are by no means conclusive, but simply serve to illustrate the t
 
 This project began as a personal challenge to become adept at using Adobe Illustrator and InDesign, but like everything I do, it soon ballooned in scope from a simple throwaway project into a complete re-design, along with per-route timetable/map booklets (which I will write about at a later date). I'm still not totally happy with it, but at a certain point I had to say "enough" and call it&nbsp;good.
 
-It was not originally my intention to document the process, but last year I came across a brilliant article called _[Practically Redesigned: British Train Ticket](https://sadhedgehog.com/2018/01/07/practically-redesigned-british-train-ticket/)_ that inspired me to try. Having not written anything significant since high school, my first draft was complete rubbish, and arriving at what you have just read took several weeks and multiple complete re-writes. Hopefully it won't take so long next time.
+It was not originally my intention to document the process, but last year I came across a brilliant article called _[Practically Redesigned: British Train Ticket](https://web.archive.org/web/20180306112732/http://sadhedgehog.com/2018/01/07/practically-redesigned-british-train-ticket/)_ [Internet Archive] that inspired me to try. Having not written anything significant since high school, my first draft was complete rubbish, and arriving at what you have just read took several weeks and multiple complete re-writes. Hopefully it won't take so long next time.
 
 ### Download
 
