@@ -1,3 +1,0 @@
-# charlesmarttinen.ca
-
-My website.

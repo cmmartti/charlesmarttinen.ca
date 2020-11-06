@@ -1,0 +1,18 @@
+{{- define "main" -}}
+<main class="typography">
+    <h1>{{ .Title }}</h1>
+    {{ partial "dateline.html" . }}
+    {{- .Content -}}
+
+    <hr>
+    <p>If you'd like to comment on something I've written, shoot me an email. If it's
+        of
+        interest to others, I'll add it to the article as a reader comment (please
+        supply
+        a name to use if you'd like to be attributed).</p>
+</main>
+
+<div class="sidebar">
+    <p><a href="/rss.xml" type="application/rss+xml">RSS Feed</a></p>
+</div>
+{{- end -}}

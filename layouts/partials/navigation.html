@@ -1,0 +1,11 @@
+<nav class="navmenu">
+    <div><b>Sections:</b></div>
+    {{- $currentPage := . }}
+    {{- range .Site.Menus.main }}
+    {{- $isActive := or (and (ne .Page.Section "") (eq .Page.Section $currentPage.Section)) ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .)}}
+    <a href="{{ .URL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{if $isActive }} class="active"{{end}}>
+        {{- .Pre }}
+        {{ .Name }}
+    </a>
+    {{- end }}
+</nav>

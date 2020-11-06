@@ -1,0 +1,291 @@
+@import 'sanitize';
+@import 'fonts';
+
+:root {
+    font-family: Charter, Georgia, serif;
+    line-height: 1.45;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+}
+:root * {
+    box-sizing: inherit;
+}
+
+// Print
+@page {
+    margin: 0.25in;
+}
+
+body {
+    background-color: #f3f3f3;
+    width: 100%;
+    max-width: 8.5in;
+
+    // Prevent Chrome for Android from boosting font sizes
+    // See https://stackoverflow.com/a/15137584/4485551
+    max-height: 10000em;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media print {
+    .noprint {
+        display: none;
+    }
+    body {
+        background: none;
+        max-width: none;
+    }
+}
+
+/* Sticky footer (see https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/)
+	Make sure the footer never lifts past the bottom of the page.
+*/
+@media screen {
+    :root,
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .site-header,
+    .site-footer {
+        flex: none;
+    }
+    .site-content {
+        flex: 1 0 auto;
+    }
+}
+
+.site-content {
+    padding: 16px;
+    padding: 0 calc(min(4vw, 32px));
+}
+
+//prettier-ignore
+h1, h2, h3, h4 {
+    line-height: 1.25; // tighten up multi-line headings
+}
+
+//prettier-ignore
+p, h1, h2, h3, h4, ul, ol, hr {
+    margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ccd3db;
+    margin: 1em 0;
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+::selection {
+    background-color: hsl(210, 78%, 42%);
+    color: white;
+}
+
+a {
+    color: black;
+}
+a:visited {
+    color: #3c2469;
+}
+a:hover {
+    background: hsl(39, 100%, 64%);
+    color: black;
+}
+a:focus {
+    // background: hsl(39, 100%, 64%);
+    outline: 3px solid hsl(39, 100%, 64%);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-header {
+    margin: 0 0.5rem 0.5rem 0.5rem;
+}
+.nameplate {
+    font-size: 60px;
+    font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
+    @media (max-width: 400px) {
+        font-size: 50px;
+        font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
+    }
+    @media (max-width: 320px) {
+        font-size: 40px;
+        font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
+    }
+    @media (max-width: 250px) {
+        font-size: 30px;
+        font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
+    }
+
+    font-family: Charter;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.95;
+    overflow: hidden;
+
+    border-bottom: 3px solid black;
+    padding: 0.25em 0 8px 0;
+}
+.nameplate a {
+    text-decoration: none;
+    color: inherit;
+}
+.nameplate a:hover {
+    background: none;
+}
+.nameplate a:focus {
+    background: none;
+    outline: none;
+}
+
+.navmenu {
+    font-size: 20px;
+    padding: 8px 0;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.navmenu > * {
+    margin: 0 clamp(0px, calc(5.5vw - 28px), 12px);
+    padding: 4px 8px;
+}
+.navmenu a {
+    text-decoration: none;
+    color: black;
+    text-decoration-width: 3px;
+    text-decoration-thickness: 3px;
+}
+.navmenu .active {
+    text-decoration: underline;
+}
+.navmenu svg {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    bottom: -0.12em;
+}
+
+.copyright {
+    text-align: center;
+    margin: 0 0 1em 0;
+    // font-size: 14px;
+}
+
+.picture {
+    float: right;
+    margin: 0 0 1em 1em;
+    display: block;
+    max-width: 12em;
+    @media (max-width: 32em) {
+        max-width: 8em;
+    }
+}
+
+.excerpt {
+    @extend .typography;
+    // padding: 1em 0;
+    margin: 1em 0;
+    break-inside: avoid;
+}
+.excerpt + .excerpt {
+    padding-top: 1em;
+    border-top: 1px solid black;
+}
+.excerpt__thumb {
+    margin: 0.75em 0 0.5em 0.75em;
+    float: right;
+    width: 10em;
+    height: 10em;
+    object-fit: cover;
+    max-width: 100%;
+    border: 1px solid #ccc;
+
+    @media (max-width: 20em) {
+        float: none;
+        margin-left: 0;
+    }
+}
+
+.dateline {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1;
+    letter-spacing: 0.03em;
+}
+.dateline time {
+    text-transform: uppercase;
+}
+
+.typography {
+    & > * {
+        margin-top: 0.6em;
+    }
+    & > *:first-child {
+        margin: 0;
+    }
+
+    // A heading after a paragraph indicates the beginning of new logical section
+    p + h1,
+    p + h2,
+    p + h3,
+    p + h4 {
+        margin-top: 1em;
+    }
+
+    & > figure {
+        margin: 1em 0;
+        background: white; // for images with transparent bits
+
+        figcaption {
+            background: white; // on the grey body background
+            padding: 0.325em 0.5em;
+            font-size: 0.9em;
+        }
+    }
+
+    & > hr {
+        border: none;
+        border-top: 2px solid #ccd3db; // just a grey line
+    }
+
+    & > ul {
+        list-style-type: disc;
+    }
+    & > ul ul {
+        list-style-type: square;
+    }
+    & > ol {
+        list-style-type: decimal;
+    }
+    & > ol ol {
+        list-style-type: lower-latin;
+    }
+    & > ul,
+    & > ol {
+        padding-left: 2.25em;
+        ul,
+        ol {
+            padding-left: 1.2em;
+        }
+    }
+
+    & > details > summary {
+        cursor: pointer;
+        border-radius: 0.2em;
+        margin-left: -0.4em;
+        padding: 0.1em 0.4em;
+    }
+}
