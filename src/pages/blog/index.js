@@ -26,16 +26,13 @@ export default function BlogIndex({location}) {
                             updated: dateUpdated(formatString: "MMMM D, YYYY")
                             updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
                             title
-                            tags
-                            image {
-                                relativePath
-                                prettySize
-                                childImageSharp {
-                                    resize(width: 500, height: 500) {
-                                        src
-                                    }
-                                }
-                            }
+                            #image {
+                            #    childImageSharp {
+                            #        resize(width: 500, height: 500) {
+                            #            src
+                            #        }
+                            #    }
+                            #}
                         }
                         fields {
                             excerptHtml
@@ -77,7 +74,6 @@ export default function BlogIndex({location}) {
                     publishedISO,
                     updated,
                     updatedISO,
-                    tags,
                     image,
                 } = edge.node.frontmatter;
 
@@ -91,8 +87,7 @@ export default function BlogIndex({location}) {
                             updated,
                             updatedISO,
                         }}
-                        tags={tags}
-                        image={image && image.childImageSharp.resize.src}
+                        image={false && image && image.childImageSharp.resize.src}
                         excerptHtml={excerptHtml}
                         bodyHtml={html}
                         path={path}

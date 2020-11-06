@@ -1,13 +1,12 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import DateAndTags from '../DateAndTags';
+import Date from '../Date';
 import styles from './ArticleExcerpt.module.scss';
 
 export default function ArticleExcerpt({
     title,
     dates,
-    tags,
     image,
     excerptHtml,
     bodyHtml,
@@ -20,7 +19,7 @@ export default function ArticleExcerpt({
                     {title}
                 </Link>
             </h2>
-            <DateAndTags {...dates} tags={tags} />
+            <Date {...dates} />
             {image && (
                 <Link to={path} aria-hidden tabIndex="-1">
                     <img src={image} alt="" className={styles.thumb} />

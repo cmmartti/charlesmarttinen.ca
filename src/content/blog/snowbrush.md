@@ -4,7 +4,6 @@ title: 'Tales of a snow brush: Lighter is better'
 datePublished: 2019-04-29T04:00
 dateUpdated: 2019-04-29T04:00
 image: /images/blank.png
-tags: []
 excerpt: |
     The $4 lightweight wooden snow brush with skimpy ice scraper is better than
     the fancy $30 aluminum and plastic one with the extendo-matic rotating brush

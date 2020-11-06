@@ -1,37 +1,34 @@
+const path = require(`path`);
+
 module.exports = {
     siteMetadata: {
         title: 'Charles Marttinen',
         siteUrl: 'https://charlesmarttinen.ca',
     },
     plugins: [
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                path: `${__dirname}/static/`,
-                name: 'static',
-            },
-        },
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                path: `${__dirname}/src/`,
-                name: 'content',
-            },
-        },
-
         // Image resizing, etc.
         'gatsby-transformer-sharp',
         `gatsby-plugin-sharp`,
+
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                path: path.join(__dirname, `src`),
+                name: 'content',
+            },
+        },
 
         {
             // Markdown transformations
             resolve: 'gatsby-transformer-remark',
             options: {
                 plugins: [
-                    // Allow images outside of src folder to be used in frontmatter while
-                    // still being query-able from GraphQL (for auto-resizing, etc.)
-                    'gatsby-remark-relative-images',
-
+                    {
+                        resolve: 'gatsby-remark-normalize-paths',
+                        options: {
+                            pathFields: ['image'],
+                        },
+                    },
                     {
                         // Automatic resizing, etc. for images used in Markdown files
                         resolve: 'gatsby-remark-images',
@@ -127,7 +124,7 @@ module.exports = {
                                     edges {
                                         node {
                                             html
-                                            frontmatter {datePublished title tags}
+                                            frontmatter {datePublished title}
                                             fields {excerptHtml path}
                                         }
                                     }

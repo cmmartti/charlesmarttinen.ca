@@ -1,11 +1,8 @@
 const path = require('path');
-const {fmImagesToRelative} = require('gatsby-remark-relative-images');
 const remark = require('remark');
 const remarkHTML = require('remark-html');
 
 exports.onCreateNode = ({node, actions, getNode}) => {
-    fmImagesToRelative(node);
-
     if (node.internal.type === 'MarkdownRemark') {
         actions.createNodeField({
             node,
@@ -45,7 +42,6 @@ exports.createPages = async ({actions, graphql}) => {
                     node {
                         frontmatter {
                             slug
-                            tags
                         }
                         fields {
                             path
@@ -71,21 +67,7 @@ exports.createPages = async ({actions, graphql}) => {
                         ? null
                         : posts[i + 1].node.fields.path,
                 next: i === 0 ? null : posts[i - 1].node.fields.path,
-                tags: post.node.frontmatter.tags,
             },
-        });
-    });
-
-    // Tags pages
-    let tags = new Set();
-    posts.forEach(post => {
-        post.node.frontmatter.tags.forEach(tag => tags.add(tag));
-    });
-    tags.forEach(tag => {
-        createPage({
-            path: `/blog/tags/${tag}.html`,
-            component: path.resolve('src/templates/TagPage.js'),
-            context: {tag},
         });
     });
 };

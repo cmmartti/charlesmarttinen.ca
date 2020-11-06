@@ -3,9 +3,6 @@ slug: barrie-transit-map
 datePublished: 2019-04-29T04:01
 dateUpdated: 2019-09-28T21:25
 title: Re-drawing the Barrie Transit Map
-tags:
-    - map
-    - case-study
 image: /images/bus-map-barrie_thumbnail.png
 excerpt: |
     Every good city has a public transit system, and every good transit system has a map. But not all maps are drawn equal, and so over the past year or so I've spent some of my spare time re-drawing my city's mediocre bus map.

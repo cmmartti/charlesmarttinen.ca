@@ -2,20 +2,13 @@ import React from 'react';
 import {graphql, Link} from 'gatsby';
 
 import Layout from '../components/Layout';
-import DateAndTags from '../components/DateAndTags';
+import Date from '../components/Date';
 import styles from './BlogEntry.module.scss';
 
 export default function BlogEntry({data, location}) {
     const {article, previous, next, related, archive} = data;
     const {frontmatter, html} = article;
-    const {
-        title,
-        published,
-        publishedISO,
-        updated,
-        updatedISO,
-        tags,
-    } = frontmatter;
+    const {title, published, publishedISO, updated, updatedISO} = frontmatter;
     const dates = {published, publishedISO, updated, updatedISO};
     const portrait = data.portrait.childImageSharp.resize.src;
 
@@ -29,7 +22,7 @@ export default function BlogEntry({data, location}) {
 
                     <article>
                         <h1 className={styles.title}>{title}</h1>
-                        <DateAndTags {...dates} tags={tags} />
+                        <Date {...dates} />
                         <div dangerouslySetInnerHTML={{__html: html}} />
                     </article>
                 </div>
@@ -122,7 +115,7 @@ export default function BlogEntry({data, location}) {
 }
 
 export const pageQuery = graphql`
-    query($path: String!, $previous: String, $next: String, $tags: [String]!) {
+    query($path: String!, $previous: String, $next: String) {
         article: markdownRemark(fields: {path: {eq: $path}}) {
             html
             frontmatter {
@@ -131,7 +124,6 @@ export const pageQuery = graphql`
                 publishedISO: datePublished(formatString: "YYYY-MM-DD")
                 updated: dateUpdated(formatString: "MMMM D, YYYY")
                 updatedISO: dateUpdated(formatString: "YYYY-MM-DD")
-                tags
             }
             fields {
                 path
@@ -167,7 +159,6 @@ export const pageQuery = graphql`
             sort: {order: DESC, fields: [frontmatter___datePublished]}
             filter: {
                 fileAbsolutePath: {regex: "//src/content/blog//"}
-                frontmatter: {tags: {in: $tags}}
                 fields: {path: {ne: $path}}
             }
             limit: 5

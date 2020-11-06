@@ -28,17 +28,17 @@ export default function HomePage({location}) {
                         frontmatter {
                             title
                             date
-                            images {
-                                src {
-                                    childImageSharp {
-                                        fluid(maxHeight: 1000) {
-                                            src
-                                        }
-                                    }
-                                }
-                                alt
-                                title
-                            }
+                            #images {
+                            #    src {
+                            #        childImageSharp {
+                            #            fluid(maxHeight: 1000) {
+                           #                 src
+                            #            }
+                            #        }
+                            #    }
+                            #    alt
+                            #    title
+                            #}
                         }
                     }
                 }
@@ -100,11 +100,12 @@ export default function HomePage({location}) {
                         key={project.node.id}
                         title={project.node.frontmatter.title}
                         htmlBody={project.node.html}
-                        images={project.node.frontmatter.images.map(image => ({
-                            src: image.src.childImageSharp.fluid.src,
-                            alt: image.alt,
-                            title: image.title,
-                        }))}
+                        images={[]}
+                        // images={project.node.frontmatter.images.map(image => ({
+                        //     src: image.src.childImageSharp.fluid.src,
+                        //     alt: image.alt,
+                        //     title: image.title,
+                        // }))}
                     />
                 ))}
             </div>
