@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<style>
+    @media print {
+        .site-header .navmenu,
+        .site-footer {
+            display: none;
+        }
+    }
+</style>
+
+<main class="typography">
+    {{ .Content }}
+</main>
+
+{{ end }}

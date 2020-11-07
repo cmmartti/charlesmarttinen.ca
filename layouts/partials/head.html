@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ if ne .Title .Site.Title }}{{ .Title }} - {{ end }}{{ .Site.Title -}}
     </title>
-    {{ $style := resources.Get "main.scss" | resources.ToCSS -}}
+    {{ $style := resources.Get "main.scss" | resources.ToCSS  -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" type="text/css" />
     <link rel="canonical" href="{{ .Permalink }}" />
     {{- with .OutputFormats.Get "rss" }}

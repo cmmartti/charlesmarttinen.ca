@@ -360,7 +360,7 @@ img {
   max-width: 100%; }
 
 .site-header {
-  margin: 0 8px 16px 8px; }
+  margin: 0 8px 8px 8px; }
 
 .site-footer {
   margin: 8px; }
@@ -398,7 +398,7 @@ img {
 
 .navmenu {
   font-size: 20px;
-  margin: 8px 0;
+  padding: 8px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
@@ -524,51 +524,40 @@ img {
   border: 1px solid #cacaca; }
 
 form > div {
-  margin: 16px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; }
-
-form > div:focus-within > label {
-  background: #ffbf47;
-  outline: 3px solid #ffbf47; }
+  margin: 1em 0; }
 
 form input {
   width: 20em;
   max-width: 100%; }
 
 form textarea {
-  min-height: 14em;
-  width: 35em;
-  max-height: 35em;
-  max-width: 100%;
-  resize: both; }
+  min-height: 12em;
+  width: 28em;
+  max-width: 100%; }
 
 form input,
 form textarea {
-  padding: 6px 8px;
+  padding: 0.35em 0.5em;
   font-family: Roboto, sans-serif;
   font-size: 1em;
-  border: 1px solid black;
-  border-radius: 0; }
+  border: 1px solid black; }
 
 form input:focus,
 form textarea:focus,
 form button:focus {
   outline: 3px solid #ffbf47; }
 
-form button:focus {
-  outline-offset: -5px; }
+form input:hover:not(:focus),
+form textarea:hover:not(:focus) {
+  background-color: #fff5e6; }
 
 form label {
-  display: block;
-  align-self: flex-start;
-  padding: 0 4px; }
+  display: block; }
 
 form button {
   border: 1px solid black;
   color: black;
-  padding: 4px 16px;
+  padding: 0.25em 1em;
   font-family: Charter, Georgia, serif;
   background: white;
   font-size: 1em;

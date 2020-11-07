@@ -6,9 +6,9 @@
     line-height: 1.45;
     text-size-adjust: 100%;
     box-sizing: border-box;
-}
-:root * {
-    box-sizing: inherit;
+    * {
+        box-sizing: inherit;
+    }
 }
 
 // Print
@@ -19,7 +19,7 @@
 body {
     background-color: #f3f3f3;
     width: 100%;
-    max-width: 8.5in;
+    max-width: 8in;
 
     // Prevent Chrome for Android from boosting font sizes
     // See https://stackoverflow.com/a/15137584/4485551
@@ -36,6 +36,9 @@ body {
     body {
         background: none;
         max-width: none;
+    }
+    .site-footer .navmenu {
+        display: none;
     }
 }
 
@@ -93,15 +96,21 @@ ol {
 a {
     color: black;
 }
-a:visited {
-    color: #3c2469;
+
+// Only change link colours on screens, not in print
+@media screen {
+    a {
+        color: hsl(210, 76%, 26%);
+    }
+    a:visited {
+        // color: #3c2469;
+    }
 }
 a:hover {
     background: hsl(39, 100%, 64%);
     color: black;
 }
 a:focus {
-    // background: hsl(39, 100%, 64%);
     outline: 3px solid hsl(39, 100%, 64%);
     text-decoration: underline;
 }
@@ -111,7 +120,10 @@ img {
 }
 
 .site-header {
-    margin: 0 0.5rem 0.5rem 0.5rem;
+    margin: 0 8px 16px 8px;
+}
+.site-footer {
+    margin: 8px;
 }
 .nameplate {
     font-size: 60px;
@@ -137,51 +149,56 @@ img {
 
     border-bottom: 3px solid black;
     padding: 0.25em 0 8px 0;
-}
-.nameplate a {
-    text-decoration: none;
-    color: inherit;
-}
-.nameplate a:hover {
-    background: none;
-}
-.nameplate a:focus {
-    background: none;
-    outline: none;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover {
+        background: none;
+    }
+    a:focus {
+        background: none;
+        outline: none;
+    }
 }
 
 .navmenu {
     font-size: 20px;
-    padding: 8px 0;
+    margin: 8px 0;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-.navmenu > * {
-    margin: 0 clamp(0px, calc(5.5vw - 28px), 12px);
-    padding: 4px 8px;
-}
-.navmenu a {
-    text-decoration: none;
-    color: black;
-    text-decoration-width: 3px;
-    text-decoration-thickness: 3px;
-}
-.navmenu .active {
-    text-decoration: underline;
-}
-.navmenu svg {
-    height: 1em;
-    width: 1em;
-    position: relative;
-    bottom: -0.12em;
+
+    // @media (max-width: 500px) {
+    //     font-size: 18px;
+    // }
+
+    > * {
+        margin: 0 clamp(0px, calc(5.5vw - 28px), 12px);
+        padding: 4px 8px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        text-decoration-width: 3px;
+        text-decoration-thickness: 3px;
+    }
+    .active {
+        text-decoration: underline;
+    }
+    svg {
+        height: 1em;
+        width: 1em;
+        position: relative;
+        bottom: -0.12em;
+    }
 }
 
 .copyright {
     text-align: center;
     margin: 0 0 1em 0;
-    // font-size: 14px;
 }
 
 .picture {
@@ -196,7 +213,6 @@ img {
 
 .excerpt {
     @extend .typography;
-    // padding: 1em 0;
     margin: 1em 0;
     break-inside: avoid;
 }
@@ -220,61 +236,71 @@ img {
 }
 
 .dateline {
-    font-size: 0.85em;
-    color: #555;
-    line-height: 1;
     letter-spacing: 0.03em;
+    time {
+        text-transform: uppercase;
+    }
 }
-.dateline time {
-    text-transform: uppercase;
+.h1 + .dateline {
+    text-align: center;
 }
 
 .typography {
-    & > * {
-        margin-top: 0.6em;
-    }
-    & > *:first-child {
-        margin: 0;
+    strong {
+        color: rgb(168, 4, 4);
+        font-size: 1.05em;
     }
 
+    h1 {
+        text-align: center;
+        margin-bottom: 0.6em;
+    }
+
+    > * {
+        margin-top: 0.6em;
+    }
+    // > *:first-child {
+    //     margin: 0;
+    // }
+
     // A heading after a paragraph indicates the beginning of new logical section
-    p + h1,
     p + h2,
     p + h3,
     p + h4 {
         margin-top: 1em;
     }
 
-    & > figure {
+    > figure {
         margin: 1em 0;
-        background: white; // for images with transparent bits
 
         figcaption {
-            background: white; // on the grey body background
-            padding: 0.325em 0.5em;
+            padding: 0.5em 0.75em;
+            font-family: Roboto, sans-serif;
+            color: rgb(54, 54, 54);
+            font-style: italic;
             font-size: 0.9em;
         }
     }
 
-    & > hr {
+    > hr {
         border: none;
         border-top: 2px solid #ccd3db; // just a grey line
     }
 
-    & > ul {
+    > ul {
         list-style-type: disc;
     }
-    & > ul ul {
+    > ul ul {
         list-style-type: square;
     }
-    & > ol {
+    > ol {
         list-style-type: decimal;
     }
-    & > ol ol {
+    > ol ol {
         list-style-type: lower-latin;
     }
-    & > ul,
-    & > ol {
+    > ul,
+    > ol {
         padding-left: 2.25em;
         ul,
         ol {
@@ -282,10 +308,80 @@ img {
         }
     }
 
-    & > details > summary {
+    > details > summary {
         cursor: pointer;
         border-radius: 0.2em;
         margin-left: -0.4em;
         padding: 0.1em 0.4em;
+    }
+
+    img {
+        // box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgb(202, 202, 202);
+    }
+}
+
+form {
+    > div {
+        margin: 16px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    > div:focus-within > label {
+        background: hsl(39, 100%, 64%);
+        outline: 3px solid hsl(39, 100%, 64%);
+    }
+    input {
+        width: 20em;
+        max-width: 100%;
+    }
+    textarea {
+        min-height: 14em;
+        width: 35em;
+        max-height: 35em;
+        max-width: 100%;
+        resize: both;
+    }
+    input,
+    textarea {
+        padding: 6px 8px;
+        font-family: Roboto, sans-serif;
+        font-size: 1em;
+        border: 1px solid black;
+        border-radius: 0;
+    }
+    input:focus,
+    textarea:focus,
+    button:focus {
+        outline: 3px solid hsl(39, 100%, 64%);
+    }
+    button:focus {
+        outline-offset: -5px;
+    }
+
+    label {
+        display: block;
+        align-self: flex-start;
+        padding: 0 4px;
+    }
+
+    button {
+        border: 1px solid black;
+        color: black;
+        padding: 4px 16px;
+        font-family: Charter, Georgia, serif;
+        background: white;
+        font-size: 1em;
+        box-shadow: 2px 2px black;
+    }
+    button:active {
+        box-shadow: inset 2px 2px black;
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+    button:hover {
+        background: hsl(39, 100%, 64%);
     }
 }

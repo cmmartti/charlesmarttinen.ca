@@ -1,7 +1,8 @@
 +++
 title = "Contact"
-aliases = ["about"]
 draft = false
+url = "/contact.html"
+type = "contact"
 
 [menu.main]
 weight = 4
