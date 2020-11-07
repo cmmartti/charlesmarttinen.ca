@@ -2,9 +2,8 @@
     <time datetime="{{ .Date }}">
         {{ .Date.Format "January 2, 2006" }}
     </time>
-
-    {{ if (time .Lastmod).After (time .Date)}}
-    / Updated <time
+    {{- if (time .Lastmod).After (time .Date) -}}
+    &nbsp;/ Updated&nbsp;<time
         datetime="{{ .Lastmod }}">{{ .Lastmod.Format "January 2, 2006" }}</time>
     {{ end }}
 </div>

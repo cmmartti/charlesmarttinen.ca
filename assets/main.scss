@@ -239,6 +239,7 @@ img {
     letter-spacing: 0.03em;
     time {
         text-transform: uppercase;
+        white-space: nowrap;
     }
 }
 h1 + .dateline {
