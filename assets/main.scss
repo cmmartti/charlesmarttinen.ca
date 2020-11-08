@@ -217,11 +217,15 @@ img {
     break-inside: avoid;
 }
 .excerpt + .excerpt {
-    padding-top: 1em;
     border-top: 1px solid black;
 }
+.excerpt:after {
+    content: '';
+    display: table;
+    clear: both;
+}
 .excerpt__thumb {
-    margin: 0.75em 0 0.5em 0.75em;
+    margin: 0.75em 0 0 0.75em;
     float: right;
     width: 10em;
     height: 10em;
@@ -235,14 +239,13 @@ img {
     }
 }
 
-.dateline {
-    letter-spacing: 0.03em;
+.timestamp {
+    color: #4e4e4e;
     time {
         text-transform: uppercase;
-        white-space: nowrap;
     }
 }
-h1 + .dateline {
+h1 + .timestamp {
     text-align: center;
 }
 

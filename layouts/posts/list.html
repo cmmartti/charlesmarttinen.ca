@@ -1,8 +1,6 @@
 {{ define "main" }}
-{{ .Content }}
-
+{{- .Content }}
 {{ range .Pages }}
 {{ partial "excerpt.html" . }}
-{{ end }}
-
+{{- end }}
 {{ end }}

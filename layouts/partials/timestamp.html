@@ -1,0 +1,7 @@
+{{- $format := "2&nbsp;January&nbsp;2006" -}}
+<p class="timestamp">
+    <time datetime="{{ .Date }}">{{ .Date.Format $format | safeHTML }}</time>
+    {{- if (time .Lastmod).After (time .Date) }}
+    / Updated&nbsp;<time datetime="{{ .Lastmod }}">{{ .Lastmod.Format $format | safeHTML }}</time>
+    {{- end }}
+</p>

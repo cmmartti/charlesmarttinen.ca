@@ -1,16 +1,9 @@
 <section class="excerpt">
-    <h2>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h2>
-    {{ partial "dateline.html" . }}
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{ partial "timestamp.html" . }}
     <a href="{{ .RelPermalink }}" aria-hidden tabindex="-1">
         <img src="{{ .Params.image }}" alt="" class="excerpt__thumb" />
     </a>
-
     {{ .Summary }}
-
-    <p><a href="{{ .RelPermalink }}">
-            {{ if .Truncated }}Read more…{{ else }}Perma-link{{ end }}
-        </a></p>
-    <div style="clear: both"></div>
+    <p><a href="{{ .RelPermalink }}">{{ if .Truncated }}Read more…{{ else }}Perma-link{{ end }}</a></p>
 </section>
