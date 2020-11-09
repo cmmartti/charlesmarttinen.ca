@@ -1,7 +1,5 @@
 {{- define "main" -}}
-<main class="typography">
-    <h1>{{ .Title }}</h1>
-    {{ partial "timestamp.html" . }}
-    {{- .Content -}}
-</main>
+<h1>{{ .Title }}</h1>
+<p class="timestamp center">{{ partial "timestamp.html" . }}</p>
+{{- .Content -}}
 {{- end -}}

@@ -1,9 +1,8 @@
 {{ define "main" }}
-<div class="typography">
-    {{- .Content -}}
-    <p><a href="/posts/">Archive of all posts →</a></p>
-</div>
-<!-- {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- .Content -}}
+{{ range where (where site.RegularPages "Type" "in" site.Params.mainSections ) ".Params.featured" true }}
 {{ partial "excerpt.html" . }}
-{{ end }} -->
+{{ end }}
+<hr />
+<p><a href="/posts/">View all articles →</a></p>
 {{ end }}

@@ -4,6 +4,7 @@ date = 2019-04-29
 lastmod = 2019-09-28
 image = "bus-map-barrie_thumbnail.png"
 aliases = ["/blog/barrie-transit-map.html", "/map/barrie"]
+featured = true
 +++
 
 Every good city has a public transit system, and every good transit system has a map. But not all maps are drawn equal, and so over the past year or so I've spent some of my spare time re-drawing my city's mediocre bus map.
@@ -16,7 +17,7 @@ I've long admired some of the maps posted on Cameron Booth's [Transit Maps](http
 
 Here's the new map, front and back:
 
-![Re-drawn Barrie Transit map](bus-map-barrie.png 'The front of my new map. Click to view full size.')
+![Re-drawn Barrie Transit map](bus-map-barrie.png 'The front of my new map.')
 
 ![The back of the re-drawn Barrie Transit map](bus-map-barrie-back.png 'The back of my new map.')
 
@@ -26,7 +27,7 @@ _Note: As I was writing this, Barrie Transit made [their own update to the map](
 
 It's ugly, inconsistent, and hard to read. Just look at it:
 
-![Barrie Transit map](barrie-transit-map.png 'The old map. Click to view full size.')
+![Barrie Transit map](barrie-transit-map.png 'The old map.')
 
 It doesn't seem like much thought has been put into this map at all. Colours are atrocious (routes 5 and 6 almost disappear into the white background), the route lines are too thin, imprecisely placed and unnecessarily overlap each other, road labels are randomly placed and sized, and there are too many arrows and unnecessary map elements competing for attention (why do fire stations need to be on the map?). It looks like someone misused GIS software to make it, and I suspect that that's exactly what happened.
 

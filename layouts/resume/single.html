@@ -1,5 +1,4 @@
 {{ define "main" }}
-
 <style>
     @media print {
         .site-header .navmenu,
@@ -8,9 +7,5 @@
         }
     }
 </style>
-
-<main class="typography">
-    {{ .Content }}
-</main>
-
+{{ .Content }}
 {{ end }}

@@ -1,9 +1,19 @@
 <section class="excerpt">
     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    {{ partial "timestamp.html" . }}
+    <p class="timestamp">{{ partial "timestamp.html" . }}</p>
+    {{- if .Params.image }}
+    {{- $img := .Resources.GetMatch .Params.image }}
+    {{- if $img }}
     <a href="{{ .RelPermalink }}" aria-hidden tabindex="-1">
-        <img src="{{ .Params.image }}" alt="" class="excerpt__thumb" />
+        {{- if gt $img.Width 200 }}
+        {{- $img = $img.Resize "200x" }}
+        {{- $img = $img.Fill "200x200" }}
+        {{- end }}
+        <img src="{{ $img.RelPermalink | safeURL }}" alt="" class="excerpt__thumb" />
     </a>
+    {{- end }}
+    {{- end }}
     {{ .Summary }}
-    <p><a href="{{ .RelPermalink }}">{{ if .Truncated }}Read more…{{ else }}Perma-link{{ end }}</a></p>
+    <p><a href="{{ .RelPermalink }}">{{ if .Truncated }}Read
+            more…{{ else }}Perma-link{{ end }}</a></p>
 </section>

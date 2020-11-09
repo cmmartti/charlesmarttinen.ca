@@ -1,7 +1,9 @@
 @import 'sanitize';
 @import 'fonts';
 
-:root {
+$color-focus: hsl(39, 100%, 64%);
+
+:root, html {
     font-family: Charter, Georgia, serif;
     line-height: 1.45;
     text-size-adjust: 100%;
@@ -9,42 +11,226 @@
     * {
         box-sizing: inherit;
     }
-}
 
-// Print
-@page {
-    margin: 0.25in;
+    // Tighten up text in landscape mode on small screens
+    @media (max-height: 425px) {
+        line-height: 1.3;
+    }
 }
 
 body {
-    background-color: #f3f3f3;
+    // Limited width, centred
     width: 100%;
     max-width: 8in;
+    margin: 0 auto;
+
+    padding: 0;
+    background-color: #f3f3f3;
 
     // Prevent Chrome for Android from boosting font sizes
     // See https://stackoverflow.com/a/15137584/4485551
     max-height: 10000em;
 
-    margin: 0 auto;
-    padding: 0;
 }
 
-@media print {
-    .noprint {
-        display: none;
+::selection {
+    background-color: hsl(210, 78%, 42%);
+    color: white;
+}
+
+/*******************
+ * Elements
+ */
+
+a {
+    color: black;
+}
+
+// Only change link colours on screens, not in print
+@media screen {
+    a {
+        color: #0e365e;
     }
-    body {
-        background: none;
-        max-width: none;
+    a:visited {
+        color: #3c2469;
     }
-    .site-footer .navmenu {
-        display: none;
+}
+a:hover {
+    background: $color-focus;
+    color: black;
+}
+a:focus {
+    outline: 3px solid $color-focus;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    max-height: 150vh;
+    max-height: calc(max(150vh, 400px));
+    box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgb(202, 202, 202);
+}
+
+figure {
+    break-inside: avoid;
+
+    figcaption {
+        padding: 0.5em 0.75em;
+        font-family: Roboto, sans-serif;
+        color: rgb(54, 54, 54);
+        font-style: italic;
+        font-size: 0.9em;
     }
 }
 
-/* Sticky footer (see https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/)
-	Make sure the footer never lifts past the bottom of the page.
-*/
+strong {
+    color: rgb(168, 4, 4);
+    font-size: 1.05em;
+}
+
+h1 {
+    text-align: center;
+}
+
+//prettier-ignore
+h1, h2, h3, h4 {
+    line-height: 1.25; // tighten up multi-line headings
+    break-after: avoid;
+
+    // Avoid page breaks directly after headers.
+    // Workaround for lack of support for the break-after property.
+    // https://stackoverflow.com/a/53742871/4485551
+    break-inside: avoid;
+    &::after {
+        content: "";
+        display: block;
+        height: 50px;
+        margin-bottom: -50px;
+    }
+}
+
+// Basic spacing of elements in a text flow
+//prettier-ignore
+p, h1, h2, h3, h4, ul, ol, hr {
+    margin: 0.6em 0 0 0;
+}
+figure {
+    margin: 1em 0 0 0;
+}
+
+// A heading after a paragraph indicates the beginning of new logical section
+p + h2,
+p + h3,
+p + h4 {
+    margin: 1em 0 0 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+}
+
+ul {
+    list-style-type: disc;
+    ul {
+        list-style-type: square;
+    }
+}
+ol {
+    list-style-type: decimal;
+    ol {
+        list-style-type: lower-latin;
+    }
+}
+ul,
+ol {
+    padding-left: 2.25em;
+    ul,
+    ol {
+        padding-left: 1.2em;
+    }
+}
+
+details > summary {
+    cursor: pointer;
+    border-radius: 0.2em;
+    margin-left: -0.4em;
+    padding: 0.1em 0.4em;
+}
+
+form {
+    > div {
+        margin: 16px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    > div:focus-within > label {
+        background: $color-focus;
+        outline: 3px solid $color-focus;
+    }
+    input {
+        width: 20em;
+        max-width: 100%;
+    }
+    textarea {
+        min-height: 14em;
+        width: 35em;
+        max-height: 35em;
+        max-width: 100%;
+        resize: both;
+    }
+    input,
+    textarea {
+        padding: 6px 8px;
+        font-family: Roboto, sans-serif;
+        font-size: 1em;
+        border: 1px solid black;
+        border-radius: 0;
+    }
+    input:focus,
+    textarea:focus,
+    button:focus {
+        outline: 3px solid $color-focus;
+    }
+    button:focus {
+        outline-offset: -5px;
+    }
+
+    label {
+        display: block;
+        align-self: flex-start;
+        padding: 0 4px;
+    }
+
+    button {
+        border: 1px solid black;
+        color: black;
+        padding: 4px 16px;
+        font-family: Charter, Georgia, serif;
+        background: white;
+        font-size: 1em;
+        box-shadow: 2px 2px black;
+    }
+    button:active {
+        box-shadow: inset 2px 2px black;
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+    button:hover {
+        background: $color-focus;
+    }
+}
+
+/*******************
+ * Classes
+ */
+
+// Sticky footer
+// https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+// Make sure the footer never lifts past the bottom of the page
 @media screen {
     :root,
     body {
@@ -61,70 +247,17 @@ body {
     }
 }
 
+.site-header {
+    margin: 0 8px;
+}
 .site-content {
-    padding: 16px;
+    padding: 0 16px;
     padding: 0 calc(min(4vw, 32px));
 }
-
-//prettier-ignore
-h1, h2, h3, h4 {
-    line-height: 1.25; // tighten up multi-line headings
-}
-
-//prettier-ignore
-p, h1, h2, h3, h4, ul, ol, hr {
-    margin: 0;
-}
-
-hr {
-    border: none;
-    border-top: 2px solid #ccd3db;
-    margin: 1em 0;
-}
-
-ul,
-ol {
-    padding: 0;
-    list-style: none;
-}
-
-::selection {
-    background-color: hsl(210, 78%, 42%);
-    color: white;
-}
-
-a {
-    color: black;
-}
-
-// Only change link colours on screens, not in print
-@media screen {
-    a {
-        color: hsl(210, 76%, 26%);
-    }
-    a:visited {
-        // color: #3c2469;
-    }
-}
-a:hover {
-    background: hsl(39, 100%, 64%);
-    color: black;
-}
-a:focus {
-    outline: 3px solid hsl(39, 100%, 64%);
-    text-decoration: underline;
-}
-
-img {
-    max-width: 100%;
-}
-
-.site-header {
-    margin: 0 8px 16px 8px;
-}
 .site-footer {
-    margin: 8px;
+    margin: 24px 8px;
 }
+
 .nameplate {
     font-size: 60px;
     font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
@@ -182,29 +315,18 @@ img {
     a {
         text-decoration: none;
         color: black;
-        text-decoration-width: 3px;
-        text-decoration-thickness: 3px;
     }
     .active {
         text-decoration: underline;
     }
     svg {
-        height: 1em;
-        width: 1em;
-        position: relative;
-        bottom: -0.12em;
+        @extend .icon;
     }
-}
-
-.copyright {
-    text-align: center;
-    margin: 0 0 1em 0;
 }
 
 .picture {
     float: right;
     margin: 0 0 1em 1em;
-    display: block;
     max-width: 12em;
     @media (max-width: 32em) {
         max-width: 8em;
@@ -212,11 +334,8 @@ img {
 }
 
 .excerpt {
-    @extend .typography;
     margin: 1em 0;
     break-inside: avoid;
-}
-.excerpt + .excerpt {
     border-top: 1px solid black;
 }
 .excerpt:after {
@@ -231,7 +350,6 @@ img {
     height: 10em;
     object-fit: cover;
     max-width: 100%;
-    border: 1px solid #ccc;
 
     @media (max-width: 20em) {
         float: none;
@@ -245,147 +363,42 @@ img {
         text-transform: uppercase;
     }
 }
-h1 + .timestamp {
+
+// Size and align icons to match the text beside them
+.icon {
+    height: 1em;
+    position: relative;
+    bottom: 0.12em;
+}
+
+/*******************
+ * Utility Classes
+ */
+
+.center {
     text-align: center;
 }
 
-.typography {
-    strong {
-        color: rgb(168, 4, 4);
-        font-size: 1.05em;
-    }
+/*******************
+ * Print-specific Styles
+ */
 
-    h1 {
-        text-align: center;
-        margin-bottom: 0.6em;
-    }
-
-    > * {
-        margin-top: 0.6em;
-    }
-    // > *:first-child {
-    //     margin: 0;
-    // }
-
-    // A heading after a paragraph indicates the beginning of new logical section
-    p + h2,
-    p + h3,
-    p + h4 {
-        margin-top: 1em;
-    }
-
-    > figure {
-        margin: 1em 0;
-
-        figcaption {
-            padding: 0.5em 0.75em;
-            font-family: Roboto, sans-serif;
-            color: rgb(54, 54, 54);
-            font-style: italic;
-            font-size: 0.9em;
-        }
-    }
-
-    > hr {
-        border: none;
-        border-top: 2px solid #ccd3db; // just a grey line
-    }
-
-    > ul {
-        list-style-type: disc;
-    }
-    > ul ul {
-        list-style-type: square;
-    }
-    > ol {
-        list-style-type: decimal;
-    }
-    > ol ol {
-        list-style-type: lower-latin;
-    }
-    > ul,
-    > ol {
-        padding-left: 2.25em;
-        ul,
-        ol {
-            padding-left: 1.2em;
-        }
-    }
-
-    > details > summary {
-        cursor: pointer;
-        border-radius: 0.2em;
-        margin-left: -0.4em;
-        padding: 0.1em 0.4em;
-    }
-
-    img {
-        // box-shadow: 0 0 25px -10px rgba(0, 0, 0, 0.4);
-        border: 1px solid rgb(202, 202, 202);
-    }
+@page {
+    margin: 0.325in;
+    overflow: visible;
 }
-
-form {
-    > div {
-        margin: 16px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+@media print {
+    .noprint {
+        display: none;
     }
-    > div:focus-within > label {
-        background: hsl(39, 100%, 64%);
-        outline: 3px solid hsl(39, 100%, 64%);
+    body {
+        background: none;
+        max-width: none;
     }
-    input {
-        width: 20em;
-        max-width: 100%;
+    .site-footer .navmenu {
+        display: none;
     }
-    textarea {
-        min-height: 14em;
-        width: 35em;
-        max-height: 35em;
-        max-width: 100%;
-        resize: both;
-    }
-    input,
-    textarea {
-        padding: 6px 8px;
-        font-family: Roboto, sans-serif;
-        font-size: 1em;
-        border: 1px solid black;
-        border-radius: 0;
-    }
-    input:focus,
-    textarea:focus,
-    button:focus {
-        outline: 3px solid hsl(39, 100%, 64%);
-    }
-    button:focus {
-        outline-offset: -5px;
-    }
-
-    label {
-        display: block;
-        align-self: flex-start;
-        padding: 0 4px;
-    }
-
-    button {
-        border: 1px solid black;
-        color: black;
-        padding: 4px 16px;
-        font-family: Charter, Georgia, serif;
-        background: white;
-        font-size: 1em;
-        box-shadow: 2px 2px black;
-    }
-    button:active {
-        box-shadow: inset 2px 2px black;
-        position: relative;
-        top: 2px;
-        left: 2px;
-    }
-    button:hover {
-        background: hsl(39, 100%, 64%);
+    img, figure {
+        max-height: 100vh;
     }
 }

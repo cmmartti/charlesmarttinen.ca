@@ -2,7 +2,6 @@
 title = "Tales of a snow brush: Lighter is better"
 date = 2019-04-29
 lastmod = 2019-04-29
-image = "blank.png"
 aliases = ["/blog/2019-04-29-snowbrush-lighter-is-better.html"]
 tags = ["opinion"]
 +++
