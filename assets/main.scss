@@ -1,5 +1,5 @@
-@import 'sanitize';
-@import 'fonts';
+@import "sanitize";
+@import "fonts";
 
 $focus-color: hsl(39, 100%, 64%);
 
@@ -33,7 +33,7 @@ html {
 
 // Dark mode does not apply to printed pages
 @media screen {
-    :root[data-color-scheme='dark'] {
+    :root[data-color-scheme="dark"] {
         background: hsl(0, 0%, 5%);
         color: white;
         --subdued-color: hsl(0, 0%, 69%);
@@ -393,7 +393,7 @@ legend {
     border-top: 1px solid;
 }
 .excerpt:after {
-    content: '';
+    content: "";
     display: table;
     clear: both;
 }
@@ -459,7 +459,7 @@ legend {
     /* Vertical separator line */
     &__segment + &__segment::before {
         border-left: 1px solid;
-        content: '';
+        content: "";
         height: 1em;
         align-self: center;
     }
