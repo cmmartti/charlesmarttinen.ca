@@ -1,4 +1,50 @@
 <footer class="site-footer">
     {{ partial "navigation.html" . }}
+    <div class="center noprint">
+        <fieldset class="segmented-control">
+            <span><legend>Colour Scheme:</legend></span>
+            <div class="segmented-control__segment">
+                <input type="radio" name="color-scheme" id="color-scheme-light"
+                    value="light" />
+                <label for="color-scheme-light">light</label>
+            </div>
+            <div class="segmented-control__segment">
+                <input type="radio" name="color-scheme" id="color-scheme-dark"
+                    value="dark" />
+                <label for="color-scheme-dark">dark</label>
+            </div>
+            <div class="segmented-control__segment">
+                <input type="radio" name="color-scheme" id="color-scheme-auto"
+                    value="auto" />
+                <label for="color-scheme-auto"
+                    title="Follow system or browser preference">system</label>
+            </div>
+        </fieldset>
+    </div>
     <div class="center">©Charles Marttinen</div>
 </footer>
+
+<script>
+    const inputs = document.getElementsByName("color-scheme");
+
+    function updateState() {
+        const colorScheme = window.colorScheme.get();
+        for (const input of inputs) {
+            const checked = (colorScheme === input.value);
+            input.checked = checked;
+
+            // Add a hook for styling
+            input.parentElement.classList.toggle("checked", checked);
+        }
+    }
+
+    function handleChange(event) {
+        window.colorScheme.set(event.target.value);
+        updateState();
+    }
+
+    for (const input of inputs) {
+        input.addEventListener("change", handleChange);
+    }
+    updateState();
+</script>
