@@ -34,3 +34,9 @@ unsafe = true
 [imaging]
 # Default JPEG quality setting. Default is 75.
 quality = 80
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+expiryDate = ["expiryDate"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
