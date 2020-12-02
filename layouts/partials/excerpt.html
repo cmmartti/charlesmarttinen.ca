@@ -5,15 +5,14 @@
     {{- $img := .Resources.GetMatch .Params.image }}
     {{- if $img }}
     <a href="{{ .RelPermalink }}" aria-hidden tabindex="-1">
-        {{- if gt $img.Width 200 }}
-        {{- $img = $img.Resize "200x" }}
-        {{- $img = $img.Fill "200x200" }}
+        {{- if gt $img.Width 300 }}
+        {{- $img = $img.Resize "300x" }}
+        {{- $img = $img.Fill "300x300" }}
         {{- end }}
         <img src="{{ $img.RelPermalink | safeURL }}" alt="" class="excerpt__thumb" />
     </a>
     {{- end }}
     {{- end }}
     {{ .Summary }}
-    <p><a href="{{ .RelPermalink }}">{{ if .Truncated }}Read
-            more…{{ else }}Perma-link{{ end }}</a></p>
+    <p><a href="{{ .RelPermalink }}">{{ if .Truncated }}Read more…{{ else }}Perma-link{{ end }}</a></p>
 </section>
