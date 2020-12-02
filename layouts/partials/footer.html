@@ -1,7 +1,10 @@
 <footer class="site-footer">
     {{ partial "navigation.html" . }}
     <div class="center noprint">
-        ©Charles Marttinen • Colour scheme:
+        ©Charles Marttinen
+    </div>
+    <div class="center noprint">
+        Colour scheme:
         <div class="segmented-control">
             <div class="segmented-control__segment">
                 <input type="radio" name="color-scheme" id="color-scheme-light"
@@ -17,7 +20,7 @@
                 <input type="radio" name="color-scheme" id="color-scheme-auto"
                     value="auto" />
                 <label for="color-scheme-auto"
-                    title="Follow system or browser preference">system</label>
+                    title="Follow system or browser preference">match system</label>
             </div>
         </div>
     </div>
@@ -25,12 +28,12 @@
 </footer>
 
 <script>
-    const inputs = document.getElementsByName("color-scheme");
+    const colorScheme = new ColorSchemeSwitcher();
+    const inputElements = document.getElementsByName("color-scheme");
 
     function updateState() {
-        const colorScheme = window.colorScheme.get();
-        for (const input of inputs) {
-            const checked = (colorScheme === input.value);
+        for (const input of inputElements) {
+            const checked = (colorScheme.get() === input.value);
             input.checked = checked;
 
             // Add a hook for styling
@@ -39,12 +42,12 @@
     }
 
     function handleChange(event) {
-        window.colorScheme.set(event.target.value);
+        colorScheme.set(event.target.value);
         updateState();
     }
-
-    for (const input of inputs) {
-        input.addEventListener("change", handleChange);
+    for (const el of inputElements) {
+        el.addEventListener("change", handleChange);
     }
+
     updateState();
 </script>

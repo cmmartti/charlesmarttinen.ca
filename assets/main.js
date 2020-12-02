@@ -1,3 +1,5 @@
+"use strict";
+
 class ColorSchemeSwitcher {
     mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     default = this.mediaQuery.matches ? "dark" : "light";
@@ -31,6 +33,3 @@ class ColorSchemeSwitcher {
         return this.saved || "auto";
     }
 }
-
-// Globally available
-window.colorScheme = new ColorSchemeSwitcher();
