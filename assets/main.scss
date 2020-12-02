@@ -146,6 +146,7 @@ h1 {
 h1, h2, h3, h4 {
     line-height: 1.25; // tighten up multi-line headings
     break-after: avoid;
+    font-weight: bold;
 
     // Avoid page breaks directly after headers.
     // Workaround for lack of support for the break-after property.
@@ -157,15 +158,6 @@ h1, h2, h3, h4 {
         height: 50px;
         margin-bottom: -50px;
     }
-}
-
-h1,
-h2 {
-    font-weight: normal;
-}
-h3,
-h4 {
-    font-weight: bold;
 }
 
 // Basic spacing of elements in a text flow
