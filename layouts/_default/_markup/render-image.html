@@ -1,10 +1,10 @@
 {{- $img := .Page.Resources.GetMatch .Destination }}
 {{- $resized := $img }}
-{{- if gt $img.Width 770 }}
-{{- $resized = $resized.Resize "770x" }}
+{{- if gt $img.Width 1000 }}
+{{- $resized = $resized.Resize "1000x" }}
 {{- end }}
 <figure>
     <img src="{{ $resized.RelPermalink | safeURL }}" alt="{{ .Text }}" />
-    <figcaption>{{ .Title }} <a href="{{ $img.RelPermalink | safeURL }}" target="_blank">View
+    <figcaption>{{ .Title | markdownify }} <a href="{{ $img.RelPermalink | safeURL }}" target="_blank">View
             original</a> ({{ $img.Width }} x {{ $img.Height }})</figcaption>
 </figure>
