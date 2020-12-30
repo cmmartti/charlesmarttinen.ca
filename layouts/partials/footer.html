@@ -1,53 +1,28 @@
 <footer class="site-footer">
     {{ partial "navigation.html" . }}
-    <div class="center noprint">
-        ©Charles Marttinen
+    <div class="center">
+        ©Charles Marttinen ★
+        <label for="color-scheme">Colour scheme: </label>
+        <select id="color-scheme">
+            <option value="auto" title="Follows system or browser preference">Auto</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
     </div>
-    <div class="center noprint">
-        Colour scheme:
-        <div class="segmented-control">
-            <div class="segmented-control__segment">
-                <input type="radio" name="color-scheme" id="color-scheme-light"
-                    value="light" />
-                <label for="color-scheme-light">light</label>
-            </div>
-            <div class="segmented-control__segment">
-                <input type="radio" name="color-scheme" id="color-scheme-dark"
-                    value="dark" />
-                <label for="color-scheme-dark">dark</label>
-            </div>
-            <div class="segmented-control__segment">
-                <input type="radio" name="color-scheme" id="color-scheme-auto"
-                    value="auto" />
-                <label for="color-scheme-auto"
-                    title="Follow system or browser preference">match system</label>
-            </div>
-        </div>
-    </div>
-    <div class="center"></div>
 </footer>
 
 <script>
     const colorScheme = new ColorSchemeSwitcher();
-    const inputElements = document.getElementsByName("color-scheme");
-
+    const elem = document.getElementById("color-scheme");
     function updateState() {
-        for (const input of inputElements) {
-            const checked = (colorScheme.get() === input.value);
-            input.checked = checked;
-
-            // Add a hook for styling
-            input.parentElement.classList.toggle("checked", checked);
+        for (const option of elem.children) {
+            option.selected = (colorScheme.get() === option.value);
         }
     }
-
     function handleChange(event) {
         colorScheme.set(event.target.value);
-        updateState();
+        console.log(event)
     }
-    for (const el of inputElements) {
-        el.addEventListener("change", handleChange);
-    }
-
+    elem.addEventListener("change", handleChange);
     updateState();
 </script>

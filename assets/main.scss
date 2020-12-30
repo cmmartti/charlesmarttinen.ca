@@ -26,10 +26,9 @@ html {
     --subdued-color: hsl(0, 0%, 31%);
     --link-color: hsl(210, 74%, 21%);
     --visited-link-color: hsl(261, 49%, 28%);
-    --strong-color: hsl(0, 95%, 34%);
 
-    transition: background 0.375s linear;
-    transition: color 0.375s linear;
+    // transition: background 0.375s linear;
+    // transition: color 0.375s linear;
 }
 
 // Dark mode does not apply to printed pages
@@ -40,7 +39,6 @@ html {
         --subdued-color: hsl(0, 0%, 69%);
         --link-color: hsl(210, 74%, 79%);
         --visited-link-color: hsl(261, 49%, 82%);
-        --strong-color: hsl(0, 95%, 66%);
     }
 }
 
@@ -131,11 +129,6 @@ figure {
     figure {
         max-height: 100vh;
     }
-}
-
-strong {
-    color: var(--strong-color);
-    font-size: 1.05em;
 }
 
 h1 {
@@ -303,11 +296,7 @@ legend {
 }
 .site-footer {
     margin: 24px 8px;
-    @media print {
-        .navmenu {
-            display: none;
-        }
-    }
+    padding-bottom: 24px;
 }
 
 .nameplate {
@@ -425,54 +414,6 @@ legend {
     height: 1em;
     position: relative;
     bottom: 0.12em;
-}
-
-.segmented-control {
-    display: inline-flex;
-    // border: 1px solid;
-    border-radius: 2px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    &__segment {
-        display: flex;
-        align-items: center;
-
-        &:hover {
-            // background: $focus-color;
-            border-radius: 2px;
-            // color: black;
-        }
-
-        /* Vertical separator line */
-        & + &::before {
-            content: "";
-            border-left: 1px solid;
-            height: 1em;
-            margin: 0 0.15em;
-        }
-
-        /* Hide the input off-screen.
-           Do not use visibility: hidden because that removes focusability
-        */
-        input {
-            position: absolute;
-            z-index: -1;
-            left: -10000000px;
-        }
-        label {
-            padding: 0.1em 0.25em;
-            user-select: none;
-            width: 100%;
-            text-align: center;
-        }
-        &.checked label {
-            text-decoration: underline;
-        }
-    }
-    &:focus-within {
-        outline: 2px solid $focus-color;
-    }
 }
 
 /*******************
