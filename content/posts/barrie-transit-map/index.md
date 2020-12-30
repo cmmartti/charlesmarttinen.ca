@@ -1,9 +1,9 @@
 +++
-title = "Re-drawing the Barrie Transit Map"
+title = "Re-drawing the Barrie Transit map"
 date = 2019-04-29
 lastmod = 2019-09-28
-image = "bus-map-barrie_thumbnail.png"
-aliases = ["/blog/barrie-transit-map.html", "/map/barrie"]
+image = "thumbnail.png"
+aliases = ["/blog/barrie-transit-map.html"]
 featured = true
 +++
 
@@ -14,7 +14,7 @@ I've long admired some of the maps posted on Cameron Booth's [Transit Maps](http
 <!--more-->
 
 ## Re-drawn
-
+ 
 Here's the new map, front and back:
 
 ![Re-drawn Barrie Transit map](bus-map-barrie.png 'The front of my new map.')
@@ -125,9 +125,15 @@ It was not originally my intention to document the process, but last year I came
 
 ### Download
 
+You probably want the [2020 version](barrie-transit-map-update.html). If not, the old version is still available here.
+
 Except where permission has been otherwise granted, this map:
 
 -   May be used for personal, non-commercial purposes only.
 -   Must not be distributed from any other location except this page.
 
-Download high resolution PNG images: [Front](bus-map-barrie.png), [Back](bus-map-barrie.png).
+Download high resolution PNG images: [Front](/images/bus-map-barrie.png), [Back](/images/bus-map-barrie-back.png).
+
+## [2020 version](barrie-transit-map-update.html)
+
+I made an update to the map in late 2020, which I wrote about [here](barrie-transit-map-update.html). Go check it out!

@@ -1,6 +1,6 @@
 +++
 title = "Photography"
-draft = false
+draft = true
 url = "/photos/"
 
 [menu.main]

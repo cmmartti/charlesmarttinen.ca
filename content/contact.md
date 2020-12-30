@@ -1,7 +1,6 @@
 +++
 title = "Contact"
 draft = false
-url = "/contact.html"
 type = "contact"
 
 [menu.main]

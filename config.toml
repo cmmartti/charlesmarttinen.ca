@@ -3,16 +3,17 @@ copyright = 'Charles Marttinen'
 languageCode = "en-ca"
 title = "Charles Marttinen"
 
+enableGitInfo = true
 uglyurls = true
-
-[params]
-mainSections = ["posts"]
 
 [author]
 email = "mail@charlesmarttinen.ca"
 name = "Charles Marttinen"
 
-# Be explicit about the output formats. We only want an RSS feed for the home page.
+[params]
+mainSections = ["posts"]
+
+# Be explicit about the output formats. I only want an RSS feed for the home page.
 [outputs]
 home = ["HTML", "RSS"]
 page = ["HTML"]
