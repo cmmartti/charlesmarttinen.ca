@@ -3,8 +3,10 @@
 {{- if gt $img.Width 1000 }}
 {{- $resized = $resized.Resize "1000x" }}
 {{- end }}
+{{- $filepath :=  (path.Join (path.Dir .Page.File.Path) $img) }}
+{{- $filesize := div (os.Stat $filepath).Size 1024 }}
 <figure>
     <img src="{{ $resized.RelPermalink | safeURL }}" alt="{{ .Text }}" />
     <figcaption>{{ .Title | markdownify }} <a href="{{ $img.RelPermalink | safeURL }}" target="_blank">View
-            original</a> ({{ $img.Width }} x {{ $img.Height }})</figcaption>
+            full size</a> ({{ $filesize }} kb, {{ $img.Width }} x {{ $img.Height }})</figcaption>
 </figure>
