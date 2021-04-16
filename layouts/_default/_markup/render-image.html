@@ -11,11 +11,9 @@
                 {{ $medium.RelPermalink | safeURL }} 750w,
                 {{ $large.RelPermalink | safeURL }} 1000w"
     />
-    {{- with .Title }}
     <figcaption>
-        {{ . | safeHTML | markdownify }}
+        {{- with .Title }}{{ . | safeHTML | markdownify }}{{ end }}
         <a href="{{ $image.RelPermalink | safeURL }}" target="_blank">View full size</a>
         ({{ $filesize }} kb, {{ $image.Width }} x {{ $image.Height }})
     </figcaption>
-    {{- end }}
 </figure>
