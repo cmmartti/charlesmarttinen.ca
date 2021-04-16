@@ -7,19 +7,24 @@ aliases = ["/blog/barrie-transit-map.html"]
 featured = true
 +++
 
-Every good city has a public transit system, and every good transit system has a map. But not all maps are drawn equal, and so over the past year or so I've spent some of my spare time re-drawing my city's mediocre bus map.
+Every good city has a public transit system, and every good transit system has a map. But not all maps are drawn equal, and so over the past year or so I've spent some of my spare time re-drawing my city's mediocre bus map, using these rules I came up with:
 
-I've long admired some of the maps posted on Cameron Booth's [Transit Maps](http://www.transitmap.net/) blog, and thought that I could make my own map too. How hard could it be? Quite hard, as it turns out.
+1. The routes are the roads
+2. Routes must be easily traceable
+3. Use the correct scale
+4. Anticipate confusion
 
 <!--more-->
 
+I've long admired some of the maps posted on Cameron Booth's [Transit Maps](http://www.transitmap.net/) blog, and thought that I could make my own map too. How hard could it be? Quite hard, as it turns out.
+
 ## Re-drawn
- 
+
 Here's the new map, front and back:
 
-![Re-drawn Barrie Transit map](bus-map-barrie.png 'The front of my new map.')
+![Re-drawn Barrie Transit map](bus-map-barrie.png "The front of my new map.")
 
-![The back of the re-drawn Barrie Transit map](bus-map-barrie-back.png 'The back of my new map.')
+![The back of the re-drawn Barrie Transit map](bus-map-barrie-back.png "The back of my new map.")
 
 ## What's wrong with the old map?
 
@@ -27,13 +32,13 @@ _Note: As I was writing this, Barrie Transit made [their own update to the map](
 
 It's ugly, inconsistent, and hard to read. Just look at it:
 
-![Barrie Transit map](barrie-transit-map.png 'The old map.')
+![Barrie Transit map](barrie-transit-map.png "The old map.")
 
 It doesn't seem like much thought has been put into this map at all. Colours are atrocious (routes 5 and 6 almost disappear into the white background), the route lines are too thin, imprecisely placed and unnecessarily overlap each other, road labels are randomly placed and sized, and there are too many arrows and unnecessary map elements competing for attention (why do fire stations need to be on the map?). It looks like someone misused GIS software to make it, and I suspect that that's exactly what happened.
 
 The map is _usable_ though, I'll give it that. Only roads that buses travel on have been labelled, the streets themselves don't compete for focus with the route lines, and it's small enough that it can be printed on tabloid (11" x 17") paper. It's not great, but it's better than [drawing multi-coloured lines on a wall-size folded street map](https://www.grt.ca/en/schedules-maps/system-map.aspx), which is what [Grand River Transit](https://www.grt.ca/) in Kitchener-Waterloo did, resulting in something completely unusable:
 
-![Grand River Transit map](grand-river-transit-map.png 'What a mess. And this is only part of it.')
+![Grand River Transit map](grand-river-transit-map.png "What a mess. And this is only part of it.")
 
 ## Making it better
 
@@ -45,7 +50,7 @@ In other words, if transit vehicles do not travel along a road, that road is no 
 
 Below is a portion of the [Toronto Transit Commission's system map](https://beta.ttc.ca/en/routes-and-schedules/) that demonstrates this concept. It is clear to see that if every physical road was present, the map would devolve into a cluttered mess.
 
-![](ttc-1.png 'This portion of the map covers an area about 4 km wide. To put that into perspective, there are nineteen east-west cross streets between Wilson Ave. and Lawrence Ave.')
+![](ttc-1.png "This portion of the map covers an area about 4 km wide. To put that into perspective, there are nineteen east-west cross streets between Wilson Ave. and Lawrence Ave.")
 
 But that doesn't mean a transit map _can't_ show roads! Roads provide an important function, and that is **to provide context**. A simplified map might look pretty, but if you can't place yourself on it, [it's a bit useless](https://www.transitmap.net/dunedin-bus-2017/). However, too much context isn't much better, as the GRT map I referenced earlier demonstrates. There should be enough detail to provide context, but not so much that it results in information overload.
 
@@ -61,7 +66,7 @@ It's not enough that the route lines are the main focus; they need to be clearly
 
 Ideally, each route line is a different colour, but many bus systems have too many routes for this, which is the case in Toronto. If you scroll back up to the Toronto map, you can see that they've resorted to using labels to identify individual routes, and line thickness and colour to communicate service frequency and type (see the legend below). This works well for Toronto because of its grid-based road network, where routes mostly trace the straight roads and are easy to follow.
 
-![](ttc-legend.png 'Legend for the Toronto Transit Commission system map.')
+![](ttc-legend.png "Legend for the Toronto Transit Commission system map.")
 
 Such a strategy would not work for Barrie, however. Many of its bus routes cover similarly large areas and overlap each other along portions of their routes, which would make tracing the lines difficult. (These characteristics are partly because of the city's somewhat convoluted road network around Kempenfelt Bay, but also because one of the system's goals is to transport riders to their destinations with a minimum of transfers.)
 
@@ -83,7 +88,7 @@ The area within the box is small enough that we can rely on users to use simple 
 
 This approach was inspired by Transport for London's [bus spider maps](https://tfl.gov.uk/maps_/bus-spider-maps). Although not quite the same thing, TfL's spider maps show a regional hub as a central map without route lines with spider lines for each route spreading out from each side:
 
-![](spider-map.png 'A portion of the Wembley Stadium bus spider map in London.')
+![](spider-map.png "A portion of the Wembley Stadium bus spider map in London.")
 
 As you can see, drawing route lines on a map isn't as simple as it looks. The process requires a lot of thought and can't really be automated. But it's all for naught if the map isn't legible at the scale it will be used.
 
@@ -107,7 +112,7 @@ To fix this, rather than going straight to using a plethora of miniscule labelle
 
 Critically, this means that route destinations/directions don't need to be on the map at all, and can instead be shifted to the reverse side of the map and rendered as simple single-purpose graphics:
 
-![](bus-map-barrie_route-icons.png 'Twelve of these graphics efficiently tell passengers which bus goes where.')
+![](bus-map-barrie_route-icons.png "Twelve of these graphics efficiently tell passengers which bus goes where.")
 
 These graphics also serve as succinct icons for each route that would work well on the front of a timetable booklet.
 
