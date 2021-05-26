@@ -31,6 +31,8 @@ baseName = "rss"
 
 [markup.goldmark.renderer]
 unsafe = true
+[markup.goldmark.extensions]
+typographer = false
 
 [imaging]
 # Default JPEG quality setting. Default is 75.
