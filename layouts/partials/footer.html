@@ -1,28 +1,4 @@
 <footer class="site-footer">
-    {{ partial "navigation.html" . }}
+{{ partial "navigation.html" . }}
     <div class="center">©Charles Marttinen</div>
-    <div class="center">
-        <label for="color-scheme">Colour scheme: </label>
-        <select id="color-scheme">
-            <option value="auto" title="Follows system or browser preference">Auto</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-        </select>
-    </div>
 </footer>
-
-<script>
-    const colorScheme = new ColorSchemeSwitcher();
-    const elem = document.getElementById("color-scheme");
-    function updateState() {
-        for (const option of elem.children) {
-            option.selected = (colorScheme.get() === option.value);
-        }
-    }
-    function handleChange(event) {
-        colorScheme.set(event.target.value);
-        console.log(event)
-    }
-    elem.addEventListener("change", handleChange);
-    updateState();
-</script>

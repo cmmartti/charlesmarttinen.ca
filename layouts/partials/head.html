@@ -1,17 +1,15 @@
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{{ if ne .Title .Site.Title }}{{ .Title }} - {{ end }}{{ .Site.Title -}}
-    </title>
+    <title>{{ if ne .Title .Site.Title }}{{ .Title }} - {{ end }}{{ .Site.Title -}}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
-    {{- $style := resources.Get "main.scss" | resources.ToCSS | resources.Fingerprint "md5" }}
+
+    {{- $style := resources.Get "main.scss" | resources.ToCSS }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" type="text/css" />
-    {{- $js := resources.Get "main.js" | resources.Fingerprint "md5" }}
-    <script src="{{ $js.RelPermalink }}"></script>
+
     {{- with .OutputFormats.Get "rss" }}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}"
         title="{{ $.Site.Title | safeHTML }}" />
-    {{ end -}}
+    {{- end }}
 </head>

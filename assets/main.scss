@@ -32,8 +32,8 @@ html {
 }
 
 // Dark mode does not apply to printed pages
-@media screen {
-    :root[data-color-scheme="dark"] {
+@media screen and (prefers-color-scheme: dark) {
+    :root {
         background: hsl(0, 0%, 5%);
         color: white;
         --subdued-color: hsl(0, 0%, 69%);
