@@ -3,7 +3,6 @@ title = "Re-drawing the Barrie Transit map"
 date = 2019-04-29
 lastmod = 2019-09-28
 image = "thumbnail.png"
-aliases = ["/blog/barrie-transit-map.html"]
 featured = true
 +++
 
