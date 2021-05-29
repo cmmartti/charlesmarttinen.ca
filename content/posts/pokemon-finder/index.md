@@ -2,7 +2,6 @@
 title = "Pokémon Finder"
 date = 2019-03-25
 image = "thumbnail.png"
-aliases = ["/map/barrie"]
 featured = true
 +++
 
