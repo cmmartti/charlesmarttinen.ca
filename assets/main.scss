@@ -372,9 +372,9 @@ legend {
 .picture {
     float: right;
     margin: 0 0 1em 1em;
-    max-width: 12em;
+    max-width: 8em;
     @media (max-width: 32em) {
-        max-width: 8em;
+        max-width: 6em;
     }
 }
 

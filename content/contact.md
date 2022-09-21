@@ -13,5 +13,4 @@ I prefer to be reached by email. I’m also on [Github](https://github.com/cmmar
 
 **Charles Marttinen**  
 Barrie, Ontario, Canada  
-mail@charlesmarttinen.ca  
-+1 (705) 770-4095
+mail@charlesmarttinen.ca
