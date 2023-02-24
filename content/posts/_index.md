@@ -1,7 +1,7 @@
 +++
 aliases = ["/blog/"]
 draft = false
-title = "Articles"
+title = "Posts"
 url = "/posts/"
 
 [menu.main]
