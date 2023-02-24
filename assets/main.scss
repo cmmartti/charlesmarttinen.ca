@@ -302,8 +302,8 @@ legend {
 .nameplate {
     // Use viewport units and max/min to smoothly scale the nameplate.
     // Use static sizes and media queries as a fallback.
-    $nameplate-font-size: calc(max(25px, min(calc(13vw + 5px), 60px)));
-    font-size: 60px;
+    $nameplate-font-size: calc(max(25px, min(calc(13vw + 5px), 50px)));
+    font-size: 50px;
     font-size: $nameplate-font-size;
     @media (max-width: 400px) {
         font-size: 50px;
@@ -318,13 +318,14 @@ legend {
         font-size: $nameplate-font-size;
     }
 
-    font-weight: bold;
+    //  font-weight: bold;
+    // text-transform: uppercase;
     text-align: center;
-    line-height: 0.95;
+    line-height: 1.2;
     overflow: hidden;
 
-    border-bottom: 3px solid;
-    padding: 0.25em 0 8px 0;
+    border-bottom: 1px solid;
+    padding-block: 0.75em 0.5em;
 
     // The nameplate is a link, but we don't need to tell anyone that.
     a {
