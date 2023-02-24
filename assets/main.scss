@@ -318,8 +318,6 @@ legend {
         font-size: $nameplate-font-size;
     }
 
-    //  font-weight: bold;
-    // text-transform: uppercase;
     text-align: center;
     line-height: 1.2;
     overflow: hidden;
@@ -352,7 +350,7 @@ legend {
     // }
 
     > * {
-        margin: 0 clamp(0px, calc(5.5vw - 28px), 12px);
+        margin: 0 clamp(0, calc(5.5vw - 28px), 12px);
         padding: 4px 8px;
     }
     a {
