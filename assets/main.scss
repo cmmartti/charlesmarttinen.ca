@@ -32,15 +32,15 @@ html {
 }
 
 // Dark mode does not apply to printed pages
-@media screen and (prefers-color-scheme: dark) {
-    :root {
-        background: hsl(0, 0%, 5%);
-        color: white;
-        --subdued-color: hsl(0, 0%, 69%);
-        --link-color: hsl(210, 74%, 79%);
-        --visited-link-color: hsl(261, 49%, 82%);
-    }
-}
+// @media screen and (prefers-color-scheme: dark) {
+//     :root {
+//         background: hsl(0, 0%, 5%);
+//         color: white;
+//         --subdued-color: hsl(0, 0%, 69%);
+//         --link-color: hsl(210, 74%, 79%);
+//         --visited-link-color: hsl(261, 49%, 82%);
+//     }
+// }
 
 // Sticky Footer
 // Make sure the footer never lifts past the bottom of the page.
