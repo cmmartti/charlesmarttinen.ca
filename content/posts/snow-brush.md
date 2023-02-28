@@ -8,7 +8,7 @@ tags = ["opinion"]
 
 The $4 lightweight wooden snow brush with the skimpy ice scraper is better than the fancy $30 aluminum and plastic one with the extendo-matic rotating brush and ultra-duty scraper. Why is that?
 
-Even though the fancy one has more features, it fails at efficiently completing its core purpose: brushing snow.<!--more--> While the wooden weighs about half a pound, the fancy one is significantly longer and weighs several pounds. That’s the difference between being able to reach across a car windshield and one-handedly fling away the snow, and having to use two hands and push the snow with the inevitably floppy bristles.
+Even though the fancy one has more features, it fails at efficiently completing its core purpose: brushing snow.<!--more--> While the wooden one weighs about half a pound, the fancy one is significantly longer and weighs several pounds. That’s the difference between being able to reach across a car windshield and one-handedly fling away the snow, and having to use two hands and push the snow with the inevitably floppy bristles.
 
 In other words, the lightweight brush completes the job faster and with less effort. As a bonus, due to its small size, it can be neatly tucked between the passenger seat and the centre console when not in use, while the fancy one needs to go in the trunk.
 
