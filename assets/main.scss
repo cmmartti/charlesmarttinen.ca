@@ -296,7 +296,8 @@ legend {
 }
 .site-footer {
     margin: 24px 8px;
-    padding-bottom: 24px;
+    padding-block: 0 24px;
+    padding-inline: 8px;
 }
 
 .nameplate {
@@ -426,6 +427,9 @@ legend {
     @media print {
         display: none;
     }
+}
+.inline-flow-root {
+    display: inline-block;
 }
 
 /*******************
