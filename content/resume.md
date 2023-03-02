@@ -41,7 +41,7 @@ Full-stack developer experienced in designing and building web applications and 
 
 Built with: React, TypeScript, React Router (with form-based loaders and actions), custom HTML elements, IndexedDB, CSS/SCSS, XML (XML Schema, XPath).
 
-### Pokémon Finder: [pokemon-finder.netlify.app](pokemon-finder.netlify.app)
+### Pokémon Finder: [pokemon-finder.netlify.app](https://pokemon-finder.netlify.app)
 
 …is a proof of concept for a dynamic browser-based reporting application for analysing data from the popular video game Pokémon. (March 2019)
 
