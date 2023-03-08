@@ -58,7 +58,7 @@ Barrie, Ontario, May 2018
 
 ### Carpenter at Marttinen Finish Carpentry
 
-Barrie, Ontario, July 2017–August 2023
+Barrie, Ontario, July 2017–August 2022
 
 Custom finish carpentry with a focus on excellent quality and attention to detail.
 
